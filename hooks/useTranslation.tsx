@@ -1,7 +1,7 @@
-import * as languages from "../utils/lang";
-import { ITranslationProvider, Language } from "../models";
-import { useRouter } from "next/router";
-import { useContext, ReactNode, createContext } from "react";
+import * as languages from '../utils/lang';
+import { ITranslationProvider, Language } from '../models';
+import { useRouter } from 'next/router';
+import { useContext, ReactNode, createContext } from 'react';
 
 export const TranslationContext = createContext({});
 

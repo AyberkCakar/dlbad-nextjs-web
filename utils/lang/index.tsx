@@ -1,2 +1,2 @@
-export * from "./_en";
-export * from "./_tr";
+export * from './_en';
+export * from './_tr';

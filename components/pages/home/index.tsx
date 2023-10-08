@@ -1,12 +1,10 @@
-import { HomepageBase } from "./_style";
-import Settings from "../../settings";
+import { HomepageBase } from './_style';
+import Settings from '../../settings';
 
-const Home = () => {
+export default function Home() {
   return (
     <HomepageBase>
       <Settings />
     </HomepageBase>
   );
-};
-
-export default Home;
+}

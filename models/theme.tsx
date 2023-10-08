@@ -1,8 +1,8 @@
-import { IDynamic } from "./dynamic";
+import { IDynamic } from './dynamic';
 
 export enum Theme {
-  LIGHT = "LIGHT",
-  DARK = "DARK",
+  LIGHT = 'LIGHT',
+  DARK = 'DARK'
 }
 
 export interface ITheme {

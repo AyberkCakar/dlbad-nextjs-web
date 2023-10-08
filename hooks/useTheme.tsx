@@ -1,21 +1,21 @@
-import { ITheme, Theme, IThemeProvider } from "../models";
-import { darkTheme, lightTheme, font, typeScale } from "../styles";
-import { ThemeProvider as StyledComponentThemeProvider } from "styled-components";
-import { SettingsService } from "../utils/services";
-import Layout from "../components/layout";
+import { ITheme, Theme, IThemeProvider } from '../models';
+import { darkTheme, lightTheme, font, typeScale } from '../styles';
+import { ThemeProvider as StyledComponentThemeProvider } from 'styled-components';
+import { SettingsService } from '../utils/services';
+import Layout from '../components/layout';
 import {
   useContext,
   useState,
   ReactNode,
   createContext,
-  useEffect,
-} from "react";
+  useEffect
+} from 'react';
 
 const createTheme = (themeType: Theme): ITheme => {
   return {
     colors: Theme.LIGHT == themeType ? lightTheme : darkTheme,
     font,
-    typeScale,
+    typeScale
   };
 };
 
@@ -48,7 +48,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
         theme,
         setTheme,
         isTheme,
-        toggleTheme,
+        toggleTheme
       }}
     >
       <StyledComponentThemeProvider theme={theme}>

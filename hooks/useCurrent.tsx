@@ -1,6 +1,6 @@
-import { useContext, ReactNode, createContext } from "react";
-import { ThemeProvider } from "./useTheme";
-import { TranslationProvider } from "./useTranslation";
+import { useContext, ReactNode, createContext } from 'react';
+import { ThemeProvider } from './useTheme';
+import { TranslationProvider } from './useTranslation';
 
 export const CurrentContext = createContext({});
 

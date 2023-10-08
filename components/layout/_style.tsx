@@ -1,12 +1,13 @@
-import styled from "styled-components";
-import { createGlobalStyle } from "styled-components";
-import { IGlobalStyle } from "./_type";
+import styled from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
+import { IGlobalStyle } from './_type';
 
 export const GlobalStyle = createGlobalStyle<IGlobalStyle>`
   body {
     background-color: ${(props) => props.backgroundColor};
     margin: 0;
     padding: 0;
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
   }
 `;
 

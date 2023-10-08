@@ -1,10 +1,10 @@
-import { useTranslation } from "../../hooks/useTranslation";
-import { SettingsBase, Flag, ThemeIcon, Hr } from "./_style";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
-import { useTheme } from "../../hooks/useTheme";
-import { Theme } from "../../models";
+import { useTranslation } from '../../hooks/useTranslation';
+import { SettingsBase, Flag, ThemeIcon, Hr } from './_style';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
+import { useTheme } from '../../hooks/useTheme';
+import { Theme } from '../../models';
 
 const Settings = () => {
   const { locale } = useTranslation();
@@ -13,8 +13,8 @@ const Settings = () => {
 
   return (
     <SettingsBase>
-      <Link href={pathname} locale={locale === "tr" ? "en" : "tr"}>
-        <Flag src={`/assets/flags/${locale === "tr" ? "en" : "tr"}.svg`} />
+      <Link href={pathname} locale={locale === 'tr' ? 'en' : 'tr'}>
+        <Flag src={`/assets/flags/${locale === 'tr' ? 'en' : 'tr'}.svg`} />
       </Link>
       <Hr />
       <ThemeIcon

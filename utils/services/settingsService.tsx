@@ -1,5 +1,5 @@
-import { Theme } from "../../models";
-const _themeTag = "@theme";
+import { Theme } from '../../models';
+const _themeTag = '@theme';
 
 export class SettingsService {
   static async getThemeAsync(): Promise<Theme> {

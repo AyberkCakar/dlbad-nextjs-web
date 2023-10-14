@@ -2,7 +2,7 @@ import { IDynamic } from '../../models';
 
 export const tr: IDynamic = {
   footer: {
-    description: '&copy; 2023 DLBAD Project'
+    description: '2023 DLBAD Project'
   },
   header: {
     title: 'DLBAD Project',

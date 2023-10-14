@@ -9,7 +9,18 @@ export const TranslationProvider = ({ children }: { children: ReactNode }) => {
   const { locale } = useRouter();
 
   const translate = (scope: string) => {
-    return languages[locale as Language]?.[scope];
+    const keys: string[] = scope.split('.');
+    let translation: any = languages[locale as Language];
+
+    for (const key of keys) {
+      if (translation && translation[key]) {
+        translation = translation[key];
+      } else {
+        return scope;
+      }
+    }
+
+    return translation;
   };
 
   return (

@@ -1,7 +1,7 @@
 import { Box, Button, Typography } from '@mui/material';
 import styled from 'styled-components';
 
-export const StyledBox = styled(Box)`
+export const ModalBox = styled(Box)`
   position: absolute;
   top: 50%;
   left: 50%;
@@ -10,29 +10,29 @@ export const StyledBox = styled(Box)`
   background-color: white;
 `;
 
-export const StyledHeader = styled.div`
+export const ModalHeader = styled.div`
   background-color: blue;
   padding: 20px;
   padding-left: 30px;
 `;
 
-export const StyledHeaderTitle = styled(Typography)`
+export const ModalHeaderTitle = styled(Typography)`
   color: white;
 `;
 
-export const StyledBody = styled.div`
+export const ModalBody = styled.div`
   padding-left: 40px;
   padding-right: 40px;
   padding-top: 20px;
 `;
 
-export const StyledAction = styled.div`
+export const ModalActionContainer = styled.div`
   margin-bottom: 20px;
   margin-top: 20px;
   float: right;
 `;
 
-export const StyledCancelButton = styled(Button)`
+export const CancelButton = styled(Button)`
   background-color: gray;
   margin-left: 10px;
   margin-right: 40px;

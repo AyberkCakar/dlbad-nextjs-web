@@ -5,8 +5,7 @@ export const ModalInput = styled(TextField)`
   margin-bottom: 20px;
 `;
 
-export const ModalInput2 = styled(TextField)`
-  margin-bottom: 20px;
+export const GroupModalInput = styled(ModalInput)`
   margin-right: 10px;
 `;
 

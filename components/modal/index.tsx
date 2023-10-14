@@ -2,12 +2,12 @@ import React from 'react';
 import { Button } from '@mui/material';
 import Modal from '@mui/material/Modal';
 import {
-  StyledAction,
-  StyledBody,
-  StyledBox,
-  StyledCancelButton,
-  StyledHeader,
-  StyledHeaderTitle
+  ModalActionContainer,
+  ModalBody,
+  ModalBox,
+  CancelButton,
+  ModalHeader,
+  ModalHeaderTitle
 } from './_styles';
 import { IFormModal } from './_model';
 import { useTranslation } from '../../hooks/useTranslation';
@@ -37,22 +37,22 @@ export const FormModal = ({
         aria-labelledby="modal-title"
         aria-describedby="modal-body"
       >
-        <StyledBox>
-          <StyledHeader>
-            <StyledHeaderTitle variant="h4" id="modal-title">
+        <ModalBox>
+          <ModalHeader>
+            <ModalHeaderTitle variant="h4" id="modal-title">
               {modalTitle}
-            </StyledHeaderTitle>
-          </StyledHeader>
-          <StyledBody id="modal-body">{children}</StyledBody>
-          <StyledAction>
+            </ModalHeaderTitle>
+          </ModalHeader>
+          <ModalBody id="modal-body">{children}</ModalBody>
+          <ModalActionContainer>
             <Button variant="contained" color="primary" onClick={onSave}>
               {t('general.save')}
             </Button>
-            <StyledCancelButton variant="contained" onClick={handleClose}>
+            <CancelButton variant="contained" onClick={handleClose}>
               {t('general.cancel')}
-            </StyledCancelButton>
-          </StyledAction>
-        </StyledBox>
+            </CancelButton>
+          </ModalActionContainer>
+        </ModalBox>
       </Modal>
     </div>
   );

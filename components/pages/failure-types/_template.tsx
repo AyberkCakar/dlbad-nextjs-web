@@ -5,14 +5,12 @@ import * as React from 'react';
 import { GridSortItem } from '@mui/x-data-grid/models/gridSortModel';
 import { DELETE_FAILURE_TYPE, GET_FAILURE_TYPES } from './_graphql';
 import { Datatable } from '../../datatable';
+import { Alert, Snackbar } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/DeleteOutlined';
-import AddFailureTypeModal from './add-modal';
-import DeleteModal from '../../delete-modal';
+import AddFailureTypeModal from './add-modal/_template';
+import DeleteModal from '../../delete-modal/_template';
 import { useMutation } from '@apollo/client';
-import { IFailureType, IFailureVarieble, IResultData } from './_model';
-import { useTranslation } from '../../../hooks/useTranslation';
-import { AlertMessage } from '../../alert';
 
 function getLikeWhere(searchText: string): Record<string, any> {
   return {
@@ -21,8 +19,7 @@ function getLikeWhere(searchText: string): Record<string, any> {
 }
 
 export default function FailureTypesPage() {
-  const { t } = useTranslation();
-  const [rows, setData] = React.useState<IFailureType[]>([]);
+  const [rows, setData] = React.useState<any>([]);
   const [totalCount, setTotalCount] = React.useState<number>(0);
 
   const [pagination, setPagination] = React.useState<GridPaginationModel>({
@@ -30,60 +27,56 @@ export default function FailureTypesPage() {
     page: 0
   });
   const [searchText, setSearchText] = React.useState<string>('');
-  const [sort, setSort] = React.useState<GridSortItem | null>({
+  const [sort, setSort] = React.useState<GridSortItem>({
     field: 'id',
     sort: 'asc'
   });
 
-  const [addEditModalOpenState, setAddEditModalOpenState] =
-    React.useState<boolean>(false);
+  const [openState, setOpenState] = React.useState(false);
   const [openDeleteDialogState, setOpenDeleteDialogState] =
-    React.useState<boolean>(false);
-  const [alertOpen, setAlertOpen] = React.useState<boolean>(false);
-  const [alertSuccess, setAlertSuccess] = React.useState<boolean>(false);
-  const [failureType, setFailureType] = React.useState<IFailureType | null>(
-    null
-  );
+    React.useState(false);
+  const [alertOpen, setAlertOpen] = React.useState(false);
+  const [alertSuccess, setAlertSuccess] = React.useState(false);
+  const [failureType, setFailureType] = React.useState<any>(null);
   const [selectedRowId, setSelectedRowId] = React.useState<number | null>(null);
-  const [deleteFailureType] = useMutation(DELETE_FAILURE_TYPE);
 
   const columns: GridColDef[] = [
     {
       field: 'id',
-      headerName: t('failureTypes.id')
+      headerName: 'ID'
     },
     {
       field: 'failureName',
-      headerName: t('failureTypes.failureName'),
+      headerName: 'Failure Name',
       width: 200
     },
     {
       field: 'period',
-      headerName: t('failureTypes.period'),
+      headerName: 'Period',
       type: 'number',
       width: 100
     },
     {
       field: 'soundAnomalyMultiplier',
-      headerName: t('failureTypes.soundAnomalyMultiplier'),
+      headerName: 'Sound Anomaly multiplier',
       type: 'number',
       width: 200
     },
     {
       field: 'temperatureAnomalyMultiplier',
-      headerName: t('failureTypes.temperatureAnomalyMultiplier'),
+      headerName: 'Temperature Anomaly multiplier',
       type: 'number',
       width: 200
     },
     {
       field: 'vibrationAnomalyMultiplier',
-      headerName: t('failureTypes.vibrationAnomalyMultiplier'),
+      headerName: 'Vibration Anomaly multiplier',
       type: 'number',
       width: 200
     },
     {
       field: 'timeInterval',
-      headerName: t('failureTypes.timeInterval'),
+      headerName: 'Time Interval',
       type: 'number',
       width: 200
     },
@@ -100,14 +93,14 @@ export default function FailureTypesPage() {
             icon={<EditIcon />}
             label="Edit"
             className="textPrimary"
-            onClick={() => onEditClick(id)}
+            onClick={handleEditClick(id)}
             color="inherit"
           />,
           <GridActionsCellItem
             key={'delete'}
             icon={<DeleteIcon />}
             label="Delete"
-            onClick={() => onDeleteClick(id)}
+            onClick={() => handleDeleteClick(id)}
             color="inherit"
           />
         ];
@@ -115,32 +108,33 @@ export default function FailureTypesPage() {
     }
   ];
 
-  const onEditClick = (id: GridRowId) => {
-    const findData: IFailureType | undefined = rows.find(
-      (data: IFailureType) => data.id === id
-    );
-
-    if (findData) {
-      setFailureType({
-        id: findData.id,
-        failureName: findData.failureName,
-        period: findData.period,
-        timeInterval: findData.timeInterval,
-        soundAnomalyMultiplier: findData.soundAnomalyMultiplier,
-        vibrationAnomalyMultiplier: findData.vibrationAnomalyMultiplier,
-        temperatureAnomalyMultiplier: findData.temperatureAnomalyMultiplier
-      });
-      setAddEditModalOpenState(true);
-    }
+  const handleEditClick = (id: GridRowId) => () => {
+    const findData = rows.find((data: any) => data.id === id);
+    setFailureType({
+      id: findData.id,
+      failureName: findData.failureName,
+      period: findData.period,
+      timeInterval: findData.timeInterval,
+      soundAnomalyMultiplier: findData.soundAnomalyMultiplier,
+      vibrationAnomalyMultiplier: findData.vibrationAnomalyMultiplier,
+      temperatureAnomalyMultiplier: findData.temperatureAnomalyMultiplier
+    });
+    setOpenState(true);
   };
 
-  const onDeleteClick = (id: GridRowId) => {
+  const handleDeleteClick = (id: GridRowId) => {
     setSelectedRowId(id as number);
     setOpenDeleteDialogState(true);
   };
 
+  const handleClick = () => {
+    setAlertOpen(true);
+  };
+
+  const [deleteFailureType] = useMutation(DELETE_FAILURE_TYPE);
+
   const variables = React.useMemo(() => {
-    let vars: IFailureVarieble = {
+    let vars = {
       offset: pagination.page * pagination.pageSize,
       limit: pagination.pageSize
     };
@@ -151,7 +145,7 @@ export default function FailureTypesPage() {
       };
     }
 
-    if (sort) {
+    if (sort && sort.length !== 0) {
       vars = {
         ...vars,
         order_by: [{ [sort?.field]: sort?.sort }]
@@ -160,12 +154,9 @@ export default function FailureTypesPage() {
     return vars;
   }, [pagination, searchText, sort]);
 
-  const { data, error, refetch } = useSuspenseQuery<IResultData>(
-    GET_FAILURE_TYPES,
-    {
-      variables
-    }
-  );
+  const { data, error, refetch } = useSuspenseQuery<any>(GET_FAILURE_TYPES, {
+    variables
+  });
 
   const getFirstPage = () => {
     setPagination({
@@ -190,22 +181,33 @@ export default function FailureTypesPage() {
       })
       .finally(() => {
         getFirstPage();
-        setAlertOpen(true);
+        handleClick();
         setSelectedRowId(null);
         refetch({ variables });
       });
   };
 
+  const handleAlertClose = (
+    event?: React.SyntheticEvent | Event,
+    reason?: string
+  ) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setAlertOpen(false);
+  };
+
   React.useEffect(() => {
-    if (!addEditModalOpenState) {
+    if (!openState) {
       setFailureType(null);
     }
-  }, [addEditModalOpenState]);
+  }, [openState]);
 
   React.useEffect(() => {
     if (data) {
-      setData(data.failure_types);
-      setTotalCount(data.failure_types_aggregate.aggregate.count);
+      setData(data['failure_types']);
+      setTotalCount(data['failure_types_aggregate']?.aggregate?.count);
     } else if (error) {
     }
   }, [data, error]);
@@ -227,22 +229,18 @@ export default function FailureTypesPage() {
           setSort(sort);
         }}
         isAddButton={true}
-        addButtonLabel={t('failureTypes.addFailureType')}
+        addButtonLabel={'Add Failure Type'}
         onAddClick={() => {
-          setAddEditModalOpenState(true);
+          setOpenState(true);
         }}
       ></Datatable>
       <AddFailureTypeModal
-        openState={addEditModalOpenState}
-        onClose={() => {
-          setAddEditModalOpenState(false);
-          setFailureType(null);
-        }}
+        openState={openState}
+        onClose={() => setOpenState(false)}
         saveResponse={(success: boolean) => {
           setAlertSuccess(success);
-          setAlertOpen(true);
-          setAddEditModalOpenState(!success);
-          setFailureType(null);
+          handleClick();
+          setOpenState(!success);
         }}
         failureType={failureType}
       ></AddFailureTypeModal>
@@ -251,16 +249,23 @@ export default function FailureTypesPage() {
         onClose={() => setOpenDeleteDialogState(false)}
         onDeleteClick={() => onDelete()}
         modalInfo={{
-          title: t('failureTypes.deleteModal.title'),
-          description: t('failureTypes.deleteModal.description')
+          title: 'Delete',
+          description: 'Delete'
         }}
       ></DeleteModal>
-      <AlertMessage
-        openState={alertOpen}
-        description={'Delete Success'}
-        alertSuccess={alertSuccess}
-        onClose={() => setAlertOpen(false)}
-      ></AlertMessage>
+      <Snackbar
+        open={alertOpen}
+        autoHideDuration={2000}
+        onClose={handleAlertClose}
+      >
+        <Alert
+          onClose={handleAlertClose}
+          severity={alertSuccess ? 'success' : 'error'}
+          sx={{ width: '100%' }}
+        >
+          This is a success message!
+        </Alert>
+      </Snackbar>
     </>
   );
 }

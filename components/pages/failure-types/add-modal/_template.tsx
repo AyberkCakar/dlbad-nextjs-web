@@ -1,34 +1,36 @@
 import * as React from 'react';
 import { ADD_FAILURE_TYPE, UPDATE_FAILURE_TYPE } from '../_graphql';
 import { useMutation } from '@apollo/client';
-import { FormModal } from '../../../modal';
-import { InputGroup, ModalInput, GroupModalInput } from './_style';
-import { IAddFailureTypeModal, IAddFailureVariable } from './_model';
-import { IFailureType } from '../_model';
-import { useTranslation } from '../../../../hooks/useTranslation';
+import { FormModal } from '../../../modal/_template';
+import { InputGroup, ModalInput, ModalInput2 } from './_style';
 
 export default function AddFailureTypeModal({
   openState,
   onClose,
   saveResponse,
   failureType
-}: IAddFailureTypeModal) {
-  const { t } = useTranslation();
+}: {
+  openState: any;
+  onClose: any;
+  saveResponse: any;
+  failureType?: any | null;
+}) {
   const [open, setOpenState] = React.useState<boolean>(false);
 
-  const [failureTypesRequest, setFailureTypesRequest] =
-    React.useState<IFailureType | null>({
-      id: 0,
-      failureName: '',
-      period: 0,
-      timeInterval: 0,
-      soundAnomalyMultiplier: 0,
-      vibrationAnomalyMultiplier: 0,
-      temperatureAnomalyMultiplier: 0
-    });
+  const [failureTypesRequest, setFailureTypesRequest] = React.useState<any>({
+    id: 0,
+    failureName: '',
+    period: 0,
+    timeInterval: 0,
+    soundAnomalyMultiplier: 0,
+    vibrationAnomalyMultiplier: 0,
+    temperatureAnomalyMultiplier: 0
+  });
 
   React.useEffect(() => {
-    setFailureTypesRequest(failureType);
+    if (failureType) {
+      setFailureTypesRequest(failureType);
+    }
   }, [failureType]);
 
   const handleClose = () => {
@@ -43,11 +45,7 @@ export default function AddFailureTypeModal({
   );
 
   const handleSave = () => {
-    if (!failureTypesRequest) {
-      return;
-    }
-
-    let variables: IAddFailureVariable = { failureType: failureTypesRequest };
+    let variables: any = { failureType: failureTypesRequest };
 
     if (failureType) {
       variables = { ...variables, id: failureTypesRequest.id };
@@ -71,16 +69,15 @@ export default function AddFailureTypeModal({
       onSave={() => handleSave()}
       openState={openState}
       onClose={handleClose}
-      modalTitle={t('failureTypes.addFailureType')}
     >
       <ModalInput
         name="failureName"
-        label={t('failureTypes.failureName')}
+        label="Failure Name"
         variant="outlined"
         fullWidth
         size={'small'}
         required={true}
-        value={failureTypesRequest?.failureName}
+        value={failureTypesRequest.failureName}
         onChange={(e) =>
           setFailureTypesRequest({
             ...failureTypesRequest,
@@ -90,86 +87,86 @@ export default function AddFailureTypeModal({
       />
 
       <InputGroup>
-        <GroupModalInput
-          label={t('failureTypes.period')}
+        <ModalInput2
+          label="Period"
           name="period"
           variant="outlined"
           fullWidth
           size={'small'}
           type="number"
           required={true}
-          value={failureTypesRequest?.period}
+          value={failureTypesRequest.period}
           onChange={(e) =>
             setFailureTypesRequest({
               ...failureTypesRequest,
-              period: Number(e.target?.value)
+              period: e.target?.value
             })
           }
         />
         <ModalInput
-          label={t('failureTypes.timeInterval')}
+          label="Time Interval"
           variant="outlined"
           name="timeInterval"
           fullWidth
           size={'small'}
           type="number"
           required={true}
-          value={failureTypesRequest?.timeInterval}
+          value={failureTypesRequest.timeInterval}
           onChange={(e) =>
             setFailureTypesRequest({
               ...failureTypesRequest,
-              timeInterval: Number(e.target?.value)
+              timeInterval: e.target?.value
             })
           }
         />
       </InputGroup>
 
       <InputGroup>
-        <GroupModalInput
-          label={t('failureTypes.soundAnomalyMultiplier')}
+        <ModalInput2
+          label="Sound Anomaly Multiplier"
           name="soundAnomalyMultiplier"
           variant="outlined"
           fullWidth
           size={'small'}
           type="number"
           required={true}
-          value={failureTypesRequest?.soundAnomalyMultiplier}
+          value={failureTypesRequest.soundAnomalyMultiplier}
           onChange={(e) =>
             setFailureTypesRequest({
               ...failureTypesRequest,
-              soundAnomalyMultiplier: Number(e.target?.value)
+              soundAnomalyMultiplier: e.target?.value
             })
           }
         />
-        <GroupModalInput
-          label={t('failureTypes.temperatureAnomalyMultiplier')}
+        <ModalInput2
+          label="Temperature Anomaly Multiplier"
           name="temperatureAnomalyMultiplier"
           variant="outlined"
           fullWidth
           size={'small'}
           type="number"
           required={true}
-          value={failureTypesRequest?.temperatureAnomalyMultiplier}
+          value={failureTypesRequest.temperatureAnomalyMultiplier}
           onChange={(e) =>
             setFailureTypesRequest({
               ...failureTypesRequest,
-              temperatureAnomalyMultiplier: Number(e.target?.value)
+              temperatureAnomalyMultiplier: e.target?.value
             })
           }
         />
         <ModalInput
-          label={t('failureTypes.vibrationAnomalyMultiplier')}
+          label="Vibration Anomaly Multiplier"
           name="vibrationAnomalyMultiplier"
           variant="outlined"
           fullWidth
           size={'small'}
           type="number"
           required={true}
-          value={failureTypesRequest?.vibrationAnomalyMultiplier}
+          value={failureTypesRequest.vibrationAnomalyMultiplier}
           onChange={(e) =>
             setFailureTypesRequest({
               ...failureTypesRequest,
-              vibrationAnomalyMultiplier: Number(e.target?.value)
+              vibrationAnomalyMultiplier: e.target?.value
             })
           }
         />

@@ -4,7 +4,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import { StyledCancelButton, StyledDialogActions } from './_style';
+import { CancelButton, ModalDialogActions } from './_style';
 import { IDeleteModal } from './_type';
 import { useTranslation } from '../../hooks/useTranslation';
 
@@ -38,7 +38,7 @@ export default function DeleteModal({
             {modalInfo.description}
           </DialogContentText>
         </DialogContent>
-        <StyledDialogActions>
+        <ModalDialogActions>
           <Button
             size={'small'}
             variant="contained"
@@ -47,14 +47,14 @@ export default function DeleteModal({
           >
             {t('general.delete')}
           </Button>
-          <StyledCancelButton
+          <CancelButton
             size={'small'}
             variant="contained"
             onClick={handleClose}
           >
             {t('general.cancel')}
-          </StyledCancelButton>
-        </StyledDialogActions>
+          </CancelButton>
+        </ModalDialogActions>
       </Dialog>
     </div>
   );

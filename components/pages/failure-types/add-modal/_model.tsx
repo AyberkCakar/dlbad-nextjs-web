@@ -4,7 +4,7 @@ export interface IAddFailureTypeModal {
   openState: boolean;
   onClose: () => void;
   saveResponse: (success: boolean) => void;
-  failureType?: IFailureType | null;
+  failureType: IFailureType | null;
 }
 
 export interface IAddFailureVariable {

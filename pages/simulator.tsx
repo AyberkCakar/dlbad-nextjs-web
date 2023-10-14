@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import SimulatorPage from '../components/pages/simulator/simulator.component';
+import SimulatorPage from '../components/pages/simulator';
 
 const Simulator: NextPage = () => <SimulatorPage />;
 

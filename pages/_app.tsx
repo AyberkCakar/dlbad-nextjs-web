@@ -1,14 +1,15 @@
 import type { AppProps } from 'next/app';
 import { CurrentProvider } from '../hooks/useCurrent';
-import { ApolloWrapper } from '../lib/apollo-wrapper';
+import { ApolloProvider } from '@apollo/client';
+import { initializeApollo } from '../lib/apolloClient';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ApolloWrapper>
+    <ApolloProvider client={initializeApollo()}>
       <CurrentProvider>
         <Component {...pageProps} />
       </CurrentProvider>
-    </ApolloWrapper>
+    </ApolloProvider>
   );
 }
 

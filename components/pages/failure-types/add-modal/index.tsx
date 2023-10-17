@@ -14,9 +14,7 @@ export default function AddFailureTypeModal({
   failureType
 }: IAddFailureTypeModal) {
   const { t } = useTranslation();
-  const [open, setOpenState] = React.useState<boolean>(false);
-
-  const [failureTypesRequest, setFailureTypesRequest] =
+  const [failureTypeRequest, setFailureTypeRequest] =
     React.useState<IFailureType | null>({
       id: 0,
       failureName: '',
@@ -28,11 +26,10 @@ export default function AddFailureTypeModal({
     });
 
   React.useEffect(() => {
-    setFailureTypesRequest(failureType);
+    setFailureTypeRequest(failureType);
   }, [failureType]);
 
   const handleClose = () => {
-    setOpenState(false);
     if (onClose) {
       onClose();
     }
@@ -43,14 +40,14 @@ export default function AddFailureTypeModal({
   );
 
   const handleSave = () => {
-    if (!failureTypesRequest) {
+    if (!failureTypeRequest) {
       return;
     }
 
-    let variables: IAddFailureVariable = { failureType: failureTypesRequest };
+    let variables: IAddFailureVariable = { failureType: failureTypeRequest };
 
     if (failureType) {
-      variables = { ...variables, id: failureTypesRequest.id };
+      variables = { ...variables, id: failureTypeRequest.id };
     }
 
     delete variables.failureType?.id;
@@ -80,10 +77,10 @@ export default function AddFailureTypeModal({
         fullWidth
         size={'small'}
         required={true}
-        value={failureTypesRequest?.failureName}
+        value={failureTypeRequest?.failureName}
         onChange={(e) =>
-          setFailureTypesRequest({
-            ...failureTypesRequest,
+          setFailureTypeRequest({
+            ...failureTypeRequest,
             failureName: e.target?.value
           })
         }
@@ -98,10 +95,10 @@ export default function AddFailureTypeModal({
           size={'small'}
           type="number"
           required={true}
-          value={failureTypesRequest?.period}
+          value={failureTypeRequest?.period}
           onChange={(e) =>
-            setFailureTypesRequest({
-              ...failureTypesRequest,
+            setFailureTypeRequest({
+              ...failureTypeRequest,
               period: Number(e.target?.value)
             })
           }
@@ -114,10 +111,10 @@ export default function AddFailureTypeModal({
           size={'small'}
           type="number"
           required={true}
-          value={failureTypesRequest?.timeInterval}
+          value={failureTypeRequest?.timeInterval}
           onChange={(e) =>
-            setFailureTypesRequest({
-              ...failureTypesRequest,
+            setFailureTypeRequest({
+              ...failureTypeRequest,
               timeInterval: Number(e.target?.value)
             })
           }
@@ -133,10 +130,10 @@ export default function AddFailureTypeModal({
           size={'small'}
           type="number"
           required={true}
-          value={failureTypesRequest?.soundAnomalyMultiplier}
+          value={failureTypeRequest?.soundAnomalyMultiplier}
           onChange={(e) =>
-            setFailureTypesRequest({
-              ...failureTypesRequest,
+            setFailureTypeRequest({
+              ...failureTypeRequest,
               soundAnomalyMultiplier: Number(e.target?.value)
             })
           }
@@ -149,10 +146,10 @@ export default function AddFailureTypeModal({
           size={'small'}
           type="number"
           required={true}
-          value={failureTypesRequest?.temperatureAnomalyMultiplier}
+          value={failureTypeRequest?.temperatureAnomalyMultiplier}
           onChange={(e) =>
-            setFailureTypesRequest({
-              ...failureTypesRequest,
+            setFailureTypeRequest({
+              ...failureTypeRequest,
               temperatureAnomalyMultiplier: Number(e.target?.value)
             })
           }
@@ -165,10 +162,10 @@ export default function AddFailureTypeModal({
           size={'small'}
           type="number"
           required={true}
-          value={failureTypesRequest?.vibrationAnomalyMultiplier}
+          value={failureTypeRequest?.vibrationAnomalyMultiplier}
           onChange={(e) =>
-            setFailureTypesRequest({
-              ...failureTypesRequest,
+            setFailureTypeRequest({
+              ...failureTypeRequest,
               vibrationAnomalyMultiplier: Number(e.target?.value)
             })
           }

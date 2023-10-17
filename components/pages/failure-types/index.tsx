@@ -10,9 +10,10 @@ import DeleteIcon from '@mui/icons-material/DeleteOutlined';
 import AddFailureTypeModal from './add-modal';
 import DeleteModal from '../../delete-modal';
 import { useMutation } from '@apollo/client';
-import { IFailureType, IFailureVarieble, IResultData } from './_model';
+import { IFailureType, IFailureTypesResult } from './_model';
 import { useTranslation } from '../../../hooks/useTranslation';
 import { AlertMessage } from '../../alert';
+import { IVariable } from '../../../models/variable';
 
 function getLikeWhere(searchText: string): Record<string, any> {
   return {
@@ -140,7 +141,7 @@ export default function FailureTypesPage() {
   };
 
   const variables = React.useMemo(() => {
-    let vars: IFailureVarieble = {
+    let vars: IVariable = {
       offset: pagination.page * pagination.pageSize,
       limit: pagination.pageSize
     };
@@ -160,7 +161,7 @@ export default function FailureTypesPage() {
     return vars;
   }, [pagination, searchText, sort]);
 
-  const { data, error, refetch } = useSuspenseQuery<IResultData>(
+  const { data, error, refetch } = useSuspenseQuery<IFailureTypesResult>(
     GET_FAILURE_TYPES,
     {
       variables

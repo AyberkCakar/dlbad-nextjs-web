@@ -1,5 +1,3 @@
-import { GridSortDirection } from '@mui/x-data-grid';
-
 export interface IFailureType {
   id?: number;
   failureName?: string;
@@ -10,14 +8,7 @@ export interface IFailureType {
   temperatureAnomalyMultiplier?: number;
 }
 
-export interface IFailureVarieble {
-  offset?: number;
-  limit?: number;
-  where?: Record<string, any>;
-  order_by?: [{ [x: string]: GridSortDirection }];
-}
-
-export interface IResultData {
+export interface IFailureTypesResult {
   failure_types: IFailureType[];
   failure_types_aggregate: {
     aggregate: { count: number };

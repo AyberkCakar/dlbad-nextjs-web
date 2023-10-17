@@ -3,11 +3,18 @@ import styled from 'styled-components';
 export const HeaderContainer = styled.header`
   background-color: #333;
   color: white;
-  padding: 1rem;
-
+  padding: 0 1rem 0 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 768px) {
+    padding: 0.5rem;
+
+    h1 {
+      display: none;
+    }
+  }
 `;
 
 export const Nav = styled.nav`
@@ -23,6 +30,17 @@ export const Nav = styled.nav`
       }
     }
   }
+
+  @media (max-width: 768px) {
+    ul {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    li {
+      margin: 0.3rem;
+    }
+  }
 `;
 
 export const StyledButton = styled.button`
@@ -36,5 +54,9 @@ export const StyledButton = styled.button`
 
   &:hover {
     background-color: #555;
+  }
+
+  @media (max-width: 768px) {
+    padding: 8px 16px;
   }
 `;

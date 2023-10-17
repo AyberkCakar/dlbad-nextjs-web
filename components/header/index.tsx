@@ -7,8 +7,8 @@ export const Header = () => {
   const { t } = useTranslation();
 
   const dropdownItems = [
-    { label: t('failure.type1'), link: '/failure-types?type1' },
-    { label: t('failure.type2'), link: '/failure-types?type2' }
+    { label: t('Simulator'), link: '/simulator' },
+    { label: t('Add Simulator'), link: '/add-simulator' }
   ];
 
   return (

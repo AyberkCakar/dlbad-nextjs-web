@@ -3,11 +3,11 @@ import styled from 'styled-components';
 export const DropdownContainer = styled.div`
   position: relative;
   display: inline-block;
-  margin-right: 1rem;
 `;
 
 export const DropdownToggle = styled.button`
-  padding: 10px 15px;
+  font-size: 1em;
+  padding: 0;
   background-color: #333;
   color: white;
   border: none;
@@ -28,9 +28,16 @@ export const DropdownMenuList = styled.ul`
   border: 1px solid #555;
   border-radius: 5px;
   z-index: 1;
+  flex-direction: column;
+  margin-top: 5px;
+  gap: 0 !important;
 `;
 
 export const DropdownMenuItem = styled.li`
+  justify-content: center;
+  display: flex;
+  width: auto;
+  white-space: nowrap;
   padding: 10px;
   &:hover {
     background-color: #555;

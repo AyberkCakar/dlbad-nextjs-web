@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [0.1.1](https://github.com/AyberkCakar/dlbad-nextjs-web/compare/v0.1.0...v0.1.1) (2023-10-17)
+### [1.1.0](https://github.com/AyberkCakar/dlbad-nextjs-web/compare/v1.0.0...v1.1.0) (2023-10-17)
 
 
 ### Features
@@ -23,7 +23,7 @@ All notable changes to this project will be documented in this file. See [standa
 * fixed header component ([c44f7ef](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/c44f7ef35dcee2c581d7ac0adc0f51b93948a983))
 * fixed translation hook ([edb2c60](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/edb2c60004aa09899a266ddbc2d148843162a1bc))
 
-## 0.1.0 (2023-10-08)
+## 1.0.0 (2023-10-08)
 
 
 ### Features

@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.1](https://github.com/AyberkCakar/dlbad-nextjs-web/compare/v0.1.0...v0.1.1) (2023-10-17)
+
+
+### Features
+
+* added add and edit simulator page ([d95fed7](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/d95fed7f0dc95be2207c62ea4696ef5a6331d29d))
+* added alert component ([93a8c4f](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/93a8c4fb2a59a8b54f7f50e459906fa7ead90ae9))
+* added checkboxlist component ([57b0f98](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/57b0f98c7e94160f18869fb4e19fac1e9c1ef866))
+* added dropdown menu component ([caf7acf](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/caf7acf41d651573db6eb2ded78085da0894bc5f))
+* added new apolloClient ([bb17199](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/bb171995cd6cda1fcf0fc1d385dafdf89c1b353d))
+* added new packages ([ad7a43a](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/ad7a43ab563387361bd9c8c854175528ea1eb3a4))
+* added simulator page content ([efcf52b](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/efcf52bcaffcd583609efa2adfb50585c098b902))
+* added standard-version package ([b6df1ec](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/b6df1ec058e0dfada2d4e8772692f1c77ef8b8ef))
+
+
+### Bug Fixes
+
+* delete unused components ([deba75e](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/deba75e4275d5814de62548f0aa09dc0b3a719db))
+* fixed header component ([c44f7ef](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/c44f7ef35dcee2c581d7ac0adc0f51b93948a983))
+* fixed translation hook ([edb2c60](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/edb2c60004aa09899a266ddbc2d148843162a1bc))
+
 ## 0.1.0 (2023-10-08)
 
 

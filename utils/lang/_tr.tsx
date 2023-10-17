@@ -17,7 +17,10 @@ export const tr: IDynamic = {
     save: 'Save',
     delete: 'Delete',
     cancel: 'Cancel',
-    search: 'Search'
+    search: 'Search',
+    saveChanges: 'Save Changes',
+    actions: 'Actions',
+    id: 'ID'
   },
   failureTypes: {
     id: 'ID',
@@ -32,5 +35,24 @@ export const tr: IDynamic = {
       description: 'The selected Fault Type will be deleted. Are you sure?',
       title: 'Delete Failure Type'
     }
+  },
+  simulator: {
+    editSimulator: 'Edit Simulator',
+    addSimulator: 'Add Simulator',
+    simulatorName: 'Simulator Name',
+    checkBoxListTitle: 'Failure Types',
+    generateSimulatorData: 'Generate Simulator Data',
+    editSuccessMessage: 'Simulatorzed Successfully',
+    editErrorMessage: 'Simulatorzed Errorfully',
+    addSuccessMessage: 'Simulator Added Successfully',
+    addErrorMessage: 'Simulator Added Error',
+    result: 'Result',
+    parameters: 'Parameters',
+    deleteModalTitle: 'Delete Simulator',
+    deleteModalDescription: 'Delete Simulator Description',
+    deleteSuccessMessage: 'Simulator Delete Successfully',
+    deleteErrorMessage: 'Simulator Delete Error',
+    showParameters: 'Show Parameters',
+    showResult: 'Show Result'
   }
 };

@@ -3,6 +3,7 @@ import { GlobalStyle, LayoutBase } from './_style';
 import { useTheme } from '../../hooks/useTheme';
 import { Footer } from '../footer';
 import { Header } from '../header';
+import '@fortawesome/fontawesome-free/css/all.css';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const { theme } = useTheme();

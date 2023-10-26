@@ -111,6 +111,11 @@ export default function AddSimulatorPage({
           })
             .then((result) => {
               setAlertSuccess(true);
+
+              if (!isSimulatorEdit) {
+                setSimulatorRequest({ simulatorName: '' });
+                setCheckedIds([]);
+              }
             })
             .catch((error) => {
               setAlertSuccess(false);
@@ -145,51 +150,47 @@ export default function AddSimulatorPage({
   }, [data, error]);
 
   return (
-    <>
-      <PageContainer>
-        <PageHeader>
-          <PageHeaderTitle>
+    <PageContainer>
+      <PageHeader>
+        <PageHeaderTitle>
+          {isSimulatorEdit
+            ? t('simulator.editSimulator')
+            : t('simulator.addSimulator')}
+        </PageHeaderTitle>
+        <PageHeaderIcon baseClassName="fa-solid" className="fa-server" />
+      </PageHeader>
+      <FormContainer>
+        <FormBodyContainer>
+          <InputField
+            label={t('simulator.simulatorName')}
+            variant="outlined"
+            fullWidth
+            size="small"
+            value={simulatorRequest?.simulatorName}
+            onChange={(e) =>
+              setSimulatorRequest({
+                ...simulatorRequest,
+                simulatorName: e.target?.value
+              })
+            }
+          />
+          <CheckboxList
+            data={checkboxListData}
+            title={t('simulator.checkBoxListTitle')}
+            disabled={isSimulatorEdit}
+            defaultCheckedIds={checkedIds}
+            setCheckedIds={(checkedIds: number[]) => setCheckedIds(checkedIds)}
+          ></CheckboxList>
+        </FormBodyContainer>
+        <ButtonContainer>
+          <SaveButton onClick={() => onSaveClick()}>
             {isSimulatorEdit
-              ? t('simulator.editSimulator')
-              : t('simulator.addSimulator')}
-          </PageHeaderTitle>
-          <PageHeaderIcon baseClassName="fa-solid" className="fa-server" />
-        </PageHeader>
-        <FormContainer>
-          <FormBodyContainer>
-            <InputField
-              label={t('simulator.simulatorName')}
-              variant="outlined"
-              fullWidth
-              size="small"
-              value={simulatorRequest?.simulatorName}
-              onChange={(e) =>
-                setSimulatorRequest({
-                  ...simulatorRequest,
-                  simulatorName: e.target?.value
-                })
-              }
-            />
-            <CheckboxList
-              data={checkboxListData}
-              title={t('simulator.checkBoxListTitle')}
-              disabled={isSimulatorEdit}
-              defaultCheckedIds={checkedIds}
-              setCheckedIds={(checkedIds: number[]) =>
-                setCheckedIds(checkedIds)
-              }
-            ></CheckboxList>
-          </FormBodyContainer>
-          <ButtonContainer>
-            <SaveButton onClick={() => onSaveClick()}>
-              {isSimulatorEdit
-                ? t('general.saveChanges')
-                : t('simulator.generateSimulatorData')}
-            </SaveButton>
-            <CancelButton>{t('general.cancel')}</CancelButton>
-          </ButtonContainer>
-        </FormContainer>
-      </PageContainer>
+              ? t('general.saveChanges')
+              : t('simulator.generateSimulatorData')}
+          </SaveButton>
+          <CancelButton>{t('general.cancel')}</CancelButton>
+        </ButtonContainer>
+      </FormContainer>
       <AlertMessage
         openState={alertOpen}
         description={
@@ -204,6 +205,6 @@ export default function AddSimulatorPage({
         alertSuccess={alertSuccess}
         onClose={() => setAlertOpen(false)}
       ></AlertMessage>
-    </>
+    </PageContainer>
   );
 }

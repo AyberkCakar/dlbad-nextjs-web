@@ -1,12 +1,13 @@
 import React from 'react';
 import {
+  BodyBox,
   FormBox,
   LoginContainer,
   LoginForm,
   Logo,
   SignInButton
 } from './_styles';
-import { Box, Link, TextField, Typography } from '@mui/material';
+import { Link, TextField, Typography } from '@mui/material';
 import { useMutation } from '@apollo/client';
 import { LOGIN } from './_graphql';
 import { useRouter } from 'next/router';
@@ -51,8 +52,9 @@ export default function Login() {
               {t('general.signIn')}
             </Typography>
             <Logo src={'/assets/logo.png'} />
-            <Box sx={{ mt: 1 }}>
+            <BodyBox>
               <TextField
+                size="small"
                 margin="normal"
                 required
                 fullWidth
@@ -70,6 +72,7 @@ export default function Login() {
                 }
               />
               <TextField
+                size="small"
                 margin="normal"
                 required
                 fullWidth
@@ -87,8 +90,8 @@ export default function Login() {
                 }
               />
               <Typography sx={{ marginTop: 1 }} color={'rgb(98 91 91)'}>
-                {t('login.wouldYouLikeToRegister')}
-                <Link href="/sign-up"> {t('general.signUp')}</Link>
+                {t('login.wouldYouLikeToRegister')}&nbsp;
+                <Link href="/sign-up">{t('general.signUp')}</Link>
               </Typography>
 
               <SignInButton
@@ -99,7 +102,7 @@ export default function Login() {
                 {t('general.signIn').charAt(-1).toLocaleLowerCase() +
                   t('general.signIn').slice(0)}
               </SignInButton>
-            </Box>
+            </BodyBox>
           </FormBox>
         </LoginForm>
       </LoginContainer>

@@ -1,3 +1,5 @@
+import { Baloo_Chettan_2 } from 'next/font/google';
+
 export const font = {
   span: 'OpenSans-Regular',
   text: 'OpenSans-Regular',
@@ -29,3 +31,10 @@ export const typeScale = {
   span: '12px',
   text: '16px'
 };
+
+const balooChettan2FontFamily = Baloo_Chettan_2({
+  weight: ['400', '500', '600', '700', '800'],
+  subsets: ['latin']
+});
+
+export const fontFamily = balooChettan2FontFamily.style.fontFamily;

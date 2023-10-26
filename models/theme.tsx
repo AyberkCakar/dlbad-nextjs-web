@@ -9,6 +9,9 @@ export interface ITheme {
   colors: IDynamic;
   font: IDynamic;
   typeScale: IDynamic;
+  typography: {
+    fontFamily: string;
+  };
 }
 
 export interface IThemeProvider {

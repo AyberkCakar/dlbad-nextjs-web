@@ -1,5 +1,5 @@
 import { ITheme, Theme, IThemeProvider } from '../models';
-import { darkTheme, lightTheme, font, typeScale } from '../styles';
+import { darkTheme, lightTheme, font, typeScale, fontFamily } from '../styles';
 import { ThemeProvider as StyledComponentThemeProvider } from 'styled-components';
 import { SettingsService } from '../utils/services';
 import Layout from '../components/layout';
@@ -15,7 +15,10 @@ const createTheme = (themeType: Theme): ITheme => {
   return {
     colors: Theme.LIGHT == themeType ? lightTheme : darkTheme,
     font,
-    typeScale
+    typeScale,
+    typography: {
+      fontFamily
+    }
   };
 };
 

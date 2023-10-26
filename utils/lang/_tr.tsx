@@ -68,8 +68,18 @@ export const tr: IDynamic = {
     emailAddress: 'Email Address',
     password: 'Password',
     wouldYouLikeToRegister: 'Would you like to register?',
-    successMessage: 'Sign In successful!',
+    successMessage: 'Sign In Successfully!',
     errorMessage:
-      'There was a problem while signing in. Please check your information.'
+      'There was a problem while signing in. Please check your information!'
+  },
+  signUp: {
+    emailAddress: 'Email Address',
+    password: 'Password',
+    firstName: 'First Name',
+    lastName: 'Last Name',
+    alreadyHaveRegister: 'Do you already have a register?',
+    successMessage: 'Sign Up Successfully!',
+    errorMessage:
+      'There was a problem while signing up. Please check your information!'
   }
 };

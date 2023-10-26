@@ -68,12 +68,14 @@ export const Datatable = ({
 
   return (
     <Container>
-      <Header isAddButton={isAddButton}>
+      <Header
+        style={{ justifyContent: isAddButton ? 'space-between' : 'flex-end' }}
+      >
         <AddButton
           variant="outlined"
           color="success"
           startIcon={<Add />}
-          isAddButton={isAddButton}
+          style={{ display: isAddButton ? 'block' : 'none' }}
           onClick={() => {
             if (onAddClick) {
               onAddClick();
@@ -82,7 +84,10 @@ export const Datatable = ({
         >
           {addButtonLabel.charAt(0).toUpperCase() + addButtonLabel.slice(1)}
         </AddButton>
-        <SearchFormControl size={'small'} isSearchable={isSearchable}>
+        <SearchFormControl
+          size={'small'}
+          style={{ display: isSearchable ? 'block' : 'none' }}
+        >
           <InputLabel htmlFor="filled-adornment-search">
             {t('general.search')}
           </InputLabel>

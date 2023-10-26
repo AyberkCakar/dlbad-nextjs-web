@@ -10,15 +10,11 @@ export const Container = styled.div`
 export const Header = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: ${(props: { isAddButton: boolean }) =>
-    props.isAddButton ? 'space-between' : 'flex-end'};
 `;
 
 export const AddButton = styled(Button)`
   align-self: flex-start;
   height: 40px;
-  display: ${(props: { isAddButton: boolean }) =>
-    props.isAddButton ? '' : 'none'};
   text-transform: none;
   &::first-letter {
     text-transform: uppercase;
@@ -32,8 +28,6 @@ export const SearchFormControl = styled(FormControl)`
   margin-bottom: 20px;
   width: 25ch;
   align-self: flex-end;
-  display: ${(props: { isSearchable: boolean }) =>
-    props.isSearchable ? '' : 'none'};
 `;
 
 export const DataGridConteiner = styled.div`

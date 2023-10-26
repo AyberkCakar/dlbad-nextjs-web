@@ -13,9 +13,9 @@ export interface IDatatable<R extends GridValidRowModel = any> {
   onPaginationChange?: (pagination: GridPaginationModel) => void;
   onSortChange?: (sort: GridSortItem | null) => void;
   isServerSide?: boolean;
-  isSearchable: boolean;
+  isSearchable?: boolean;
   onSearchChange?: (searchText: string) => void;
-  isAddButton: boolean;
+  isAddButton?: boolean;
   onAddClick?: () => void;
   addButtonLabel?: string;
   pagination?: GridPaginationModel;

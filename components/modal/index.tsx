@@ -9,7 +9,7 @@ import {
   ModalHeader,
   ModalHeaderTitle
 } from './_styles';
-import { IFormModal } from './_model';
+import { IFormModal, EModalSize } from './_model';
 import { useTranslation } from '../../hooks/useTranslation';
 
 export const FormModal = ({
@@ -17,13 +17,13 @@ export const FormModal = ({
   onClose,
   onSave,
   children,
-  modalTitle
+  modalTitle,
+  modalSize = EModalSize.MD,
+  isShowModalSaveButton = true
 }: IFormModal) => {
   const { t } = useTranslation();
-  const [open, setOpen] = React.useState<boolean>(false);
 
   const handleClose = () => {
-    setOpen(false);
     if (onClose) {
       onClose();
     }
@@ -37,7 +37,7 @@ export const FormModal = ({
         aria-labelledby="modal-title"
         aria-describedby="modal-body"
       >
-        <ModalBox>
+        <ModalBox modalSize={modalSize}>
           <ModalHeader>
             <ModalHeaderTitle variant="h4" id="modal-title">
               {modalTitle}
@@ -45,9 +45,13 @@ export const FormModal = ({
           </ModalHeader>
           <ModalBody id="modal-body">{children}</ModalBody>
           <ModalActionContainer>
-            <Button variant="contained" color="primary" onClick={onSave}>
-              {t('general.save')}
-            </Button>
+            {isShowModalSaveButton ? (
+              <Button variant="contained" color="primary" onClick={onSave}>
+                {t('general.save')}
+              </Button>
+            ) : (
+              ''
+            )}
             <CancelButton variant="contained" onClick={handleClose}>
               {t('general.cancel')}
             </CancelButton>

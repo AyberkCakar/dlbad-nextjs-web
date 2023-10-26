@@ -5,7 +5,8 @@ export const tr: IDynamic = {
     description: '2023 DLBAD Project'
   },
   header: {
-    title: 'DLBAD Project',
+    title1: 'DLBAD',
+    title2: 'AI',
     simulator: 'Simulator',
     dataList: 'Data List',
     algorithmResult: 'Algorithm Result',

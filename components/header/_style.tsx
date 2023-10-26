@@ -60,3 +60,20 @@ export const StyledButton = styled.button`
     padding: 8px 16px;
   }
 `;
+
+export const Logo = styled.img`
+  width: 90px;
+  height: 90px;
+`;
+
+export const LogoContainer = styled.div`
+  display: flex;
+`;
+
+export const LogoTitle1 = styled.h1`
+  color: #68a49f;
+`;
+
+export const LogoTitle2 = styled.h1`
+  color: #f652a0;
+`;

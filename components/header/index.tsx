@@ -1,6 +1,14 @@
 import Link from 'next/link';
 import { useTranslation } from '../../hooks/useTranslation';
-import { HeaderContainer, Nav, StyledButton } from './_style';
+import {
+  HeaderContainer,
+  Logo,
+  LogoContainer,
+  LogoTitle1,
+  LogoTitle2,
+  Nav,
+  StyledButton
+} from './_style';
 import DropdownMenu from './dropdown-menu';
 import { useRouter } from 'next/router';
 import { useLogout } from '../../hooks/useLogout';
@@ -22,7 +30,11 @@ export const Header = () => {
 
   return (
     <HeaderContainer>
-      <h1>{t('header.title')}</h1>
+      <LogoContainer>
+        <Logo src={'/assets/logo.png'} />
+        <LogoTitle1>{t('header.title1')}</LogoTitle1>&nbsp;
+        <LogoTitle2>{t('header.title2')}</LogoTitle2>
+      </LogoContainer>
       <Nav>
         <ul>
           <li>

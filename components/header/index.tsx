@@ -2,14 +2,23 @@ import Link from 'next/link';
 import { useTranslation } from '../../hooks/useTranslation';
 import { HeaderContainer, Nav, StyledButton } from './_style';
 import DropdownMenu from './dropdown-menu';
+import { useRouter } from 'next/router';
+import { useLogout } from '../../hooks/useLogout';
 
 export const Header = () => {
   const { t } = useTranslation();
+  const router = useRouter();
+  const { logout } = useLogout();
 
   const dropdownItems = [
     { label: t('Simulator'), link: '/simulator' },
     { label: t('Add Simulator'), link: '/add-simulator' }
   ];
+
+  const onLogoutClick = () => {
+    logout();
+    router.reload();
+  };
 
   return (
     <HeaderContainer>
@@ -33,7 +42,9 @@ export const Header = () => {
           </li>
         </ul>
       </Nav>
-      <StyledButton>{t('header.logout')}</StyledButton>
+      <StyledButton onClick={() => onLogoutClick()}>
+        {t('header.logout')}
+      </StyledButton>
     </HeaderContainer>
   );
 };

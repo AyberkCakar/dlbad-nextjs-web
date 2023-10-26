@@ -24,7 +24,9 @@ export const GET_SIMULATORS = gql`
           timeInterval
         }
       }
-      result
+      dataset {
+        id
+      }
       simulatorName
       id
     }

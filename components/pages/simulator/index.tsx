@@ -19,6 +19,11 @@ import { PageContainer } from './_styles';
 import { useRouter } from 'next/router';
 import { ISimulator, ISimulatorResult } from './_types';
 import { IVariable } from '../../../models/variable';
+import InformationModal from './information-modal';
+import {
+  EModalType,
+  IInformationModalSettings
+} from './information-modal/_types';
 
 function getLikeWhere(searchText: string): Record<string, any> {
   return {
@@ -31,6 +36,15 @@ export default function SimulatorPage() {
   const { t } = useTranslation();
   const [rows, setData] = React.useState<ISimulator[]>([]);
   const [totalCount, setTotalCount] = React.useState<number>(0);
+  const [informationModalOpenState, setInformationModalOpenState] =
+    React.useState<boolean>(false);
+
+  const emptyInformationModalSettings: IInformationModalSettings = {
+    simulatorId: 0,
+    modalType: null
+  };
+  const [informationModalSettings, setInformationModalSettings] =
+    React.useState<IInformationModalSettings>(emptyInformationModalSettings);
 
   const [pagination, setPagination] = React.useState<GridPaginationModel>({
     pageSize: 10,
@@ -65,12 +79,17 @@ export default function SimulatorPage() {
       headerName: t('simulator.parameters'),
       width: 200,
       cellClassName: 'actions',
-      renderCell: ({ id, field }) => (
+      renderCell: ({ id }) => (
         <Button
           variant="outlined"
           color="primary"
           size="small"
-          onClick={() => onClickActionButton(id, field)}
+          onClick={() => {
+            setInformationModalSettings({
+              simulatorId: id as number,
+              modalType: EModalType.PARAMETERS
+            });
+          }}
         >
           {t('simulator.showParameters')}
         </Button>
@@ -82,12 +101,19 @@ export default function SimulatorPage() {
       headerName: t('simulator.result'),
       width: 200,
       cellClassName: 'actions',
-      renderCell: ({ id, field }) => (
+      renderCell: ({ id, row }) => (
         <Button
           variant="outlined"
           color="primary"
           size="small"
-          onClick={() => onClickActionButton(id, field)}
+          onClick={() => {
+            if (row.dataset) {
+              setInformationModalSettings({
+                simulatorId: id as number,
+                modalType: EModalType.RESULT
+              });
+            }
+          }}
         >
           {t('simulator.showResult')}
         </Button>
@@ -130,9 +156,14 @@ export default function SimulatorPage() {
     router.push('/simulator/' + id);
   };
 
-  const onClickActionButton = (id: GridRowId, field: string) => {
-    console.log(field, id);
-  };
+  React.useEffect(() => {
+    if (
+      informationModalSettings.simulatorId !== 0 &&
+      informationModalSettings.modalType !== null
+    ) {
+      setInformationModalOpenState(true);
+    }
+  }, [informationModalSettings]);
 
   const variables = React.useMemo(() => {
     let vars: IVariable = {
@@ -236,6 +267,18 @@ export default function SimulatorPage() {
         alertSuccess={alertSuccess}
         onClose={() => setAlertOpen(false)}
       ></AlertMessage>
+      <InformationModal
+        openState={informationModalOpenState}
+        onClose={() => {
+          setInformationModalOpenState(false);
+          setInformationModalSettings(emptyInformationModalSettings);
+        }}
+        settings={
+          informationModalOpenState
+            ? informationModalSettings
+            : emptyInformationModalSettings
+        }
+      ></InformationModal>
     </PageContainer>
   );
 }

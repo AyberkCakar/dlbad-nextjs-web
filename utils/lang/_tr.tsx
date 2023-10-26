@@ -20,7 +20,9 @@ export const tr: IDynamic = {
     search: 'Search',
     saveChanges: 'Save Changes',
     actions: 'Actions',
-    id: 'ID'
+    id: 'ID',
+    signIn: 'Sign In',
+    signUp: 'Sign Up'
   },
   failureTypes: {
     id: 'ID',
@@ -53,6 +55,21 @@ export const tr: IDynamic = {
     deleteSuccessMessage: 'Simulator Delete Successfully',
     deleteErrorMessage: 'Simulator Delete Error',
     showParameters: 'Show Parameters',
-    showResult: 'Show Result'
+    showResult: 'Show Result',
+    simulatorParameters: 'Simulator Parameters',
+    simulatorResult: 'Simulator Result',
+    amplitude: 'Amplitude',
+    vibration: 'Vibration',
+    temperature: 'Temperature',
+    tag: 'Tag',
+    time: 'Time'
+  },
+  login: {
+    emailAddress: 'Email Address',
+    password: 'Password',
+    wouldYouLikeToRegister: 'Would you like to register?',
+    successMessage: 'Sign In successful!',
+    errorMessage:
+      'There was a problem while signing in. Please check your information.'
   }
 };

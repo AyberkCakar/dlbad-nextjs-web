@@ -1,0 +1,55 @@
+export interface IInformationModal {
+  openState: boolean;
+  onClose: () => void;
+  settings: IInformationModalSettings;
+}
+
+export interface IInformationModalSettings {
+  simulatorId: number;
+  modalType: EModalType | null;
+}
+
+export enum EModalType {
+  PARAMETERS = 'paramenters',
+  RESULT = 'result'
+}
+
+export interface ISimulatorResultResponse {
+  datasets: IDataset[];
+  simulator_parameters: ISimulatorParameterData[];
+}
+
+export interface IDataset {
+  result: IDatasetResult;
+}
+
+export interface IDatasetResult {
+  Zaman: number[];
+  Etiket: string[];
+  Amplitude: number[];
+  Vibration: number[];
+  Temperature: number[];
+}
+
+export interface ITableResultData {
+  id: number;
+  Zaman: number;
+  Etiket: string;
+  Amplitude: number;
+  Vibration: number;
+  Temperature: number;
+}
+
+export interface ISimulatorParameter {
+  failureName: string;
+  id: number;
+  period: number;
+  soundAnomalyMultiplier: number;
+  temperatureAnomalyMultiplier: number;
+  timeInterval: number;
+  vibrationAnomalyMultiplier: number;
+}
+
+export interface ISimulatorParameterData {
+  failure_type: ISimulatorParameter;
+}

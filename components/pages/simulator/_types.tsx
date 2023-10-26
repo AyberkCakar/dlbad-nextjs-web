@@ -1,7 +1,9 @@
+import { IDataset } from './information-modal/_types';
+
 export interface ISimulator {
   id?: number;
   simulatorName: string;
-  result?: string;
+  dataset?: IDataset;
 }
 
 export interface ISimulatorResult {

@@ -55,7 +55,14 @@ export const en: IDynamic = {
     deleteSuccessMessage: 'Simulator Delete Successfully',
     deleteErrorMessage: 'Simulator Delete Error',
     showParameters: 'Show Parameters',
-    showResult: 'Show Result'
+    showResult: 'Show Result',
+    simulatorParameters: 'Simulator Parameters',
+    simulatorResult: 'Simulator Result',
+    amplitude: 'Amplitude',
+    vibration: 'Vibration',
+    temperature: 'Temperature',
+    tag: 'Tag',
+    time: 'Time'
   },
   login: {
     emailAddress: 'Email Address',

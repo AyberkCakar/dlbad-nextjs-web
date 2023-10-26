@@ -24,20 +24,20 @@ export interface IDataset {
 }
 
 export interface IDatasetResult {
-  Zaman: number[];
-  Etiket: string[];
-  Amplitude: number[];
-  Vibration: number[];
-  Temperature: number[];
+  time: number[];
+  tag: string[];
+  amplitude: number[];
+  vibration: number[];
+  temperature: number[];
 }
 
 export interface ITableResultData {
   id: number;
-  Zaman: number;
-  Etiket: string;
-  Amplitude: number;
-  Vibration: number;
-  Temperature: number;
+  time: number;
+  tag: string;
+  amplitude: number;
+  vibration: number;
+  temperature: number;
 }
 
 export interface ISimulatorParameter {

@@ -32,7 +32,7 @@ export default function InformationModal({
       trigger: 'axis'
     },
     legend: {
-      data: ['Vibration', 'Amplitude', 'Temperature']
+      data: ['vibration', 'amplitude', 'temperature']
     },
     grid: {
       left: '3%',
@@ -82,26 +82,26 @@ export default function InformationModal({
       headerName: t('general.id')
     },
     {
-      field: 'Zaman',
+      field: 'time',
       headerName: t('simulator.time'),
       width: 200
     },
     {
-      field: 'Etiket',
+      field: 'tag',
       headerName: t('simulator.tag')
     },
     {
-      field: 'Amplitude',
+      field: 'amplitude',
       headerName: t('simulator.amplitude'),
       width: 200
     },
     {
-      field: 'Vibration',
+      field: 'vibration',
       headerName: t('simulator.vibration'),
       width: 200
     },
     {
-      field: 'Temperature',
+      field: 'temperature',
       headerName: t('simulator.temperature'),
       width: 200
     }
@@ -142,14 +142,14 @@ export default function InformationModal({
         const datasetResult: IDatasetResult = data.datasets[0]
           ?.result as IDatasetResult;
         if (datasetResult) {
-          const joinData: ITableResultData[] = datasetResult.Zaman.map(
-            (zaman, index) => ({
+          const joinData: ITableResultData[] = datasetResult.time.map(
+            (_time, index) => ({
               id: index,
-              Zaman: zaman,
-              Etiket: datasetResult.Etiket[index],
-              Amplitude: datasetResult.Amplitude[index],
-              Vibration: datasetResult.Vibration[index],
-              Temperature: datasetResult.Temperature[index]
+              time: _time,
+              tag: datasetResult.tag[index],
+              amplitude: datasetResult.amplitude[index],
+              vibration: datasetResult.vibration[index],
+              temperature: datasetResult.temperature[index]
             })
           );
 
@@ -161,32 +161,32 @@ export default function InformationModal({
             xAxis: {
               ...chartOption.xAxis,
               // @ts-ignore
-              data: result.Zaman
+              data: datasetResult.time
             },
             series: [
               {
                 name: t('simulator.amplitude'),
                 type: 'line',
                 stack: 'Total',
-                data: datasetResult.Amplitude
+                data: datasetResult.amplitude
               },
               {
                 name: t('simulator.vibration'),
                 type: 'line',
                 stack: 'Total',
-                data: datasetResult.Vibration
+                data: datasetResult.vibration
               },
               {
                 name: t('simulator.temperature'),
                 type: 'line',
                 stack: 'Total',
-                data: datasetResult.Temperature
+                data: datasetResult.temperature
               },
               {
                 name: t('simulator.tag'),
                 type: 'line',
                 stack: 'Total',
-                data: datasetResult.Etiket
+                data: datasetResult.tag
               }
             ],
             tooltip: {}

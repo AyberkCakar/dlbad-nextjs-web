@@ -10,7 +10,10 @@ const nextConfig = {
   },
   compiler: {
     styledComponents: true,
-  }
+  },
+  env: {
+    jwtSecretKey: process.env.JWT_SECRET_KEY
+  },
 };
 
 module.exports = nextConfig;

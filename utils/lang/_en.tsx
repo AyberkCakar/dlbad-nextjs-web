@@ -20,7 +20,9 @@ export const en: IDynamic = {
     search: 'Search',
     saveChanges: 'Save Changes',
     actions: 'Actions',
-    id: 'ID'
+    id: 'ID',
+    signIn: 'Sign In',
+    signUp: 'Sign Up'
   },
   failureTypes: {
     id: 'ID',
@@ -54,5 +56,13 @@ export const en: IDynamic = {
     deleteErrorMessage: 'Simulator Delete Error',
     showParameters: 'Show Parameters',
     showResult: 'Show Result'
+  },
+  login: {
+    emailAddress: 'Email Address',
+    password: 'Password',
+    wouldYouLikeToRegister: 'Would you like to register?',
+    successMessage: 'Sign In successful!',
+    errorMessage:
+      'There was a problem while signing in. Please check your information.'
   }
 };

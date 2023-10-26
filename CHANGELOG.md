@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/AyberkCakar/dlbad-nextjs-web/compare/v1.1.0...v1.2.0) (2023-10-26)
+
+
+### Features
+
+* added authentication structure ([866aa06](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/866aa0640bec9970aff41212cac11b4d161ae4f2))
+* added env settings ([7d067be](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/7d067beb13b6bbdd1bb75a43599b823fe95177d3))
+* added js-cookie package and user service ([8a3561f](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/8a3561f1ae6952434abbe400b392bf4abd02d487))
+* added login page ([2fe9023](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/2fe9023f838983a87c8f09364cc5c65aed106287))
+* added logout hook ([43094f3](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/43094f319500e69042758e58f41c2cad77584fc1))
+* added modal size option ([bc05ea4](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/bc05ea43224432b78605501b59a09e4f8039b541))
+* added sign up page ([64da3ca](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/64da3ca6f0fc82d52ea849666932632aeed09c75))
+* added simulator information modal component ([a8ca061](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/a8ca061cb430ef4c092ef0c7eb7d4180296e2dca))
+
+
+### Bug Fixes
+
+* fixed add simulator page design ([6e241c4](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/6e241c40d027ab326c6ab45ba7a4b866909a88f0))
+* fixed datatable component ([6f94f4d](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/6f94f4d9490d5e3907ebfd6bd44ce755748f3e96))
+* fixed login page design ([491a81f](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/491a81fe3f02831dca2999158bc781367d2a881d))
+
 ### [1.1.0](https://github.com/AyberkCakar/dlbad-nextjs-web/compare/v1.0.0...v1.1.0) (2023-10-17)
 
 

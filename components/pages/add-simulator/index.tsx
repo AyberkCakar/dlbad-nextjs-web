@@ -1,17 +1,6 @@
 import React from 'react';
 import { useTranslation } from '../../../hooks/useTranslation';
-import {
-  ButtonContainer,
-  CancelButton,
-  FormBodyContainer,
-  FormContainer,
-  InputField,
-  PageContainer,
-  PageHeader,
-  PageHeaderIcon,
-  PageHeaderTitle,
-  SaveButton
-} from './_styles';
+import { AddSimulatorButtonContainer, CancelButton } from './_styles';
 import CheckboxList from '../../checkbox-list';
 import {
   ADD_SIMULATOR,
@@ -30,6 +19,9 @@ import {
   ISimulatorParameters,
   ISimulatorRequest
 } from '../simulator/_types';
+import { PageContainer } from '../../page-container';
+import { FormCard } from '../../form-card';
+import { InputField, SaveButton } from '../../form-card/styles';
 
 export const getServerSideProps = async (ctx: any) => {
   const simulatorId: number = ctx.query?.simulatorId as number;
@@ -150,47 +142,44 @@ export default function AddSimulatorPage({
   }, [data, error]);
 
   return (
-    <PageContainer>
-      <PageHeader>
-        <PageHeaderTitle>
-          {isSimulatorEdit
-            ? t('simulator.editSimulator')
-            : t('simulator.addSimulator')}
-        </PageHeaderTitle>
-        <PageHeaderIcon baseClassName="fa-solid" className="fa-server" />
-      </PageHeader>
-      <FormContainer>
-        <FormBodyContainer>
-          <InputField
-            label={t('simulator.simulatorName')}
-            variant="outlined"
-            fullWidth
-            size="small"
-            value={simulatorRequest?.simulatorName}
-            onChange={(e) =>
-              setSimulatorRequest({
-                ...simulatorRequest,
-                simulatorName: e.target?.value
-              })
-            }
-          />
-          <CheckboxList
-            data={checkboxListData}
-            title={t('simulator.checkBoxListTitle')}
-            disabled={isSimulatorEdit}
-            defaultCheckedIds={checkedIds}
-            setCheckedIds={(checkedIds: number[]) => setCheckedIds(checkedIds)}
-          ></CheckboxList>
-        </FormBodyContainer>
-        <ButtonContainer>
+    <PageContainer
+      pageIcon="fa-server"
+      pageTitle={
+        isSimulatorEdit
+          ? t('simulator.editSimulator')
+          : t('simulator.addSimulator')
+      }
+    >
+      <FormCard>
+        <InputField
+          label={t('simulator.simulatorName')}
+          variant="outlined"
+          fullWidth
+          size="small"
+          value={simulatorRequest?.simulatorName}
+          onChange={(e) =>
+            setSimulatorRequest({
+              ...simulatorRequest,
+              simulatorName: e.target?.value
+            })
+          }
+        />
+        <CheckboxList
+          data={checkboxListData}
+          title={t('simulator.checkBoxListTitle')}
+          disabled={isSimulatorEdit}
+          defaultCheckedIds={checkedIds}
+          setCheckedIds={(checkedIds: number[]) => setCheckedIds(checkedIds)}
+        ></CheckboxList>
+        <AddSimulatorButtonContainer>
           <SaveButton onClick={() => onSaveClick()}>
             {isSimulatorEdit
               ? t('general.saveChanges')
               : t('simulator.generateSimulatorData')}
           </SaveButton>
           <CancelButton>{t('general.cancel')}</CancelButton>
-        </ButtonContainer>
-      </FormContainer>
+        </AddSimulatorButtonContainer>
+      </FormCard>
       <AlertMessage
         openState={alertOpen}
         description={

@@ -1,6 +1,5 @@
 import {
   Checkbox,
-  List,
   ListItem,
   ListItemButton,
   ListItemIcon,
@@ -10,10 +9,10 @@ import React from 'react';
 import {
   CheckboxListContainer,
   CheckboxListHeader,
-  CheckboxListSplitter
+  CheckboxListSplitter,
+  ListContainer
 } from './_styles';
 import { ICheckboxList, ICheckboxListData } from './_type';
-import { ListContainer } from '../pages/add-simulator/_styles';
 
 export default function CheckboxList({
   data,

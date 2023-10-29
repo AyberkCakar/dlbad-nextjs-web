@@ -1,3 +1,4 @@
+import { List } from '@mui/material';
 import styled from 'styled-components';
 
 export const CheckboxListContainer = styled.div`
@@ -16,4 +17,10 @@ export const CheckboxListHeader = styled.h3`
 
 export const CheckboxListSplitter = styled.hr`
   width: 95%;
+`;
+
+export const ListContainer = styled(List)`
+  background-color: 'background.paper';
+  height: 250px;
+  overflow: hidden;
 `;

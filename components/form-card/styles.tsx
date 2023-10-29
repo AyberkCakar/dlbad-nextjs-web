@@ -8,6 +8,7 @@ export const FormBodyContainer = styled.div`
   justify-content: space-between;
   margin-right: 20px;
   margin-left: 20px;
+  margin-top: 30px;
 `;
 
 export const FormContainer = styled.div`
@@ -21,14 +22,13 @@ export const FormContainer = styled.div`
 `;
 
 export const InputField = styled(TextField)`
-  margin-top: 30px;
+  margin-bottom: 30px;
   min-width: 49%;
   max-width: 49%;
   flex: 1;
 `;
 
 export const ButtonContainer = styled.div`
-  margin-top: 20px;
   align-self: flex-end;
   width: 100%;
   text-align: right;

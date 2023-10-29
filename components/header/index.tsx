@@ -50,7 +50,7 @@ export const Header = () => {
             <Link href="/failure-types">{t('header.fauilureTypes')}</Link>
           </li>
           <li>
-            <Link href="/">{t('header.userSettings')}</Link>
+            <Link href="/user-settings">{t('header.userSettings')}</Link>
           </li>
         </ul>
       </Nav>

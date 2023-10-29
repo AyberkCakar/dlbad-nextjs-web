@@ -183,7 +183,7 @@ export default function FailureTypesPage() {
         id: selectedRowId
       }
     })
-      .then((result) => {
+      .then(() => {
         setAlertSuccess(true);
       })
       .catch((error) => {

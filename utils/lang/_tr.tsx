@@ -82,5 +82,13 @@ export const tr: IDynamic = {
     successMessage: 'Sign Up Successfully!',
     errorMessage:
       'There was a problem while signing up. Please check your information!'
+  },
+  userSettings: {
+    pageTitle: 'User Settings',
+    firstName: 'First Name',
+    lastName: 'Last Name',
+    emailAddress: 'Email Address',
+    successMessage: 'User information has been successfully updated!',
+    errorMessage: 'A problem occurred while updating user information!'
   }
 };

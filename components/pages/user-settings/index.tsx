@@ -1,11 +1,5 @@
 import React from 'react';
 import { useTranslation } from '../../../hooks/useTranslation';
-import {
-  PageContainer,
-  PageHeader,
-  PageHeaderIcon,
-  PageHeaderTitle
-} from './_styles';
 import { UserService } from '../../../utils/services/userService';
 import { UPDATE_USER } from './_graphql';
 import { useMutation } from '@apollo/client';
@@ -18,6 +12,7 @@ import {
   InputField,
   SaveButton
 } from '../../form-card/styles';
+import { PageContainer } from '../../page-container';
 
 export default function UserSettings() {
   const [alertOpen, setAlertOpen] = React.useState<boolean>(false);
@@ -65,11 +60,10 @@ export default function UserSettings() {
   };
 
   return (
-    <PageContainer>
-      <PageHeader>
-        <PageHeaderTitle>{t('userSettings.pageTitle')}</PageHeaderTitle>
-        <PageHeaderIcon baseClassName="fa-solid" className="fa-user-cog" />
-      </PageHeader>
+    <PageContainer
+      pageTitle={t('userSettings.pageTitle')}
+      pageIcon={'fa-user-cog'}
+    >
       <FormCard>
         <InputField
           label={t('userSettings.firstName')}

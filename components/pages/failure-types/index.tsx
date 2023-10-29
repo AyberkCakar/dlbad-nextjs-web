@@ -14,6 +14,8 @@ import { IFailureType, IFailureTypesResult } from './_model';
 import { useTranslation } from '../../../hooks/useTranslation';
 import { AlertMessage } from '../../alert';
 import { IVariable } from '../../../models/variable';
+import { PageContainer } from '../../page-container';
+import { FormCard } from '../../form-card';
 
 function getLikeWhere(searchText: string): Record<string, any> {
   return {
@@ -212,27 +214,29 @@ export default function FailureTypesPage() {
   }, [data, error]);
 
   return (
-    <>
-      <Datatable
-        columns={columns}
-        data={rows}
-        totalDataCount={totalCount}
-        isSearchable={true}
-        onPaginationChange={(pagination: GridPaginationModel) => {
-          setPagination(pagination);
-        }}
-        onSearchChange={(searchText: string) => {
-          setSearchText(searchText);
-        }}
-        onSortChange={(sort: GridSortItem | null) => {
-          setSort(sort);
-        }}
-        isAddButton={true}
-        addButtonLabel={t('failureTypes.addFailureType')}
-        onAddClick={() => {
-          setAddEditModalOpenState(true);
-        }}
-      ></Datatable>
+    <PageContainer pageIcon="fa-bug" pageTitle={t('failureTypes.pageTitle')}>
+      <FormCard>
+        <Datatable
+          columns={columns}
+          data={rows}
+          totalDataCount={totalCount}
+          isSearchable={true}
+          onPaginationChange={(pagination: GridPaginationModel) => {
+            setPagination(pagination);
+          }}
+          onSearchChange={(searchText: string) => {
+            setSearchText(searchText);
+          }}
+          onSortChange={(sort: GridSortItem | null) => {
+            setSort(sort);
+          }}
+          isAddButton={true}
+          addButtonLabel={t('failureTypes.addFailureType')}
+          onAddClick={() => {
+            setAddEditModalOpenState(true);
+          }}
+        ></Datatable>
+      </FormCard>
       <AddFailureTypeModal
         openState={addEditModalOpenState}
         onClose={() => {
@@ -262,6 +266,6 @@ export default function FailureTypesPage() {
         alertSuccess={alertSuccess}
         onClose={() => setAlertOpen(false)}
       ></AlertMessage>
-    </>
+    </PageContainer>
   );
 }

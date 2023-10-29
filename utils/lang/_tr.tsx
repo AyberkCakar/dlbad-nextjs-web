@@ -26,6 +26,7 @@ export const tr: IDynamic = {
     signUp: 'Sign Up'
   },
   failureTypes: {
+    pageTitle: 'Failure Types',
     id: 'ID',
     failureName: 'Failure Name',
     period: 'Period',
@@ -40,6 +41,7 @@ export const tr: IDynamic = {
     }
   },
   simulator: {
+    pageTitle: 'Simulator',
     editSimulator: 'Edit Simulator',
     addSimulator: 'Add Simulator',
     simulatorName: 'Simulator Name',

@@ -5,7 +5,7 @@ export const Container = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin-bottom: 30px;
+  margin-bottom: 30;
 `;
 
 export const Header = styled.div`
@@ -17,6 +17,7 @@ export const AddButton = styled(Button)`
   align-self: flex-start;
   height: 40px;
   text-transform: none;
+  display: flex !important;
   &::first-letter {
     text-transform: uppercase;
   }

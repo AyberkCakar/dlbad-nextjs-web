@@ -232,7 +232,7 @@ export default function SimulatorPage() {
   }, [data, error]);
 
   return (
-    <PageContainer pageIcon="fa-server" pageTitle={'Simulator'}>
+    <PageContainer pageIcon="fa-microchip" pageTitle={t('simulator.pageTitle')}>
       <FormCard>
         <Datatable
           columns={columns}

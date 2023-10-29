@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/AyberkCakar/dlbad-nextjs-web/compare/v1.2.0...v1.3.0) (2023-10-29)
+
+
+### Features
+
+* added change password modal ([272ea9e](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/272ea9ef17c254aa6117b73b63beaa009356e861))
+* added form card component ([d05fc5b](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/d05fc5b6723b4b3da3b449df13c94b985fe051a1))
+* added logo in header ([0f7c228](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/0f7c2282eddce5d6cf6c5ea0b6323e5268729144))
+* added new font family ([789ecbd](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/789ecbdc675e4ec93d43c40d91dfde72a9ff82a7))
+* added page container component ([793ba5d](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/793ba5df09ef66cba6965ca8466c8ce79da80932))
+* added page container on failure types page ([d642c55](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/d642c5503d5cfe42b5baf7e39eeae68de09c378e))
+* added token adding to apollo client ([822a0d9](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/822a0d9c1806d9a79610881404286447d07f87bc))
+* added user interface ([95e29d6](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/95e29d6737da1d8bb781522e88bb3035117fd365))
+* added user settings page ([b27269e](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/b27269ea612f8157089900039dc275ba4793675b))
+
+
+### Bug Fixes
+
+* fixed dataset property names ([ef2c9cf](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/ef2c9cf89eeecc91e39fec2c625261e0f1f34af9))
+* refactor user settings (Form Card) ([003bca7](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/003bca797eeebac665a222b20568465b12d8622b))
+* refactor user settings (Page Container) ([0cb96a4](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/0cb96a43a9f725f3ca67acab11efd278dec4e918))
+* refactored according to new components ([ae3b9f8](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/ae3b9f8c7910cca9c9bb8bff10e4f962b8c36adc))
+* refactored simulator page according to new components ([8969583](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/89695830696c7a8db3ac2915240bdb7216cc6552))
+
 ## [1.2.0](https://github.com/AyberkCakar/dlbad-nextjs-web/compare/v1.1.0...v1.2.0) (2023-10-26)
 
 

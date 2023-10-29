@@ -44,6 +44,7 @@ export const Nav = styled.nav`
 `;
 
 export const StyledButton = styled.button`
+  margin-right: 10px;
   padding: 10px 20px;
   background-color: #333;
   color: white;
@@ -77,3 +78,5 @@ export const LogoTitle1 = styled.h1`
 export const LogoTitle2 = styled.h1`
   color: #f652a0;
 `;
+
+export const HeaderButtonContainer = styled.div``;

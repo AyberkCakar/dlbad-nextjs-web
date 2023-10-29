@@ -12,7 +12,8 @@ export const tr: IDynamic = {
     algorithmResult: 'Algorithm Result',
     fauilureTypes: 'Fauilure Types',
     userSettings: 'User Settings',
-    logout: 'Logout'
+    logout: 'Logout',
+    changePassword: 'Change Password'
   },
   general: {
     save: 'Save',
@@ -92,5 +93,12 @@ export const tr: IDynamic = {
     emailAddress: 'Email Address',
     successMessage: 'User information has been successfully updated!',
     errorMessage: 'A problem occurred while updating user information!'
+  },
+  changePassword: {
+    modalTitle: 'Change Password',
+    password: 'Password',
+    newPassword: 'New Password',
+    successMessage: 'Password updated successfully!',
+    errorMessage: 'There was a problem updating the password!'
   }
 };

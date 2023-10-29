@@ -1,15 +1,33 @@
-import { ApolloClient, InMemoryCache } from '@apollo/client';
+import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import merge from 'deepmerge';
 import isEqual from 'lodash-es/isEqual';
+import { setContext } from '@apollo/client/link/context';
+import { UserService } from '../utils/services/userService';
 
 export const APOLLO_STATE_PROP_NAME = '__APOLLO_STATE__';
 
 const isServer = typeof window === 'undefined';
 let apolloClient: ApolloClient<any>;
 
+const httpLink = createHttpLink({
+  uri: process.env.hasuraUrl
+});
+
+const authLink = setContext((_, { headers }) => {
+  const token = UserService.getUser()?.token;
+  return {
+    headers: token
+      ? {
+          ...headers,
+          authorization: `Bearer ${token}`
+        }
+      : headers
+  };
+});
+
 function createApolloClient() {
   return new ApolloClient({
-    uri: 'http://localhost:34343/v1/graphql',
+    link: authLink.concat(httpLink),
     cache: new InMemoryCache(),
     ssrMode: isServer
   });

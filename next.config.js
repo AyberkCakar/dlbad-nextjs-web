@@ -12,7 +12,8 @@ const nextConfig = {
     styledComponents: true,
   },
   env: {
-    jwtSecretKey: process.env.JWT_SECRET_KEY
+    jwtSecretKey: process.env.JWT_SECRET_KEY,
+    hasuraUrl: process.env.HASURA_URL
   },
 };
 

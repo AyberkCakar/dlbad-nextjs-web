@@ -52,11 +52,11 @@ export default function ChangePasswordModal({
         onSave={() => handleSave()}
         openState={openState}
         onClose={handleClose}
-        modalTitle={t('Change Password')}
+        modalTitle={t('changePassword.modalTitle')}
       >
         <FormModalBody>
           <InputField
-            label={t('Password')}
+            label={t('changePassword.password')}
             variant="outlined"
             fullWidth
             size="small"
@@ -71,7 +71,7 @@ export default function ChangePasswordModal({
             }
           />
           <InputField
-            label={t('New Password')}
+            label={t('changePassword.newPassword')}
             variant="outlined"
             fullWidth
             type="password"
@@ -91,8 +91,8 @@ export default function ChangePasswordModal({
         openState={alertOpen}
         description={
           alertSuccess
-            ? 'Şifre başarıyla Güncellendi'
-            : 'Şifre Güncellenirken bir problem oluştu.'
+            ? t('changePassword.successMessage')
+            : t('changePassword.errorMessage')
         }
         alertSuccess={alertSuccess}
         onClose={() => setAlertOpen(false)}

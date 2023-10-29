@@ -2,9 +2,10 @@ import { Button, FormControl } from '@mui/material';
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  margin: 20px 30px 20px 30px;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  margin-bottom: 30px;
 `;
 
 export const Header = styled.div`

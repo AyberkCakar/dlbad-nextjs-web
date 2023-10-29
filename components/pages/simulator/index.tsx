@@ -15,7 +15,6 @@ import { AlertMessage } from '../../alert';
 import { DELETE_SIMULATOR, GET_SIMULATORS } from './_graphql';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/DeleteOutlined';
-import { PageContainer } from './_styles';
 import { useRouter } from 'next/router';
 import { ISimulator, ISimulatorResult } from './_types';
 import { IVariable } from '../../../models/variable';
@@ -24,6 +23,8 @@ import {
   EModalType,
   IInformationModalSettings
 } from './information-modal/_types';
+import { PageContainer } from '../../page-container';
+import { FormCard } from '../../form-card';
 
 function getLikeWhere(searchText: string): Record<string, any> {
   return {
@@ -231,23 +232,25 @@ export default function SimulatorPage() {
   }, [data, error]);
 
   return (
-    <PageContainer>
-      <Datatable
-        columns={columns}
-        data={rows}
-        totalDataCount={totalCount}
-        isSearchable={true}
-        onPaginationChange={(pagination: GridPaginationModel) => {
-          setPagination(pagination);
-        }}
-        onSearchChange={(searchText: string) => {
-          setSearchText(searchText);
-        }}
-        onSortChange={(sort: GridSortItem | null) => {
-          setSort(sort);
-        }}
-        isAddButton={false}
-      ></Datatable>
+    <PageContainer pageIcon="fa-server" pageTitle={'Simulator'}>
+      <FormCard>
+        <Datatable
+          columns={columns}
+          data={rows}
+          totalDataCount={totalCount}
+          isSearchable={true}
+          onPaginationChange={(pagination: GridPaginationModel) => {
+            setPagination(pagination);
+          }}
+          onSearchChange={(searchText: string) => {
+            setSearchText(searchText);
+          }}
+          onSortChange={(sort: GridSortItem | null) => {
+            setSort(sort);
+          }}
+          isAddButton={false}
+        ></Datatable>
+      </FormCard>
       <DeleteModal
         openState={openDeleteDialogState}
         onClose={() => setOpenDeleteDialogState(false)}

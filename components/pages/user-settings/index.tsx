@@ -1,15 +1,10 @@
 import React from 'react';
 import { useTranslation } from '../../../hooks/useTranslation';
 import {
-  ButtonContainer,
-  FormBodyContainer,
-  FormContainer,
-  InputField,
   PageContainer,
   PageHeader,
   PageHeaderIcon,
-  PageHeaderTitle,
-  SaveButton
+  PageHeaderTitle
 } from './_styles';
 import { UserService } from '../../../utils/services/userService';
 import { UPDATE_USER } from './_graphql';
@@ -17,6 +12,12 @@ import { useMutation } from '@apollo/client';
 import { AlertMessage } from '../../alert';
 import { IUserSettings } from './_types';
 import { IUser } from '../../../models/user';
+import { FormCard } from '../../form-card';
+import {
+  ButtonContainer,
+  InputField,
+  SaveButton
+} from '../../form-card/styles';
 
 export default function UserSettings() {
   const [alertOpen, setAlertOpen] = React.useState<boolean>(false);
@@ -69,54 +70,52 @@ export default function UserSettings() {
         <PageHeaderTitle>{t('userSettings.pageTitle')}</PageHeaderTitle>
         <PageHeaderIcon baseClassName="fa-solid" className="fa-user-cog" />
       </PageHeader>
-      <FormContainer>
-        <FormBodyContainer>
-          <InputField
-            label={t('userSettings.firstName')}
-            variant="outlined"
-            fullWidth
-            size="small"
-            value={userSettingsRequest.firstName}
-            onChange={(e) =>
-              setUserSettingsRequest({
-                ...userSettingsRequest,
-                firstName: e.target.value
-              })
-            }
-          />
-          <InputField
-            label={t('userSettings.lastName')}
-            variant="outlined"
-            fullWidth
-            size="small"
-            value={userSettingsRequest.lastName}
-            onChange={(e) =>
-              setUserSettingsRequest({
-                ...userSettingsRequest,
-                lastName: e.target.value
-              })
-            }
-          />
-          <InputField
-            label={t('userSettings.emailAddress')}
-            variant="outlined"
-            fullWidth
-            size="small"
-            value={userSettingsRequest.emailAddress}
-            onChange={(e) =>
-              setUserSettingsRequest({
-                ...userSettingsRequest,
-                emailAddress: e.target.value
-              })
-            }
-          />
-          <ButtonContainer>
-            <SaveButton onClick={() => onSaveClick()}>
-              {t('general.saveChanges')}
-            </SaveButton>
-          </ButtonContainer>
-        </FormBodyContainer>
-      </FormContainer>
+      <FormCard>
+        <InputField
+          label={t('userSettings.firstName')}
+          variant="outlined"
+          fullWidth
+          size="small"
+          value={userSettingsRequest.firstName}
+          onChange={(e) =>
+            setUserSettingsRequest({
+              ...userSettingsRequest,
+              firstName: e.target.value
+            })
+          }
+        />
+        <InputField
+          label={t('userSettings.lastName')}
+          variant="outlined"
+          fullWidth
+          size="small"
+          value={userSettingsRequest.lastName}
+          onChange={(e) =>
+            setUserSettingsRequest({
+              ...userSettingsRequest,
+              lastName: e.target.value
+            })
+          }
+        />
+        <InputField
+          label={t('userSettings.emailAddress')}
+          variant="outlined"
+          fullWidth
+          size="small"
+          value={userSettingsRequest.emailAddress}
+          onChange={(e) =>
+            setUserSettingsRequest({
+              ...userSettingsRequest,
+              emailAddress: e.target.value
+            })
+          }
+        />
+        <ButtonContainer>
+          <SaveButton onClick={() => onSaveClick()}>
+            {t('general.saveChanges')}
+          </SaveButton>
+        </ButtonContainer>
+      </FormCard>
       <AlertMessage
         openState={alertOpen}
         description={

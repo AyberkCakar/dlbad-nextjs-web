@@ -8,7 +8,7 @@ export const en: IDynamic = {
     title1: 'DLBAD',
     title2: 'AI',
     simulator: 'Simulator',
-    dataList: 'Data List',
+    realDataset: 'Real Dataset',
     algorithmResult: 'Algorithm Result',
     fauilureTypes: 'Fauilure Types',
     userSettings: 'User Settings',
@@ -100,5 +100,27 @@ export const en: IDynamic = {
     newPassword: 'New Password',
     successMessage: 'Password updated successfully!',
     errorMessage: 'There was a problem updating the password!'
+  },
+  realDataset: {
+    pageTitle: 'Real Dataset',
+    datasetName: 'Dataset Name',
+    deleteModal: {
+      title: 'Delete Real Dataset',
+      description:
+        'The selected Real Dataset will be deleted. Are you sure you want to continue?',
+      successMessage: 'Deletion of Real Dataset was successful!',
+      errorMessage: 'An error occurred while deleting Real Dataset!'
+    },
+    uploadFile: 'Upload File',
+    addModal: {
+      title: 'Add Real Dataset',
+      successMessage: 'Real Dataset added successfully!',
+      errorMessage: 'An error occurred while adding Real Dataset!'
+    },
+    editModal: {
+      title: 'Edit Real Dataset',
+      successMessage: 'Real Dataset was successfully updated!',
+      errorMessage: 'An error occurred while updating Real Dataset!'
+    }
   }
 };

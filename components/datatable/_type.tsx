@@ -20,3 +20,7 @@ export interface IDatatable<R extends GridValidRowModel = any> {
   addButtonLabel?: string;
   pagination?: GridPaginationModel;
 }
+
+export interface IAddButtonProps {
+  isAddButton: boolean;
+}

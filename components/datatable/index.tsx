@@ -75,7 +75,7 @@ export const Datatable = ({
           variant="outlined"
           color="success"
           startIcon={<Add />}
-          style={{ display: isAddButton ? 'block' : 'none' }}
+          isAddButton={isAddButton}
           onClick={() => {
             if (onAddClick) {
               onAddClick();

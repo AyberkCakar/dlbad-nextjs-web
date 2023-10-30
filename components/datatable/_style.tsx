@@ -1,11 +1,12 @@
 import { Button, FormControl } from '@mui/material';
 import styled from 'styled-components';
+import { IAddButtonProps } from './_type';
 
 export const Container = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin-bottom: 30;
+  margin-bottom: 30px;
 `;
 
 export const Header = styled.div`
@@ -13,11 +14,11 @@ export const Header = styled.div`
   flex-direction: row;
 `;
 
-export const AddButton = styled(Button)`
+export const AddButton = styled(Button)<IAddButtonProps>`
   align-self: flex-start;
   height: 40px;
   text-transform: none;
-  display: flex !important;
+  display: ${(props) => (props.isAddButton ? 'flex' : 'none')};
   &::first-letter {
     text-transform: uppercase;
   }

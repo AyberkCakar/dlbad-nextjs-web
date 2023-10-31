@@ -248,6 +248,8 @@ export default function FailureTypesPage() {
           setAlertOpen(true);
           setAddEditModalOpenState(!success);
           setFailureType(null);
+          getFirstPage();
+          refetch({ variables });
         }}
         failureType={failureType}
       ></AddFailureTypeModal>

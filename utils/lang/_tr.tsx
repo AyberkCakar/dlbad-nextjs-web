@@ -9,6 +9,7 @@ export const tr: IDynamic = {
     title2: 'AI',
     simulator: 'Simulator',
     realDataset: 'Real Dataset',
+    algorithms: 'Algorithms',
     algorithmResult: 'Algorithm Result',
     fauilureTypes: 'Fauilure Types',
     userSettings: 'User Settings',
@@ -122,6 +123,28 @@ export const tr: IDynamic = {
       title: 'Edit Real Dataset',
       successMessage: 'Real Dataset was successfully updated!',
       errorMessage: 'An error occurred while updating Real Dataset!'
+    }
+  },
+  algorithms: {
+    algorithmName: 'Algorithm Name',
+    pageTitle: 'Algorithms',
+    addAlgorithm: 'Add Algorithm',
+    deleteModal: {
+      title: 'Delete Algorithm',
+      description:
+        'The selected Algorithm will be deleted. Are you sure you want to continue?',
+      successMessage: 'Deletion of Algorithm was successful!',
+      errorMessage: 'An error occurred while deleting Algorithm!'
+    },
+    addModal: {
+      title: 'Add Algorithm',
+      successMessage: 'Algorithm added successfully!',
+      errorMessage: 'An error occurred while adding Algorithm!'
+    },
+    editModal: {
+      title: 'Edit Algorithm',
+      successMessage: 'Algorithm was successfully updated!',
+      errorMessage: 'An error occurred while updating Algorithm!'
     }
   }
 };

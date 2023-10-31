@@ -54,7 +54,7 @@ export const Header = () => {
               <Link href="/real-dataset">{t('header.realDataset')}</Link>
             </li>
             <li>
-              <Link href="/">{t('header.algorithmResult')}</Link>
+              <Link href="/algorithms">{t('header.algorithms')}</Link>
             </li>
             <li>
               <Link href="/failure-types">{t('header.fauilureTypes')}</Link>

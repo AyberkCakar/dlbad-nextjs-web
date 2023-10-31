@@ -14,19 +14,19 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/DeleteOutlined';
 import { IVariable } from '../../../models/variable';
 import { useMutation, useSuspenseQuery } from '@apollo/client';
-import { DELETE_REAL_DATASET, GET_REAL_DATASETS } from './_graphql';
-import { IRealDataset, IRealDatasetsResult } from './_types';
+import { DELETE_ALGORITHM, GET_ALGORITHMS } from './_graphql';
+import { IAlgorithm, IAlgorithmsResult } from './_types';
 import { AlertMessage } from '../../alert';
 import DeleteModal from '../../delete-modal';
-import AddRealDatasetModal from './add-real-dataset-modal';
+import AddAlgorithmModal from './add-algorithm-modal';
 
 function getLikeWhere(searchText: string): Record<string, any> {
   return {
-    datasetName: { _ilike: `%${searchText}%` }
+    algorithmName: { _ilike: `%${searchText}%` }
   };
 }
 
-export default function RealDataset() {
+export default function Algorithms() {
   const { t } = useTranslation();
   const columns: GridColDef[] = [
     {
@@ -34,8 +34,8 @@ export default function RealDataset() {
       headerName: t('general.id')
     },
     {
-      field: 'datasetName',
-      headerName: t('realDataset.datasetName'),
+      field: 'algorithmName',
+      headerName: t('algorithms.algorithmName'),
       width: 200
     },
     {
@@ -66,7 +66,7 @@ export default function RealDataset() {
     }
   ];
 
-  const [rows, setData] = React.useState<IRealDataset[]>([]);
+  const [rows, setData] = React.useState<IAlgorithm[]>([]);
   const [totalCount, setTotalCount] = React.useState<number>(0);
 
   const [pagination, setPagination] = React.useState<GridPaginationModel>({
@@ -83,24 +83,22 @@ export default function RealDataset() {
     React.useState<boolean>(false);
   const [openDeleteDialogState, setOpenDeleteDialogState] =
     React.useState<boolean>(false);
-  const [realDataset, setRealDataset] = React.useState<IRealDataset | null>(
-    null
-  );
+  const [algorithm, setAlgorithm] = React.useState<IAlgorithm | null>(null);
 
   const [alertOpen, setAlertOpen] = React.useState<boolean>(false);
   const [alertSuccess, setAlertSuccess] = React.useState<boolean>(false);
   const [selectedRowId, setSelectedRowId] = React.useState<number | null>(null);
-  const [deleteRealDataset] = useMutation(DELETE_REAL_DATASET);
+  const [deleteAlgorithm] = useMutation(DELETE_ALGORITHM);
 
   const onEditClick = (id: GridRowId) => {
-    const findData: IRealDataset | undefined = rows.find(
-      (data: IRealDataset) => data.id === id
+    const findData: IAlgorithm | undefined = rows.find(
+      (data: IAlgorithm) => data.id === id
     );
 
     if (findData) {
-      setRealDataset({
+      setAlgorithm({
         id: findData.id,
-        datasetName: findData.datasetName
+        algorithmName: findData.algorithmName
       });
       setAddEditModalOpenState(true);
     }
@@ -132,8 +130,8 @@ export default function RealDataset() {
     return vars;
   }, [pagination, searchText, sort]);
 
-  const { data, error, refetch } = useSuspenseQuery<IRealDatasetsResult>(
-    GET_REAL_DATASETS,
+  const { data, error, refetch } = useSuspenseQuery<IAlgorithmsResult>(
+    GET_ALGORITHMS,
     {
       variables
     }
@@ -149,7 +147,7 @@ export default function RealDataset() {
   const onDelete = () => {
     setOpenDeleteDialogState(false);
 
-    deleteRealDataset({
+    deleteAlgorithm({
       variables: {
         id: selectedRowId
       }
@@ -170,23 +168,20 @@ export default function RealDataset() {
 
   React.useEffect(() => {
     if (!addEditModalOpenState) {
-      setRealDataset(null);
+      setAlgorithm(null);
     }
   }, [addEditModalOpenState]);
 
   React.useEffect(() => {
     if (data) {
-      setData(data.real_datasets);
-      setTotalCount(data.real_datasets_aggregate.aggregate.count);
+      setData(data.algorithms);
+      setTotalCount(data.algorithms_aggregate.aggregate.count);
     } else if (error) {
     }
   }, [data, error]);
 
   return (
-    <PageContainer
-      pageIcon="fa-database"
-      pageTitle={t('realDataset.pageTitle')}
-    >
+    <PageContainer pageIcon="fa-robot" pageTitle={t('algorithms.pageTitle')}>
       <FormCard>
         <Datatable
           columns={columns}
@@ -203,41 +198,41 @@ export default function RealDataset() {
             setSort(sort);
           }}
           isAddButton={true}
-          addButtonLabel={t('realDataset.addRealDataset')}
+          addButtonLabel={t('algorithms.addAlgorithm')}
           onAddClick={() => {
             setAddEditModalOpenState(true);
           }}
         ></Datatable>
       </FormCard>
-      <AddRealDatasetModal
+      <AddAlgorithmModal
         openState={addEditModalOpenState}
         onClose={() => {
           setAddEditModalOpenState(false);
-          setRealDataset(null);
+          setAlgorithm(null);
         }}
         saveResponse={(success: boolean) => {
           setAddEditModalOpenState(!success);
-          setRealDataset(null);
+          setAlgorithm(null);
           getFirstPage();
           refetch({ variables });
         }}
-        realDataset={realDataset}
-      ></AddRealDatasetModal>
+        algorithm={algorithm}
+      ></AddAlgorithmModal>
       <DeleteModal
         openState={openDeleteDialogState}
         onClose={() => setOpenDeleteDialogState(false)}
         onDeleteClick={() => onDelete()}
         modalInfo={{
-          title: t('realDataset.deleteModal.title'),
-          description: t('realDataset.deleteModal.description')
+          title: t('algorithms.deleteModal.title'),
+          description: t('algorithms.deleteModal.description')
         }}
       ></DeleteModal>
       <AlertMessage
         openState={alertOpen}
         description={
           alertSuccess
-            ? t('realDataset.deleteModal.successMessage')
-            : t('realDataset.deleteModal.errorMessage')
+            ? t('algorithms.deleteModal.successMessage')
+            : t('algorithms.deleteModal.errorMessage')
         }
         alertSuccess={alertSuccess}
         onClose={() => setAlertOpen(false)}

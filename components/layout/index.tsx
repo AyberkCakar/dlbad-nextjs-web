@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { GlobalStyle, LayoutBase } from './_style';
 import { useTheme } from '../../hooks/useTheme';
 import { Footer } from '../footer';
-import { Header } from '../header';
 import '@fortawesome/fontawesome-free/css/all.css';
 import { useRouter } from 'next/router';
 import { UserService } from '../../utils/services/userService';
 import { verifyJwtToken } from '../../lib/verifyJwt';
+import { DrawerMenu } from '../drawer';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const { theme } = useTheme();
@@ -33,12 +33,13 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
   return isLogin ? (
     <LayoutBase>
-      <Header />
-      <GlobalStyle
-        backgroundColor={theme.colors.primaryBackgroundColor as string}
-      />
-      {children}
-      <Footer />
+      <DrawerMenu>
+        <GlobalStyle
+          backgroundColor={theme.colors.primaryBackgroundColor as string}
+        />
+        {children}
+        <Footer />
+      </DrawerMenu>
     </LayoutBase>
   ) : (
     <LayoutBase>{children}</LayoutBase>

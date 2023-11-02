@@ -2,19 +2,23 @@ import { IDynamic } from '../../models';
 
 export const tr: IDynamic = {
   footer: {
-    description: '2023 DLBAD Project'
+    description: 'DLBAD AI © 2023 - All Rights Reserved.',
+    version: 'Versiyon'
   },
   header: {
     title1: 'DLBAD',
     title2: 'AI',
-    simulator: 'Simulator',
-    realDataset: 'Real Dataset',
-    algorithms: 'Algorithms',
-    algorithmResult: 'Algorithm Result',
-    fauilureTypes: 'Fauilure Types',
-    userSettings: 'User Settings',
-    logout: 'Logout',
-    changePassword: 'Change Password'
+    home: 'Anasayfa',
+    simulator: 'Simülator',
+    addSimulator: 'Simülator Ekle',
+    realDataset: 'Gerçek Veriseti',
+    algorithms: 'Algoritmalar',
+    algorithmResult: 'Algoritma Karşılaştırma',
+    failureTypes: 'Hata Tipleri',
+    userSettings: 'Kullanıcı Ayarları',
+    logout: 'Çıkış Yap',
+    changePassword: 'Şifre Değiştir',
+    runAlgorithm: 'Algoritma Koş'
   },
   general: {
     save: 'Save',
@@ -28,7 +32,7 @@ export const tr: IDynamic = {
     signUp: 'Sign Up'
   },
   failureTypes: {
-    pageTitle: 'Failure Types',
+    pageTitle: 'Hata Tipleri',
     id: 'ID',
     failureName: 'Failure Name',
     period: 'Period',
@@ -88,7 +92,7 @@ export const tr: IDynamic = {
       'There was a problem while signing up. Please check your information!'
   },
   userSettings: {
-    pageTitle: 'User Settings',
+    pageTitle: 'Kullanıcı Ayarları',
     firstName: 'First Name',
     lastName: 'Last Name',
     emailAddress: 'Email Address',
@@ -96,14 +100,14 @@ export const tr: IDynamic = {
     errorMessage: 'A problem occurred while updating user information!'
   },
   changePassword: {
-    modalTitle: 'Change Password',
+    modalTitle: 'Şifre Değiştir',
     password: 'Password',
     newPassword: 'New Password',
     successMessage: 'Password updated successfully!',
     errorMessage: 'There was a problem updating the password!'
   },
   realDataset: {
-    pageTitle: 'Real Dataset',
+    pageTitle: 'Gerçek Veriseti',
     datasetName: 'Dataset Name',
     addRealDataset: 'Add Real Dataset',
     deleteModal: {
@@ -127,7 +131,7 @@ export const tr: IDynamic = {
   },
   algorithms: {
     algorithmName: 'Algorithm Name',
-    pageTitle: 'Algorithms',
+    pageTitle: 'Algoritmalar',
     addAlgorithm: 'Add Algorithm',
     deleteModal: {
       title: 'Delete Algorithm',

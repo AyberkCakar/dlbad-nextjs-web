@@ -2,19 +2,23 @@ import { IDynamic } from '../../models';
 
 export const en: IDynamic = {
   footer: {
-    description: '2023 DLBAD Project'
+    description: 'DLBAD AI © 2023 - All Rights Reserved.',
+    version: 'Version'
   },
   header: {
     title1: 'DLBAD',
     title2: 'AI',
+    home: 'Home',
     simulator: 'Simulator',
+    addSimulator: 'Add Simulator',
     realDataset: 'Real Dataset',
     algorithms: 'Algorithms',
-    algorithmResult: 'Algorithm Result',
-    fauilureTypes: 'Fauilure Types',
+    algorithmResult: 'Compare Algorithms',
+    failureTypes: 'Fauilure Types',
     userSettings: 'User Settings',
     logout: 'Logout',
-    changePassword: 'Change Password'
+    changePassword: 'Change Password',
+    runAlgorithm: 'Run Algorithm'
   },
   general: {
     save: 'Save',

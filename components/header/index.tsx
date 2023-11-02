@@ -1,82 +1,49 @@
-import Link from 'next/link';
-import { useTranslation } from '../../hooks/useTranslation';
+import React, { useState } from 'react';
+import { ProfileCard } from './profile-card';
 import {
-  HeaderButtonContainer,
+  HeaderActions,
   HeaderContainer,
-  Logo,
-  LogoContainer,
-  LogoTitle1,
-  LogoTitle2,
-  Nav,
-  StyledButton
-} from './_style';
-import DropdownMenu from './dropdown-menu';
-import { useRouter } from 'next/router';
-import { useLogout } from '../../hooks/useLogout';
-import React from 'react';
-import ChangePasswordModal from './change-password';
+  HeaderContent,
+  ProfileButtonAvatar,
+  ProfileButtonContainer,
+  ProfileButtonText,
+  ToggleButton
+} from './_styles';
+import { Icon } from '@mui/material';
+import { IUser } from '../../models/user';
+import { UserService } from '../../utils/services/userService';
+import Settings from '../settings';
 
-export const Header = () => {
-  const { t } = useTranslation();
-  const router = useRouter();
-  const { logout } = useLogout();
+export const Header = ({ toggleDrawer }: any) => {
+  const user: IUser = UserService.getUser() as IUser;
+  const [isProfileCardOpen, setProfileCardOpen] = useState(false);
 
-  const [changePasswordModalOpenState, setChangePasswordModalOpenState] =
-    React.useState<boolean>(false);
-
-  const dropdownItems = [
-    { label: t('Simulator'), link: '/simulator' },
-    { label: t('Add Simulator'), link: '/add-simulator' }
-  ];
-
-  const onLogoutClick = () => {
-    logout();
-    router.reload();
+  const toggleProfileCard = () => {
+    setProfileCardOpen(!isProfileCardOpen);
   };
 
   return (
-    <>
-      <HeaderContainer>
-        <LogoContainer>
-          <Logo src={'/assets/logo.png'} />
-          <LogoTitle1>{t('header.title1')}</LogoTitle1>&nbsp;
-          <LogoTitle2>{t('header.title2')}</LogoTitle2>
-        </LogoContainer>
-        <Nav>
-          <ul>
-            <li>
-              <DropdownMenu
-                title={t('header.simulator')}
-                items={dropdownItems}
-              />
-            </li>
-            <li>
-              <Link href="/real-dataset">{t('header.realDataset')}</Link>
-            </li>
-            <li>
-              <Link href="/algorithms">{t('header.algorithms')}</Link>
-            </li>
-            <li>
-              <Link href="/failure-types">{t('header.fauilureTypes')}</Link>
-            </li>
-            <li>
-              <Link href="/user-settings">{t('header.userSettings')}</Link>
-            </li>
-          </ul>
-        </Nav>
-        <HeaderButtonContainer>
-          <StyledButton onClick={() => setChangePasswordModalOpenState(true)}>
-            {t('header.changePassword')}
-          </StyledButton>
-          <StyledButton onClick={() => onLogoutClick()}>
-            {t('header.logout')}
-          </StyledButton>
-        </HeaderButtonContainer>
-      </HeaderContainer>
-      <ChangePasswordModal
-        openState={changePasswordModalOpenState}
-        onClose={() => setChangePasswordModalOpenState(false)}
-      ></ChangePasswordModal>
-    </>
+    <HeaderContainer>
+      <HeaderContent>
+        <ToggleButton onClick={() => toggleDrawer()}>
+          <Icon baseClassName="fa-solid" className={'fa-bars'} />
+        </ToggleButton>
+      </HeaderContent>
+
+      <HeaderActions>
+        <Settings />
+        <ToggleButton style={{ marginRight: 20 }} onClick={toggleProfileCard}>
+          <ProfileButtonContainer>
+            <ProfileButtonAvatar src={'/assets/user-avatar.png'} />
+            <ProfileButtonText>
+              {user.firstName} {user.lastName}
+            </ProfileButtonText>
+          </ProfileButtonContainer>
+        </ToggleButton>
+        {isProfileCardOpen && (
+          <ProfileCard user={{}} isOpen={isProfileCardOpen} />
+        )}
+      </HeaderActions>
+    </HeaderContainer>
   );
 };

@@ -13,7 +13,11 @@ const Settings = () => {
 
   return (
     <SettingsBase>
-      <Link href={pathname} locale={locale === 'tr' ? 'en' : 'tr'}>
+      <Link
+        style={{ marginTop: 6 }}
+        href={pathname}
+        locale={locale === 'tr' ? 'en' : 'tr'}
+      >
         <Flag src={`/assets/flags/${locale === 'tr' ? 'en' : 'tr'}.svg`} />
       </Link>
       <Hr />

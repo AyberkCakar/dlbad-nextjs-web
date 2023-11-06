@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/AyberkCakar/dlbad-nextjs-web/compare/v1.3.0...v1.4.0) (2023-11-06)
+
+
+### Features
+
+* added algorithm add-edit modal ([3c316e4](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/3c316e4dd5d091c62a294b56f502b9f0aaa5f50d))
+* added algorithms page ([ccef2a7](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/ccef2a73376496dd631bd73f397946b9cfa83ec6))
+* added algorithms page on header ([c436515](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/c4365159afd72a5626bd7d80e396359ccb0c6724))
+* added collapsible button component ([0b689e6](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/0b689e62119755d013dd42f233a9862f88e48f98))
+* added docker files ([3993055](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/3993055ae7cbc78db58c195bb1261231d5bf33e9))
+* added drawer menu component ([ebe7ace](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/ebe7aceb3d7996119aca2f86cbab19b392a1fde9))
+* added new footer design ([27221bf](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/27221bff211e56f8c15e50777ecb8fef09ebd0d7))
+* added new header design ([0842317](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/0842317d1c6b19bbc6f1c11bec7ef35665800a54))
+* added profile card component ([a2e0bc8](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/a2e0bc845ceb89c600da5d953aa5e7c0c02d3b51))
+* added real dataset page ([053b203](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/053b20380e630839f11a9c4980e922f6b6387417))
+
+
+### Bug Fixes
+
+* added missing translations on change password modal ([b29838d](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/b29838d29f643166db7155acc06b233dc752b227))
+* fixed add button view on tatable ([319a1df](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/319a1dff238780ecfeeb9f62ceb1343f1e293c0b))
+* fixed drawer menu css ([eddfa74](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/eddfa74dfef33fb4be353bb59030a5cc3e5c455d))
+
 ## [1.3.0](https://github.com/AyberkCakar/dlbad-nextjs-web/compare/v1.2.0...v1.3.0) (2023-10-29)
 
 

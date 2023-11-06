@@ -1,4 +1,4 @@
-import { Button } from '@mui/material';
+import { Button, Icon } from '@mui/material';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -111,4 +111,10 @@ export const MenuItem = styled(Button)`
   :hover {
     background-color: #706e6e;
   }
+`;
+
+export const MenuIcon = styled(Icon)`
+  color: white;
+  font-size: 18px;
+  width: 30px;
 `;

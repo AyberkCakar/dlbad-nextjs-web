@@ -14,7 +14,7 @@ export const Footer = () => {
     <FooterContainer>
       <FooterDescription>{t('footer.description')}</FooterDescription>
       <VersionContainer>
-        <VersionText>Version</VersionText>
+        <VersionText>{t('footer.version')}</VersionText>
         <Version>{process.env.version}</Version>
       </VersionContainer>
     </FooterContainer>

@@ -6,10 +6,11 @@ import {
   AvatarName,
   AvatarTitle,
   CardContainer,
+  Hr,
   ProfileCardItem,
-  ProfileCardItemText
+  ProfileCardItemText,
+  MenuIcon
 } from './_styles';
-import { Icon } from '@mui/material';
 import { UserService } from '../../../utils/services/userService';
 import { IUser } from '../../../models/user';
 import { useLogout } from '../../../hooks/useLogout';
@@ -45,16 +46,12 @@ export const ProfileCard = ({ isOpen }: any) => {
             <AvatarTitle>Admin</AvatarTitle>
           </AvatarInformationContainer>
         </AvatarCard>
-        <hr style={{ width: '100%' }} />
+        <Hr />
         <ProfileCardItem
           key={'user-settings'}
           onClick={() => router.replace('user-settings')}
         >
-          <Icon
-            style={{ color: 'white', fontSize: '18px', width: 30 }}
-            baseClassName={'fa-solid'}
-            className={'fa-user-gear'}
-          />
+          <MenuIcon baseClassName={'fa-solid'} className={'fa-user-gear'} />
 
           <ProfileCardItemText>
             {t('header.userSettings').charAt(0).toUpperCase() +
@@ -65,19 +62,14 @@ export const ProfileCard = ({ isOpen }: any) => {
           key={'change-password'}
           onClick={() => setChangePasswordModalOpenState(true)}
         >
-          <Icon
-            style={{ color: 'white', fontSize: '18px', width: 30 }}
-            baseClassName={'fa-solid'}
-            className={'fa-user-shield'}
-          />
+          <MenuIcon baseClassName={'fa-solid'} className={'fa-user-shield'} />
           <ProfileCardItemText>
             {t('header.changePassword').charAt(0).toUpperCase() +
               t('header.changePassword').slice(1)}
           </ProfileCardItemText>
         </ProfileCardItem>
         <ProfileCardItem key={'logout'} onClick={() => onLogoutClick()}>
-          <Icon
-            style={{ color: 'white', fontSize: '18px', width: 30 }}
+          <MenuIcon
             baseClassName={'fa-solid'}
             className={'fa-house-circle-xmark'}
           />

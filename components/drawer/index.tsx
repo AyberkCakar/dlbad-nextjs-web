@@ -15,7 +15,8 @@ import {
   LogoTitle2,
   MenuItem,
   MenuText,
-  ParentContent
+  ParentContent,
+  MenuIcon
 } from './_styles';
 import { Header } from '../header';
 
@@ -79,12 +80,12 @@ export const DrawerMenu = ({ children }: any) => {
     {
       name: t('header.runAlgorithm'),
       icon: 'fa-rocket',
-      link: '/algorithms'
+      link: '/'
     },
     {
       name: t('header.algorithmResult'),
       icon: 'fa-check-double',
-      link: '/algorithms'
+      link: '/'
     }
   ];
 
@@ -113,8 +114,7 @@ export const DrawerMenu = ({ children }: any) => {
                 key={item.name}
                 onClick={() => router.replace(item.link)}
               >
-                <Icon
-                  style={{ color: 'white', fontSize: '18px', width: '30px' }}
+                <MenuIcon
                   baseClassName={item?.baseClass ? item.baseClass : 'fa-solid'}
                   className={item.icon}
                 />

@@ -50,3 +50,7 @@ export const ProfileButtonText = styled.div`
   margin-left: 10px;
   font-size: 16px;
 `;
+
+export const ToggleProfileButton = styled(ToggleButton)`
+  margin-right: 20px;
+`;

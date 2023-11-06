@@ -1,4 +1,4 @@
-import { Button } from '@mui/material';
+import { Button, Icon } from '@mui/material';
 import styled from 'styled-components';
 
 export const CardContainer = styled.div`
@@ -72,4 +72,14 @@ export const AvatarTitle = styled.div`
   margin-left: 10px;
   font-size: 13px;
   color: #bab9b9;
+`;
+
+export const Hr = styled.hr`
+  width: 100%;
+`;
+
+export const MenuIcon = styled(Icon)`
+  color: white;
+  font-size: 18px;
+  width: 30px;
 `;

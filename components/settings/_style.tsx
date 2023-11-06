@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export const SettingsBase = styled.div`
   display: inline-flex;
   align-items: center;
+  margin-right: 20px;
 `;
 
 export const Flag = styled.img`

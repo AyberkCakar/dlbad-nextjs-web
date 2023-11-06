@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { useMutation } from '@apollo/client';
-import { useTranslation } from '../../../hooks/useTranslation';
-import { FormModal } from '../../modal';
+import { useTranslation } from '../../hooks/useTranslation';
+import { FormModal } from '../modal';
 import { CHANGE_PASSWORD } from './_graphql';
 import { IChangePassword, IChangePasswordModal } from './_types';
-import { AlertMessage } from '../../alert';
-import { InputField } from '../../form-card/styles';
+import { AlertMessage } from '../alert';
+import { InputField } from '../form-card/styles';
 import { FormModalBody } from './_styles';
 
 export default function ChangePasswordModal({

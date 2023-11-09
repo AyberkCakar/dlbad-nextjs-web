@@ -150,5 +150,15 @@ export const tr: IDynamic = {
       successMessage: 'Algorithm was successfully updated!',
       errorMessage: 'An error occurred while updating Algorithm!'
     }
+  },
+  runAlgorithms: {
+    pageTitle: 'Run Algorithms',
+    datatable: 'Datatable',
+    algortihms: 'Algorithms',
+    runAlgorithms: {
+      button: 'Run Algorithms',
+      successMessage: 'Run Algorithms successfully!',
+      errorMessage: 'An error occurred while Run Algorithms!'
+    }
   }
 };

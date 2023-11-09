@@ -46,13 +46,13 @@ export const DrawerMenu = ({ children }: any) => {
       link: '/'
     },
     {
-      name: t('header.simulator'),
+      name: t('header.simulators'),
       icon: 'fa-microchip',
       children: [
         {
-          name: t('header.simulator'),
+          name: t('header.simulators'),
           icon: 'fa-microchip',
-          link: '/simulator'
+          link: '/simulators'
         },
         {
           name: t('header.addSimulator'),
@@ -80,7 +80,7 @@ export const DrawerMenu = ({ children }: any) => {
     {
       name: t('header.runAlgorithm'),
       icon: 'fa-rocket',
-      link: '/'
+      link: '/run-algorithms'
     },
     {
       name: t('header.algorithmResult'),

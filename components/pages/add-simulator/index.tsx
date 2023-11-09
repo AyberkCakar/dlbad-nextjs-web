@@ -22,6 +22,7 @@ import {
 import { PageContainer } from '../../page-container';
 import { FormCard } from '../../form-card';
 import { InputField, SaveButton } from '../../form-card/styles';
+import { useRouter } from 'next/router';
 
 export const getServerSideProps = async (ctx: any) => {
   const simulatorId: number = ctx.query?.simulatorId as number;
@@ -41,6 +42,7 @@ export default function AddSimulatorPage({
 }: {
   simulator?: ISimulator;
 }) {
+  const router = useRouter();
   const isSimulatorEdit: boolean = !!simulator;
   const { t } = useTranslation();
   const [simulatorRequest, setSimulatorRequest] = React.useState<ISimulator>({
@@ -177,7 +179,13 @@ export default function AddSimulatorPage({
               ? t('general.saveChanges')
               : t('simulator.generateSimulatorData')}
           </SaveButton>
-          <CancelButton>{t('general.cancel')}</CancelButton>
+          {isSimulatorEdit ? (
+            <CancelButton onClick={() => router.replace('/simulators')}>
+              {t('general.cancel')}
+            </CancelButton>
+          ) : (
+            ''
+          )}
         </AddSimulatorButtonContainer>
       </FormCard>
       <AlertMessage

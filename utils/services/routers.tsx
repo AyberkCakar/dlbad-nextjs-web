@@ -4,6 +4,7 @@ export const protectedRoutes = [
   '/add-simulator',
   '/failure-types',
   '/user-settings',
-  '/real-data'
+  '/real-data',
+  '/run-algorithms'
 ];
 export const authRoutes = ['/login', '/sign-up'];

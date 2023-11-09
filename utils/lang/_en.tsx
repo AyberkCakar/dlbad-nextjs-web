@@ -9,7 +9,7 @@ export const en: IDynamic = {
     title1: 'DLBAD',
     title2: 'AI',
     home: 'Home',
-    simulator: 'Simulator',
+    simulators: 'Simulators',
     addSimulator: 'Add Simulator',
     realDataset: 'Real Dataset',
     algorithms: 'Algorithms',
@@ -148,6 +148,16 @@ export const en: IDynamic = {
       title: 'Edit Algorithm',
       successMessage: 'Algorithm was successfully updated!',
       errorMessage: 'An error occurred while updating Algorithm!'
+    }
+  },
+  runAlgorithms: {
+    pageTitle: 'Run Algorithms',
+    datatable: 'Datatable',
+    algortihms: 'Algorithms',
+    runAlgorithms: {
+      button: 'Run Algorithms',
+      successMessage: 'Run Algorithms successfully!',
+      errorMessage: 'An error occurred while Run Algorithms!'
     }
   }
 };

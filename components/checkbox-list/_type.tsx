@@ -1,8 +1,8 @@
 export interface ICheckboxList {
   data: ICheckboxListData[];
   title: string;
-  defaultCheckedIds: number[];
-  disabled: boolean;
+  defaultCheckedIds?: number[];
+  disabled?: boolean;
   setCheckedIds: (checkedIds: number[]) => void;
 }
 

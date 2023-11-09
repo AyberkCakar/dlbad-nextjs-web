@@ -5,13 +5,14 @@ import { IPageContainer } from './_types';
 export const PageContainer = ({
   pageTitle,
   pageIcon,
-  children
+  children,
+  baseClassName = 'fa-solid'
 }: IPageContainer) => {
   return (
     <Container>
       <HeaderContainer>
         <HeaderTitle>{pageTitle}</HeaderTitle>
-        <HeaderIcon baseClassName="fa-solid" className={pageIcon} />
+        <HeaderIcon baseClassName={baseClassName} className={pageIcon} />
       </HeaderContainer>
       {children}
     </Container>

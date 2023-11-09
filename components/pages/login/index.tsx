@@ -15,6 +15,7 @@ import Cookies from 'js-cookie';
 import { useTranslation } from '../../../hooks/useTranslation';
 import { ILoginRequest } from './_types';
 import { AlertMessage } from '../../alert';
+import { NextSeo } from 'next-seo';
 
 export default function Login() {
   const { t } = useTranslation();
@@ -45,6 +46,7 @@ export default function Login() {
 
   return (
     <>
+      <NextSeo title={t('header.mergeTitle') + ' - ' + t('general.signIn')} />
       <LoginContainer>
         <LoginForm>
           <FormBox>

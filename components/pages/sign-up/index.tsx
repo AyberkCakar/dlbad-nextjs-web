@@ -13,6 +13,7 @@ import { SIGN_UP } from './_graphql';
 import { useRouter } from 'next/router';
 import { useTranslation } from '../../../hooks/useTranslation';
 import { AlertMessage } from '../../alert';
+import { NextSeo } from 'next-seo';
 
 export default function SignUp() {
   const { t } = useTranslation();
@@ -45,6 +46,7 @@ export default function SignUp() {
 
   return (
     <>
+      <NextSeo title={t('header.mergeTitle') + ' - ' + t('general.signUp')} />
       <SignUpContainer>
         <SignUpForm>
           <FormBox>

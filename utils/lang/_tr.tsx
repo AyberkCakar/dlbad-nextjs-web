@@ -8,6 +8,7 @@ export const tr: IDynamic = {
   header: {
     title1: 'DLBAD',
     title2: 'AI',
+    mergeTitle: 'DLBAD AI',
     home: 'Anasayfa',
     simulator: 'Simülator',
     addSimulator: 'Simülator Ekle',

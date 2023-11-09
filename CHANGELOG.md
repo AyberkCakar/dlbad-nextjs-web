@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/AyberkCakar/dlbad-nextjs-web/compare/v1.4.0...v1.5.0) (2023-11-09)
+
+
+### Features
+
+* added dropdown component ([47dab92](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/47dab92da4ca22802d633f29d31c953d60f6cd41))
+* added run algorithms page ([5fcb6d8](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/5fcb6d8ceef870ad0f674af3f9a4ca4e3412f27a))
+* added seo page title ([5239b2f](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/5239b2f2cd07ef45ecbf1fefb0e1876bef1bcbcc))
+
+
+### Bug Fixes
+
+* fixed baseClass in PageContainer component ([8296fb5](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/8296fb51263e5c63152c8fc8f54927487fc2d60c))
+* fixed cancel button in add simulator page ([5cbc48e](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/5cbc48ef40e448b5ff35ec95ccfdcaf85bac9222))
+* fixed run algorithms page ([8a5a36e](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/8a5a36ec817715013ddefd68ac7b7261e1d2a2c5))
+* fixed simulator page url ([3c8af64](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/3c8af64f6b970ba331509b0c665b3f15912c6e52))
+
 ## [1.4.0](https://github.com/AyberkCakar/dlbad-nextjs-web/compare/v1.3.0...v1.4.0) (2023-11-06)
 
 

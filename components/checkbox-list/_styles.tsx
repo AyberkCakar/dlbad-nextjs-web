@@ -22,5 +22,5 @@ export const CheckboxListSplitter = styled.hr`
 export const ListContainer = styled(List)`
   background-color: 'background.paper';
   height: 250px;
-  overflow: hidden;
+  overflow: scroll;
 `;

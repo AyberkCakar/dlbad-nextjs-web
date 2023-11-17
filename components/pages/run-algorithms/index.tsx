@@ -5,30 +5,32 @@ import CheckboxList from '../../checkbox-list';
 import {
   GET_DATASETS,
   GET_ALGORITHMS,
-  INSERT_RUN_ALGORITHMS
+  INSERT_ALGORITHM_SETTINGS,
+  INSERT_ALGORITHM_RESULTS
 } from './_graphql';
 import { useMutation, useSuspenseQuery } from '@apollo/client';
 import { ICheckboxListData } from '../../checkbox-list/_type';
 import { AlertMessage } from '../../alert';
 import { PageContainer } from '../../page-container';
 import { FormCard } from '../../form-card';
-import { SaveButton } from '../../form-card/styles';
+import { InputField, SaveButton } from '../../form-card/styles';
 import { IOption } from '../../dropdown/_types';
 import Dropdown from '../../dropdown';
 import {
   IGroupedDataset,
   IGetAlgorithm,
   IDatasets,
-  IRunAlgorithm,
-  IRunAlgorithmRequest,
-  IRunAlgorithmVariables
+  IAlgorithmSettingRequest,
+  IAlgorithmSettingVariables,
+  IAlgorithmResult
 } from './_types';
 import { IAlgorithm } from '../algorithms/_types';
 
 export default function RunAlgorithmsPage() {
   const { t } = useTranslation();
   const [runAlgorithmRequest, setRunAlgorithmRequest] =
-    React.useState<IRunAlgorithmRequest>({
+    React.useState<IAlgorithmSettingRequest>({
+      algorithmSettingName: '',
       datasetId: 0,
       algorithmsIds: [],
       isRealDataset: false
@@ -46,25 +48,44 @@ export default function RunAlgorithmsPage() {
   const { data, error } = useSuspenseQuery<IDatasets>(GET_DATASETS);
   const getAlgoritmhs = useSuspenseQuery<IGetAlgorithm>(GET_ALGORITHMS);
 
-  const [runAlgoritmhs] = useMutation(INSERT_RUN_ALGORITHMS);
+  const [algorithmSettings] = useMutation(INSERT_ALGORITHM_SETTINGS);
+  const [algorithmResults] = useMutation(INSERT_ALGORITHM_RESULTS);
+
+  const getAlgorithmResultVariables = (algorithmSettingId: number) => {
+    return {
+      algorithm_results: runAlgorithmRequest.algorithmsIds.map(
+        (algorithmId: number) => {
+          return {
+            algorithmId: algorithmId,
+            algorithmSettingId
+          };
+        }
+      )
+    };
+  };
 
   const onSaveClick = () => {
-    const algorithm_settings: IRunAlgorithm[] =
-      runAlgorithmRequest.algorithmsIds.map((algorithmId: number) => {
-        return {
-          algorithmId: algorithmId,
-          [runAlgorithmRequest.isRealDataset ? 'realDatasetId' : 'simulatorId']:
-            runAlgorithmRequest.datasetId
-        };
-      });
-
-    let variables: IRunAlgorithmVariables = {
-      algorithm_settings
+    let variables: IAlgorithmSettingVariables = {
+      algorithm_settings: {
+        algorithmSettingName: runAlgorithmRequest.algorithmSettingName,
+        [runAlgorithmRequest.isRealDataset ? 'realDatasetId' : 'simulatorId']:
+          runAlgorithmRequest.datasetId
+      }
     };
 
-    runAlgoritmhs({ variables })
-      .then(() => {
-        setAlertSuccess(true);
+    algorithmSettings({ variables })
+      .then((response) => {
+        const algorithmSettingId =
+          response.data.insert_algorithm_settings_one.id;
+        const algorithmSettingVariables =
+          getAlgorithmResultVariables(algorithmSettingId);
+        algorithmResults({ variables: algorithmSettingVariables })
+          .then(() => {
+            setAlertSuccess(true);
+          })
+          .catch(() => {
+            setAlertSuccess(false);
+          });
       })
       .catch(() => {
         setAlertSuccess(false);
@@ -114,8 +135,21 @@ export default function RunAlgorithmsPage() {
       pageTitle={t('runAlgorithms.pageTitle')}
     >
       <FormCard>
+        <InputField
+          label={t('runAlgorithms.algorithmSettingName')}
+          variant="outlined"
+          fullWidth
+          size="small"
+          value={runAlgorithmRequest?.algorithmSettingName}
+          onChange={(e) =>
+            setRunAlgorithmRequest({
+              ...runAlgorithmRequest,
+              algorithmSettingName: e.target?.value
+            })
+          }
+        />
         <Dropdown
-          style={{ width: '40%' }}
+          style={{ width: '50%' }}
           size="small"
           labelSize="small"
           label={t('runAlgorithms.datatable')}

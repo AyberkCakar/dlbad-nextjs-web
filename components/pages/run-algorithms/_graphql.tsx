@@ -22,11 +22,21 @@ export const GET_ALGORITHMS = gql`
   }
 `;
 
-export const INSERT_RUN_ALGORITHMS = gql`
-  mutation INSERT_RUN_ALGORITHMS(
-    $algorithm_settings: [algorithm_settings_insert_input!]!
+export const INSERT_ALGORITHM_SETTINGS = gql`
+  mutation INSERT_ALGORITHM_SETTINGS(
+    $algorithm_settings: algorithm_settings_insert_input!
   ) {
-    insert_algorithm_settings(objects: $algorithm_settings) {
+    insert_algorithm_settings_one(object: $algorithm_settings) {
+      id
+    }
+  }
+`;
+
+export const INSERT_ALGORITHM_RESULTS = gql`
+  mutation INSERT_ALGORITHM_RESULTS(
+    $algorithm_results: [algorithm_results_insert_input!]!
+  ) {
+    insert_algorithm_results(objects: $algorithm_results) {
       affected_rows
     }
   }

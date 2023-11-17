@@ -1,19 +1,25 @@
 import { IAlgorithm } from '../algorithms/_types';
 
-export interface IRunAlgorithmRequest {
+export interface IAlgorithmSettingRequest {
   datasetId: number;
   algorithmsIds: number[];
   isRealDataset: boolean;
+  algorithmSettingName: string;
 }
 
-export interface IRunAlgorithm {
-  algorithmId: number;
+export interface IAlgorithmSetting {
+  algorithmSettingName: string;
   simulatorId?: number;
   realDatasetId?: number;
 }
 
-export interface IRunAlgorithmVariables {
-  algorithm_settings: IRunAlgorithm[];
+export interface IAlgorithmResult {
+  algorithmId: number;
+  algorithmSettingId: number;
+}
+
+export interface IAlgorithmSettingVariables {
+  algorithm_settings: IAlgorithmSetting;
 }
 
 export interface IGroupedDataset {

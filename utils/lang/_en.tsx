@@ -159,6 +159,7 @@ export const en: IDynamic = {
       button: 'Run Algorithms',
       successMessage: 'Run Algorithms successfully!',
       errorMessage: 'An error occurred while Run Algorithms!'
-    }
+    },
+    algorithmSettingName: 'Algorithm Setting Name'
   }
 };

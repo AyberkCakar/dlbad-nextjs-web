@@ -1,6 +1,6 @@
 import { GridActionsCellItem, GridColDef, GridRowId } from '@mui/x-data-grid';
 import { GridPaginationModel } from '@mui/x-data-grid/models/gridPaginationProps';
-import { useSuspenseQuery } from '@apollo/experimental-nextjs-app-support/ssr';
+import { useQuery } from '@apollo/experimental-nextjs-app-support/ssr';
 import * as React from 'react';
 import { GridSortItem } from '@mui/x-data-grid/models/gridSortModel';
 import { DELETE_FAILURE_TYPE, GET_FAILURE_TYPES } from './_graphql';
@@ -163,7 +163,7 @@ export default function FailureTypesPage() {
     return vars;
   }, [pagination, searchText, sort]);
 
-  const { data, error, refetch } = useSuspenseQuery<IFailureTypesResult>(
+  const { data, error, refetch } = useQuery<IFailureTypesResult>(
     GET_FAILURE_TYPES,
     {
       variables

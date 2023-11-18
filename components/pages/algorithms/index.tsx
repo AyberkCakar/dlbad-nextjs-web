@@ -13,7 +13,7 @@ import {
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/DeleteOutlined';
 import { IVariable } from '../../../models/variable';
-import { useMutation, useSuspenseQuery } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import { DELETE_ALGORITHM, GET_ALGORITHMS } from './_graphql';
 import { IAlgorithm, IAlgorithmsResult } from './_types';
 import { AlertMessage } from '../../alert';
@@ -130,12 +130,9 @@ export default function Algorithms() {
     return vars;
   }, [pagination, searchText, sort]);
 
-  const { data, error, refetch } = useSuspenseQuery<IAlgorithmsResult>(
-    GET_ALGORITHMS,
-    {
-      variables
-    }
-  );
+  const { data, error, refetch } = useQuery<IAlgorithmsResult>(GET_ALGORITHMS, {
+    variables
+  });
 
   const getFirstPage = () => {
     setPagination({

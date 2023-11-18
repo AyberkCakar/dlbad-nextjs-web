@@ -9,7 +9,7 @@ import { Datatable } from '../../datatable';
 import { Button } from '@mui/material';
 import React from 'react';
 import { useTranslation } from '../../../hooks/useTranslation';
-import { useMutation, useSuspenseQuery } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import DeleteModal from '../../delete-modal';
 import { AlertMessage } from '../../alert';
 import { DELETE_SIMULATOR, GET_SIMULATORS } from './_graphql';
@@ -187,12 +187,9 @@ export default function SimulatorPage() {
     return vars;
   }, [pagination, searchText, sort]);
 
-  const { data, error, refetch } = useSuspenseQuery<ISimulatorResult>(
-    GET_SIMULATORS,
-    {
-      variables
-    }
-  );
+  const { data, error, refetch } = useQuery<ISimulatorResult>(GET_SIMULATORS, {
+    variables
+  });
 
   const getFirstPage = () => {
     setPagination({

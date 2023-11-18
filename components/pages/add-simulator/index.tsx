@@ -9,7 +9,7 @@ import {
   GET_SIMULATOR,
   UPDATE_SIMULATOR
 } from './_graphql';
-import { useMutation, useSuspenseQuery } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import { IFailureType, IFailureTypesResult } from '../failure-types/_model';
 import { ICheckboxListData } from '../../checkbox-list/_type';
 import { AlertMessage } from '../../alert';
@@ -57,8 +57,7 @@ export default function AddSimulatorPage({
 
   const [checkedIds, setCheckedIds] = React.useState<number[]>([]);
 
-  const { data, error } =
-    useSuspenseQuery<IFailureTypesResult>(GET_FAILURE_TYPES);
+  const { data, error } = useQuery<IFailureTypesResult>(GET_FAILURE_TYPES);
 
   const [addSimulator] = useMutation(
     isSimulatorEdit ? UPDATE_SIMULATOR : ADD_SIMULATOR

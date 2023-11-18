@@ -4,7 +4,7 @@ import { useTranslation } from '../../../../hooks/useTranslation';
 import { Datatable } from '../../../datatable';
 import { GridColDef } from '@mui/x-data-grid';
 import { GET_SIMULATOR_PARAMETERS, GET_SIMULATOR_RESULT } from './_graphql';
-import { DocumentNode, useSuspenseQuery } from '@apollo/client';
+import { DocumentNode, useQuery } from '@apollo/client';
 import {
   EModalType,
   IDatasetResult,
@@ -117,14 +117,11 @@ export default function InformationModal({
     settings.modalType === EModalType.PARAMETERS
       ? GET_SIMULATOR_PARAMETERS
       : GET_SIMULATOR_RESULT;
-  const { data, error } = useSuspenseQuery<ISimulatorResultResponse>(
-    selectedQuery,
-    {
-      variables: {
-        simulatorId: settings.simulatorId
-      }
+  const { data, error } = useQuery<ISimulatorResultResponse>(selectedQuery, {
+    variables: {
+      simulatorId: settings.simulatorId
     }
-  );
+  });
 
   React.useEffect(() => {
     if (data) {

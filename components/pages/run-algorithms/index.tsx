@@ -8,7 +8,7 @@ import {
   INSERT_ALGORITHM_SETTINGS,
   INSERT_ALGORITHM_RESULTS
 } from './_graphql';
-import { useMutation, useSuspenseQuery } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import { ICheckboxListData } from '../../checkbox-list/_type';
 import { AlertMessage } from '../../alert';
 import { PageContainer } from '../../page-container';
@@ -45,8 +45,8 @@ export default function RunAlgorithmsPage() {
   const [dropdownData, setDropdownData] = React.useState<IOption[]>([]);
   const [checkedIds, setCheckedIds] = React.useState<number[]>([]);
 
-  const { data, error } = useSuspenseQuery<IDatasets>(GET_DATASETS);
-  const getAlgoritmhs = useSuspenseQuery<IGetAlgorithm>(GET_ALGORITHMS);
+  const { data, error } = useQuery<IDatasets>(GET_DATASETS);
+  const getAlgoritmhs = useQuery<IGetAlgorithm>(GET_ALGORITHMS);
 
   const [algorithmSettings] = useMutation(INSERT_ALGORITHM_SETTINGS);
   const [algorithmResults] = useMutation(INSERT_ALGORITHM_RESULTS);

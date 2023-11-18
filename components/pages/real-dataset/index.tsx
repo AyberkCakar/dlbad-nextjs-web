@@ -13,7 +13,7 @@ import {
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/DeleteOutlined';
 import { IVariable } from '../../../models/variable';
-import { useMutation, useSuspenseQuery } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import { DELETE_REAL_DATASET, GET_REAL_DATASETS } from './_graphql';
 import { IRealDataset, IRealDatasetsResult } from './_types';
 import { AlertMessage } from '../../alert';
@@ -132,7 +132,7 @@ export default function RealDataset() {
     return vars;
   }, [pagination, searchText, sort]);
 
-  const { data, error, refetch } = useSuspenseQuery<IRealDatasetsResult>(
+  const { data, error, refetch } = useQuery<IRealDatasetsResult>(
     GET_REAL_DATASETS,
     {
       variables

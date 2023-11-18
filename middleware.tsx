@@ -16,7 +16,10 @@ export async function middleware(request: NextRequest) {
     !currentUser &&
     !verify
   ) {
+    request.cookies.delete('user');
     const response = NextResponse.redirect(new URL('/login', request.url));
+    response.cookies.delete('user');
+
     return response;
   }
 

@@ -1,10 +1,11 @@
 export const protectedRoutes = [
   '/',
-  '/simulator',
+  '/simulators',
   '/add-simulator',
   '/failure-types',
   '/user-settings',
-  '/real-data',
-  '/run-algorithms'
+  '/real-dataset',
+  '/run-algorithms',
+  '/algorithms'
 ];
 export const authRoutes = ['/login', '/sign-up'];

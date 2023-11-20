@@ -3,7 +3,11 @@ import { IDataset } from './information-modal/_types';
 export interface ISimulator {
   id?: number;
   simulatorName: string;
+  expectedTemperatureValue?: number | string;
+  expectedSoundValue?: number | string;
+  expectedVibrationValue?: number | string;
   dataset?: IDataset;
+  simulator_parameters?: ISimulatorParameters[];
 }
 
 export interface ISimulatorResult {
@@ -14,7 +18,7 @@ export interface ISimulatorResult {
 }
 
 export interface ISimulatorParameters {
-  simulatorId: number;
+  simulatorId?: number;
   failureTypeId: number;
 }
 

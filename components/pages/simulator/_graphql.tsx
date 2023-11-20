@@ -24,9 +24,12 @@ export const GET_SIMULATORS = gql`
           timeInterval
         }
       }
-      dataset {
+      datasets {
         id
       }
+      expectedTemperatureValue
+      expectedSoundValue
+      expectedVibrationValue
       simulatorName
       id
     }

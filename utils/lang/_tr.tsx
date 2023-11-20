@@ -72,7 +72,10 @@ export const tr: IDynamic = {
     vibration: 'Vibration',
     temperature: 'Temperature',
     tag: 'Tag',
-    time: 'Time'
+    time: 'Time',
+    expectedTemperatureValue: 'Expected Temperature Value',
+    expectedSoundValue: 'Expected Sound Value',
+    expectedVibrationValue: 'Expected Vibration Value'
   },
   login: {
     emailAddress: 'Email Address',

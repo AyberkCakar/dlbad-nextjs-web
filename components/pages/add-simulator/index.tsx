@@ -46,7 +46,10 @@ export default function AddSimulatorPage({
   const isSimulatorEdit: boolean = !!simulator;
   const { t } = useTranslation();
   const [simulatorRequest, setSimulatorRequest] = React.useState<ISimulator>({
-    simulatorName: ''
+    simulatorName: '',
+    expectedSoundValue: '',
+    expectedTemperatureValue: '',
+    expectedVibrationValue: ''
   });
 
   const [alertOpen, setAlertOpen] = React.useState<boolean>(false);
@@ -66,14 +69,30 @@ export default function AddSimulatorPage({
 
   React.useEffect(() => {
     if (simulator) {
-      setSimulatorRequest({ simulatorName: simulator.simulatorName });
+      setSimulatorRequest({
+        simulatorName: simulator.simulatorName,
+        expectedSoundValue: simulator.expectedSoundValue,
+        expectedTemperatureValue: simulator.expectedTemperatureValue,
+        expectedVibrationValue: simulator.expectedVibrationValue
+      });
+
+      const defaultCheckIds = simulator?.simulator_parameters
+        ? simulator?.simulator_parameters.map(
+            (parameter: ISimulatorParameters) => parameter.failureTypeId
+          )
+        : [];
+
+      setCheckedIds(defaultCheckIds);
     }
   }, [simulator]);
 
   const onSaveClick = () => {
     let variables: ISimulatorRequest = {
       simulator: {
-        simulatorName: simulatorRequest.simulatorName
+        simulatorName: simulatorRequest.simulatorName,
+        expectedSoundValue: simulatorRequest.expectedSoundValue,
+        expectedTemperatureValue: simulatorRequest.expectedTemperatureValue,
+        expectedVibrationValue: simulatorRequest.expectedVibrationValue
       }
     };
 
@@ -106,7 +125,12 @@ export default function AddSimulatorPage({
               setAlertSuccess(true);
 
               if (!isSimulatorEdit) {
-                setSimulatorRequest({ simulatorName: '' });
+                setSimulatorRequest({
+                  simulatorName: '',
+                  expectedSoundValue: '',
+                  expectedTemperatureValue: '',
+                  expectedVibrationValue: ''
+                });
                 setCheckedIds([]);
               }
             })
@@ -162,6 +186,48 @@ export default function AddSimulatorPage({
             setSimulatorRequest({
               ...simulatorRequest,
               simulatorName: e.target?.value
+            })
+          }
+        />
+        <InputField
+          label={t('simulator.expectedTemperatureValue')}
+          variant="outlined"
+          fullWidth
+          size="small"
+          type="number"
+          value={simulatorRequest?.expectedTemperatureValue}
+          onChange={(e) =>
+            setSimulatorRequest({
+              ...simulatorRequest,
+              expectedTemperatureValue: Number(e.target?.value)
+            })
+          }
+        />
+        <InputField
+          label={t('simulator.expectedSoundValue')}
+          variant="outlined"
+          fullWidth
+          size="small"
+          type="number"
+          value={simulatorRequest?.expectedSoundValue}
+          onChange={(e) =>
+            setSimulatorRequest({
+              ...simulatorRequest,
+              expectedSoundValue: Number(e.target?.value)
+            })
+          }
+        />
+        <InputField
+          label={t('simulator.expectedVibrationValue')}
+          variant="outlined"
+          fullWidth
+          size="small"
+          type="number"
+          value={simulatorRequest?.expectedVibrationValue}
+          onChange={(e) =>
+            setSimulatorRequest({
+              ...simulatorRequest,
+              expectedVibrationValue: Number(e.target?.value)
             })
           }
         />

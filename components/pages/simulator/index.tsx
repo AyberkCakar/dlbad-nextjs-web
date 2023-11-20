@@ -75,6 +75,21 @@ export default function SimulatorPage() {
       width: 200
     },
     {
+      field: 'expectedTemperatureValue',
+      headerName: t('simulator.expectedTemperatureValue'),
+      width: 200
+    },
+    {
+      field: 'expectedSoundValue',
+      headerName: t('simulator.expectedSoundValue'),
+      width: 200
+    },
+    {
+      field: 'expectedVibrationValue',
+      headerName: t('simulator.expectedVibrationValue'),
+      width: 200
+    },
+    {
       field: 'parameters',
       type: 'actions',
       headerName: t('simulator.parameters'),
@@ -108,7 +123,7 @@ export default function SimulatorPage() {
           color="primary"
           size="small"
           onClick={() => {
-            if (row.dataset) {
+            if (row.datasets) {
               setInformationModalSettings({
                 simulatorId: id as number,
                 modalType: EModalType.RESULT

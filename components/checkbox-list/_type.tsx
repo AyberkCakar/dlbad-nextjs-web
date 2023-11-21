@@ -1,12 +1,12 @@
 export interface ICheckboxList {
   data: ICheckboxListData[];
   title: string;
-  defaultCheckedIds?: number[];
+  defaultCheckedIds?: (number | string)[];
   disabled?: boolean;
-  setCheckedIds: (checkedIds: number[]) => void;
+  setCheckedIds: (checkedIds: (number | string)[]) => void;
 }
 
 export interface ICheckboxListData {
-  id: number;
+  id: number | string;
   name: string;
 }

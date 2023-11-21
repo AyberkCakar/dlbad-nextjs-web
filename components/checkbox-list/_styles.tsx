@@ -6,7 +6,7 @@ export const CheckboxListContainer = styled.div`
   border-radius: 5px;
   background-color: #fff;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  width: 100%;
+  width: 48%;
   max-width: 607px;
 `;
 

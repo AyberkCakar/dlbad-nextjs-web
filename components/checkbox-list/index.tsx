@@ -21,9 +21,9 @@ export default function CheckboxList({
   setCheckedIds,
   disabled = false
 }: ICheckboxList) {
-  const onCheckboxClick = (value: number) => {
-    const currentIndex: number = defaultCheckedIds.indexOf(value);
-    const newChecked: number[] = [...defaultCheckedIds];
+  const onCheckboxClick = (value: number | string) => {
+    const currentIndex: number | string = defaultCheckedIds.indexOf(value);
+    const newChecked: (number | string)[] = [...defaultCheckedIds];
 
     if (currentIndex === -1) {
       newChecked.push(value);

@@ -22,5 +22,5 @@ export interface IDatatable<R extends GridValidRowModel = any> {
 }
 
 export interface IAddButtonProps {
-  isAddButton: boolean;
+  isAddButton?: boolean;
 }

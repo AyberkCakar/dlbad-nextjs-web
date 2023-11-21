@@ -1,7 +1,7 @@
 export interface IDropdownOptions {
   label: string;
   options: IOption[];
-  defaultOption?: number | null;
+  defaultOption?: number | string | null;
   size?: 'small' | 'medium';
   labelSize?: 'normal' | 'small';
   style?: React.CSSProperties;

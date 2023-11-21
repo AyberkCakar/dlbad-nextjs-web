@@ -11,10 +11,10 @@ export default function Dropdown({
   style,
   valueChange
 }: IDropdownOptions) {
-  const [value, setValue] = React.useState<number | null>(null);
+  const [value, setValue] = React.useState<number | string | null>('');
   React.useEffect(() => {
     defaultOption && setValue(defaultOption);
-  }, [defaultOption]);
+  }, []);
 
   return (
     <FormControl style={style}>

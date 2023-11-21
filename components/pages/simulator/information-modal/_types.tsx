@@ -26,7 +26,7 @@ export interface IDataset {
 export interface IDatasetResult {
   time: number[];
   tag: string[];
-  amplitude: number[];
+  sound: number[];
   vibration: number[];
   temperature: number[];
 }
@@ -35,7 +35,7 @@ export interface ITableResultData {
   id: number;
   time: number;
   tag: string;
-  amplitude: number;
+  sound: number;
   vibration: number;
   temperature: number;
 }

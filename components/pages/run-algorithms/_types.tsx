@@ -1,16 +1,18 @@
 import { IAlgorithm } from '../algorithms/_types';
 
 export interface IAlgorithmSettingRequest {
-  datasetId: number;
+  datasetId: number | string;
   algorithmsIds: number[];
   isRealDataset: boolean;
   algorithmSettingName: string;
+  sensorTypes: string[];
 }
 
 export interface IAlgorithmSetting {
   algorithmSettingName: string;
   simulatorId?: number;
   realDatasetId?: number;
+  sensorTypes: string;
 }
 
 export interface IAlgorithmResult {

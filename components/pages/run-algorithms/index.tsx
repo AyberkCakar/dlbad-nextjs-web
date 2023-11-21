@@ -21,20 +21,31 @@ import {
   IGetAlgorithm,
   IDatasets,
   IAlgorithmSettingRequest,
-  IAlgorithmSettingVariables,
-  IAlgorithmResult
+  IAlgorithmSettingVariables
 } from './_types';
 import { IAlgorithm } from '../algorithms/_types';
 
 export default function RunAlgorithmsPage() {
   const { t } = useTranslation();
+  const defaultAlgorithmRequest = {
+    algorithmSettingName: '',
+    datasetId: '',
+    algorithmsIds: [],
+    isRealDataset: false,
+    sensorTypes: []
+  };
+
   const [runAlgorithmRequest, setRunAlgorithmRequest] =
-    React.useState<IAlgorithmSettingRequest>({
-      algorithmSettingName: '',
-      datasetId: 0,
-      algorithmsIds: [],
-      isRealDataset: false
-    });
+    React.useState<IAlgorithmSettingRequest>(defaultAlgorithmRequest);
+
+  const sensorTypes: ICheckboxListData[] = [
+    { id: 'vibration', name: 'Vibration' },
+    { id: 'sound', name: 'Sound' },
+    { id: 'temperature', name: 'Temperature' }
+  ];
+  const [checkedSensorTypes, setCheckedSensorTypes] = React.useState<string[]>(
+    []
+  );
 
   const [alertOpen, setAlertOpen] = React.useState<boolean>(false);
   const [alertSuccess, setAlertSuccess] = React.useState<boolean>(false);
@@ -69,7 +80,8 @@ export default function RunAlgorithmsPage() {
       algorithm_settings: {
         algorithmSettingName: runAlgorithmRequest.algorithmSettingName,
         [runAlgorithmRequest.isRealDataset ? 'realDatasetId' : 'simulatorId']:
-          runAlgorithmRequest.datasetId
+          runAlgorithmRequest.datasetId,
+        sensorTypes: runAlgorithmRequest.sensorTypes.join(',')
       }
     };
 
@@ -92,6 +104,9 @@ export default function RunAlgorithmsPage() {
       })
       .finally(() => {
         setAlertOpen(true);
+        setRunAlgorithmRequest(defaultAlgorithmRequest);
+        setCheckedIds([]);
+        setCheckedSensorTypes([]);
       });
   };
 
@@ -152,8 +167,9 @@ export default function RunAlgorithmsPage() {
           style={{ width: '50%' }}
           size="small"
           labelSize="small"
-          label={t('runAlgorithms.datatable')}
+          label={t('runAlgorithms.dataset')}
           options={dropdownData}
+          defaultOption={runAlgorithmRequest?.datasetId}
           valueChange={(id: number | string) => {
             const idSplit: string[] = id.toString().split('_');
             setRunAlgorithmRequest({
@@ -167,11 +183,23 @@ export default function RunAlgorithmsPage() {
           data={checkboxListData}
           title={t('runAlgorithms.algortihms')}
           defaultCheckedIds={checkedIds}
-          setCheckedIds={(checkedIds: number[]) => {
-            setCheckedIds(checkedIds);
+          setCheckedIds={(checkedIds: (number | string)[]) => {
+            setCheckedIds(checkedIds as number[]);
             setRunAlgorithmRequest({
               ...runAlgorithmRequest,
-              algorithmsIds: checkedIds
+              algorithmsIds: checkedIds as number[]
+            });
+          }}
+        ></CheckboxList>
+        <CheckboxList
+          data={sensorTypes}
+          title={t('runAlgorithms.sensorTypes')}
+          defaultCheckedIds={checkedSensorTypes}
+          setCheckedIds={(checkedIds: (number | string)[]) => {
+            setCheckedSensorTypes(checkedIds as string[]);
+            setRunAlgorithmRequest({
+              ...runAlgorithmRequest,
+              sensorTypes: checkedIds as string[]
             });
           }}
         ></CheckboxList>

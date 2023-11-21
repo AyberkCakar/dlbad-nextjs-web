@@ -32,7 +32,7 @@ export default function InformationModal({
       trigger: 'axis'
     },
     legend: {
-      data: ['vibration', 'amplitude', 'temperature']
+      data: ['vibration', 'sound', 'temperature']
     },
     grid: {
       left: '3%',
@@ -91,8 +91,8 @@ export default function InformationModal({
       headerName: t('simulator.tag')
     },
     {
-      field: 'amplitude',
-      headerName: t('simulator.amplitude'),
+      field: 'sound',
+      headerName: t('simulator.sound'),
       width: 200
     },
     {
@@ -144,7 +144,7 @@ export default function InformationModal({
               id: index,
               time: _time,
               tag: datasetResult.tag[index],
-              amplitude: datasetResult.amplitude[index],
+              sound: datasetResult.sound[index],
               vibration: datasetResult.vibration[index],
               temperature: datasetResult.temperature[index]
             })
@@ -162,10 +162,10 @@ export default function InformationModal({
             },
             series: [
               {
-                name: t('simulator.amplitude'),
+                name: t('simulator.sound'),
                 type: 'line',
                 stack: 'Total',
-                data: datasetResult.amplitude
+                data: datasetResult.sound
               },
               {
                 name: t('simulator.vibration'),

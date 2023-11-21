@@ -68,7 +68,7 @@ export const tr: IDynamic = {
     showResult: 'Show Result',
     simulatorParameters: 'Simulator Parameters',
     simulatorResult: 'Simulator Result',
-    amplitude: 'Amplitude',
+    sound: 'Sound',
     vibration: 'Vibration',
     temperature: 'Temperature',
     tag: 'Tag',
@@ -157,13 +157,14 @@ export const tr: IDynamic = {
   },
   runAlgorithms: {
     pageTitle: 'Run Algorithms',
-    datatable: 'Datatable',
+    dataset: 'Dataset',
     algortihms: 'Algorithms',
     runAlgorithms: {
       button: 'Run Algorithms',
       successMessage: 'Run Algorithms successfully!',
       errorMessage: 'An error occurred while Run Algorithms!'
     },
-    algorithmSettingName: 'Algorithm Setting Name'
+    algorithmSettingName: 'Algorithm Setting Name',
+    sensorTypes: 'Sensor Types'
   }
 };

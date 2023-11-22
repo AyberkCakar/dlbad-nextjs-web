@@ -75,19 +75,34 @@ export default function SimulatorPage() {
       width: 200
     },
     {
-      field: 'expectedTemperatureValue',
-      headerName: t('simulator.expectedTemperatureValue'),
-      width: 200
+      field: 'minExpectedTemperatureValue',
+      headerName: t('simulator.minExpectedTemperatureValue'),
+      width: 100
     },
     {
-      field: 'expectedSoundValue',
-      headerName: t('simulator.expectedSoundValue'),
-      width: 200
+      field: 'maxExpectedTemperatureValue',
+      headerName: t('simulator.maxExpectedTemperatureValue'),
+      width: 100
     },
     {
-      field: 'expectedVibrationValue',
-      headerName: t('simulator.expectedVibrationValue'),
-      width: 200
+      field: 'minExpectedSoundValue',
+      headerName: t('simulator.minExpectedSoundValue'),
+      width: 100
+    },
+    {
+      field: 'maxExpectedSoundValue',
+      headerName: t('simulator.maxExpectedSoundValue'),
+      width: 100
+    },
+    {
+      field: 'minExpectedVibrationValue',
+      headerName: t('simulator.minExpectedVibrationValue'),
+      width: 100
+    },
+    {
+      field: 'maxExpectedVibrationValue',
+      headerName: t('simulator.maxExpectedVibrationValue'),
+      width: 100
     },
     {
       field: 'parameters',

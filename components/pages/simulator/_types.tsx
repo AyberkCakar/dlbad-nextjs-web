@@ -3,9 +3,12 @@ import { IDataset } from './information-modal/_types';
 export interface ISimulator {
   id?: number;
   simulatorName: string;
-  expectedTemperatureValue?: number | string;
-  expectedSoundValue?: number | string;
-  expectedVibrationValue?: number | string;
+  minExpectedTemperatureValue?: number | string;
+  maxExpectedTemperatureValue?: number | string;
+  minExpectedSoundValue?: number | string;
+  maxExpectedSoundValue?: number | string;
+  minExpectedVibrationValue?: number | string;
+  maxExpectedVibrationValue?: number | string;
   dataset?: IDataset;
   simulator_parameters?: ISimulatorParameters[];
 }

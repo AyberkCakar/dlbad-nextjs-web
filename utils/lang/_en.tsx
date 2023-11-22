@@ -73,9 +73,12 @@ export const en: IDynamic = {
     temperature: 'Temperature',
     tag: 'Tag',
     time: 'Time',
-    expectedTemperatureValue: 'Expected Temperature Value',
-    expectedSoundValue: 'Expected Sound Value',
-    expectedVibrationValue: 'Expected Vibration Value'
+    minExpectedTemperatureValue: 'Min Expected Temperature Value',
+    maxExpectedTemperatureValue: 'Max Expected Temperature Value',
+    minExpectedSoundValue: 'Min Expected Sound Value',
+    maxExpectedSoundValue: 'Max Expected Sound Value',
+    minExpectedVibrationValue: 'Min Expected Vibration Value',
+    maxExpectedVibrationValue: 'Max Expected Vibration Value'
   },
   login: {
     emailAddress: 'Email Address',

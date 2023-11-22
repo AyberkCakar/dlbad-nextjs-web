@@ -47,9 +47,12 @@ export default function AddSimulatorPage({
   const { t } = useTranslation();
   const [simulatorRequest, setSimulatorRequest] = React.useState<ISimulator>({
     simulatorName: '',
-    expectedSoundValue: '',
-    expectedTemperatureValue: '',
-    expectedVibrationValue: ''
+    minExpectedTemperatureValue: '',
+    maxExpectedTemperatureValue: '',
+    minExpectedSoundValue: '',
+    maxExpectedSoundValue: '',
+    minExpectedVibrationValue: '',
+    maxExpectedVibrationValue: ''
   });
 
   const [alertOpen, setAlertOpen] = React.useState<boolean>(false);
@@ -58,7 +61,7 @@ export default function AddSimulatorPage({
     ICheckboxListData[]
   >([]);
 
-  const [checkedIds, setCheckedIds] = React.useState<number[]>([]);
+  const [checkedIds, setCheckedIds] = React.useState<(number | string)[]>([]);
 
   const { data, error } = useQuery<IFailureTypesResult>(GET_FAILURE_TYPES);
 
@@ -71,9 +74,12 @@ export default function AddSimulatorPage({
     if (simulator) {
       setSimulatorRequest({
         simulatorName: simulator.simulatorName,
-        expectedSoundValue: simulator.expectedSoundValue,
-        expectedTemperatureValue: simulator.expectedTemperatureValue,
-        expectedVibrationValue: simulator.expectedVibrationValue
+        minExpectedTemperatureValue: simulator.minExpectedTemperatureValue,
+        maxExpectedTemperatureValue: simulator.maxExpectedTemperatureValue,
+        minExpectedSoundValue: simulator.minExpectedSoundValue,
+        maxExpectedSoundValue: simulator.maxExpectedSoundValue,
+        minExpectedVibrationValue: simulator.minExpectedVibrationValue,
+        maxExpectedVibrationValue: simulator.maxExpectedVibrationValue
       });
 
       const defaultCheckIds = simulator?.simulator_parameters
@@ -90,9 +96,14 @@ export default function AddSimulatorPage({
     let variables: ISimulatorRequest = {
       simulator: {
         simulatorName: simulatorRequest.simulatorName,
-        expectedSoundValue: simulatorRequest.expectedSoundValue,
-        expectedTemperatureValue: simulatorRequest.expectedTemperatureValue,
-        expectedVibrationValue: simulatorRequest.expectedVibrationValue
+        minExpectedTemperatureValue:
+          simulatorRequest.minExpectedTemperatureValue,
+        maxExpectedTemperatureValue:
+          simulatorRequest.maxExpectedTemperatureValue,
+        minExpectedSoundValue: simulatorRequest.minExpectedSoundValue,
+        maxExpectedSoundValue: simulatorRequest.maxExpectedSoundValue,
+        minExpectedVibrationValue: simulatorRequest.minExpectedVibrationValue,
+        maxExpectedVibrationValue: simulatorRequest.maxExpectedVibrationValue
       }
     };
 
@@ -106,10 +117,10 @@ export default function AddSimulatorPage({
     addSimulator({ variables })
       .then((result) => {
         const simulatorParameters: ISimulatorParameters[] = checkedIds.map(
-          (id: number) => {
+          (id: number | string) => {
             return {
               simulatorId: result.data.insert_simulators_one.id as number,
-              failureTypeId: id
+              failureTypeId: id as number
             };
           }
         );
@@ -127,9 +138,12 @@ export default function AddSimulatorPage({
               if (!isSimulatorEdit) {
                 setSimulatorRequest({
                   simulatorName: '',
-                  expectedSoundValue: '',
-                  expectedTemperatureValue: '',
-                  expectedVibrationValue: ''
+                  minExpectedTemperatureValue: '',
+                  maxExpectedTemperatureValue: '',
+                  minExpectedSoundValue: '',
+                  maxExpectedSoundValue: '',
+                  minExpectedVibrationValue: '',
+                  maxExpectedVibrationValue: ''
                 });
                 setCheckedIds([]);
               }
@@ -190,44 +204,86 @@ export default function AddSimulatorPage({
           }
         />
         <InputField
-          label={t('simulator.expectedTemperatureValue')}
+          label={t('simulator.minExpectedTemperatureValue')}
           variant="outlined"
           fullWidth
           size="small"
           type="number"
-          value={simulatorRequest?.expectedTemperatureValue}
+          value={simulatorRequest?.minExpectedTemperatureValue}
           onChange={(e) =>
             setSimulatorRequest({
               ...simulatorRequest,
-              expectedTemperatureValue: Number(e.target?.value)
+              minExpectedTemperatureValue: Number(e.target?.value)
             })
           }
         />
         <InputField
-          label={t('simulator.expectedSoundValue')}
+          label={t('simulator.maxExpectedTemperatureValue')}
           variant="outlined"
           fullWidth
           size="small"
           type="number"
-          value={simulatorRequest?.expectedSoundValue}
+          value={simulatorRequest?.maxExpectedTemperatureValue}
           onChange={(e) =>
             setSimulatorRequest({
               ...simulatorRequest,
-              expectedSoundValue: Number(e.target?.value)
+              maxExpectedTemperatureValue: Number(e.target?.value)
             })
           }
         />
         <InputField
-          label={t('simulator.expectedVibrationValue')}
+          label={t('simulator.minExpectedSoundValue')}
           variant="outlined"
           fullWidth
           size="small"
           type="number"
-          value={simulatorRequest?.expectedVibrationValue}
+          value={simulatorRequest?.minExpectedSoundValue}
           onChange={(e) =>
             setSimulatorRequest({
               ...simulatorRequest,
-              expectedVibrationValue: Number(e.target?.value)
+              minExpectedSoundValue: Number(e.target?.value)
+            })
+          }
+        />
+        <InputField
+          label={t('simulator.maxExpectedSoundValue')}
+          variant="outlined"
+          fullWidth
+          size="small"
+          type="number"
+          value={simulatorRequest?.maxExpectedSoundValue}
+          onChange={(e) =>
+            setSimulatorRequest({
+              ...simulatorRequest,
+              maxExpectedSoundValue: Number(e.target?.value)
+            })
+          }
+        />
+        <InputField
+          label={t('simulator.minExpectedVibrationValue')}
+          variant="outlined"
+          fullWidth
+          size="small"
+          type="number"
+          value={simulatorRequest?.minExpectedVibrationValue}
+          onChange={(e) =>
+            setSimulatorRequest({
+              ...simulatorRequest,
+              minExpectedVibrationValue: Number(e.target?.value)
+            })
+          }
+        />
+        <InputField
+          label={t('simulator.maxExpectedVibrationValue')}
+          variant="outlined"
+          fullWidth
+          size="small"
+          type="number"
+          value={simulatorRequest?.maxExpectedVibrationValue}
+          onChange={(e) =>
+            setSimulatorRequest({
+              ...simulatorRequest,
+              maxExpectedVibrationValue: Number(e.target?.value)
             })
           }
         />
@@ -236,7 +292,9 @@ export default function AddSimulatorPage({
           title={t('simulator.checkBoxListTitle')}
           disabled={isSimulatorEdit}
           defaultCheckedIds={checkedIds}
-          setCheckedIds={(checkedIds: number[]) => setCheckedIds(checkedIds)}
+          setCheckedIds={(checkedIds: (number | string)[]) =>
+            setCheckedIds(checkedIds)
+          }
         ></CheckboxList>
         <AddSimulatorButtonContainer>
           <SaveButton onClick={() => onSaveClick()}>

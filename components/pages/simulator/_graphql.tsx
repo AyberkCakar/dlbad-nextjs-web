@@ -27,9 +27,12 @@ export const GET_SIMULATORS = gql`
       datasets {
         id
       }
-      expectedTemperatureValue
-      expectedSoundValue
-      expectedVibrationValue
+      minExpectedTemperatureValue
+      maxExpectedTemperatureValue
+      minExpectedSoundValue
+      maxExpectedSoundValue
+      minExpectedVibrationValue
+      maxExpectedVibrationValue
       simulatorName
       id
     }

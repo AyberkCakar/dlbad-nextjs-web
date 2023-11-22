@@ -40,9 +40,12 @@ export const GET_SIMULATOR = gql`
     simulators_by_pk(id: $id) {
       simulatorName
       id
-      expectedTemperatureValue
-      expectedSoundValue
-      expectedVibrationValue
+      minExpectedTemperatureValue
+      maxExpectedTemperatureValue
+      minExpectedSoundValue
+      maxExpectedSoundValue
+      minExpectedVibrationValue
+      maxExpectedVibrationValue
       simulator_parameters {
         failureTypeId
       }

@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/AyberkCakar/dlbad-nextjs-web/compare/v1.5.0...v1.6.0) (2023-11-25)
+
+
+### Features
+
+* added algorithmSettingName input in run algorithms page ([c9ee424](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/c9ee42434f9a861d3ffeacbc3b95cbd1a74f78a8))
+* added expected temperature, sound, vibration field in simulator ([0cbd1e6](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/0cbd1e606041596e5d6d6185f3ea3950a1ddf00d))
+* added max excepted inputs in simulators page ([3e8ec62](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/3e8ec627d951d37c2039e15bdc4a28d7a45e105d))
+* added sensorTypes variable in run algorithm page ([50a25fb](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/50a25fb3537680b149364069901daf05dce33a41))
+
+
+### Bug Fixes
+
+* fixed apolloClient authorization ([3f224a3](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/3f224a3adbc203863ea74cab4afc012a98b44992))
+* fixed auth middleware ([29a6723](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/29a6723c7aed1938b1ddf2ac971bd68a027f75ed))
+* fixed checkbox list input types ([f6c2fe2](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/f6c2fe2e2ebae4ce472178a3f17d48e47ac9be19))
+* fixed checkbox list scroll ([15f93c4](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/15f93c4eddf53a08b4b2dab86a16f4cf9d547831))
+* fixed dropdown input types ([7cd48ef](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/7cd48ef79bda064d0e7b221b52c4a35c2371cbfb))
+* fixed middleware redirect ([7216d23](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/7216d2310f32758b2d8213afc960716400e71557))
+* fixed query problem in build ([0c3e11b](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/0c3e11b34d07d242c110b42e7832adba267e337c))
+
 ## [1.5.0](https://github.com/AyberkCakar/dlbad-nextjs-web/compare/v1.4.0...v1.5.0) (2023-11-09)
 
 

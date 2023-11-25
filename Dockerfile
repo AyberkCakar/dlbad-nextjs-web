@@ -8,6 +8,12 @@ WORKDIR /app
 COPY . .
 COPY --from=dependencies /app/node_modules ./node_modules
 
+ARG HASURA_URL
+ENV HASURA_URL=$HASURA_URL
+
+ARG JWT_SECRET_KEY
+ENV JWT_SECRET_KEY=$JWT_SECRET_KEY
+
 RUN yarn build
 
 FROM node:18.14.2-slim as runner

@@ -1,7 +1,7 @@
 FROM node:18.14.2-slim as dependencies
 WORKDIR /app
 COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile
+RUN yarn install
 
 FROM node:18.14.2-slim as builder
 WORKDIR /app

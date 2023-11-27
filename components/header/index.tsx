@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { ProfileCard } from './profile-card';
 import {
   HeaderActions,
@@ -25,22 +25,26 @@ export const Header = ({ toggleDrawer }: any) => {
     setProfileCardOpen(!isProfileCardOpen);
   };
 
-  const outsideClickHandler = (e: any) => {
-    const html: string = e.target.outerHTML;
-    if (
-      !html.includes('ProfileButtonText') &&
-      !html.includes(t('header.changePassword'))
-    ) {
-      setProfileCardOpen(false);
-    }
-  };
+  const outsideClickHandler = React.useCallback(
+    (e: any) => {
+      const html: string = e.target.outerHTML;
+      if (
+        !html.includes('profileButtonAvatar') &&
+        !html.includes('profileButtonText') &&
+        !html.includes(t('header.changePassword'))
+      ) {
+        setProfileCardOpen(false);
+      }
+    },
+    [t]
+  );
 
   React.useEffect(() => {
     if (isProfileCardOpen) {
       document.addEventListener('click', outsideClickHandler);
       return () => document.removeEventListener('click', outsideClickHandler);
     }
-  }, [isProfileCardOpen]);
+  }, [isProfileCardOpen, outsideClickHandler]);
 
   return (
     <HeaderContainer>
@@ -57,8 +61,11 @@ export const Header = ({ toggleDrawer }: any) => {
           onClick={toggleProfileCard}
         >
           <ProfileButtonContainer>
-            <ProfileButtonAvatar src={'/assets/user-avatar.png'} />
-            <ProfileButtonText>
+            <ProfileButtonAvatar
+              id="profileButtonAvatar"
+              src={'/assets/user-avatar.png'}
+            />
+            <ProfileButtonText id="profileButtonText">
               {user.firstName} {user.lastName}
             </ProfileButtonText>
           </ProfileButtonContainer>

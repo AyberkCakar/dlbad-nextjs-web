@@ -53,7 +53,7 @@ export const ProfileCard = ({ isOpen }: any) => {
         >
           <MenuIcon baseClassName={'fa-solid'} className={'fa-user-gear'} />
 
-          <ProfileCardItemText>
+          <ProfileCardItemText id="userSettings">
             {t('header.userSettings').charAt(0).toUpperCase() +
               t('header.userSettings').slice(1)}
           </ProfileCardItemText>
@@ -63,7 +63,7 @@ export const ProfileCard = ({ isOpen }: any) => {
           onClick={() => setChangePasswordModalOpenState(true)}
         >
           <MenuIcon baseClassName={'fa-solid'} className={'fa-user-shield'} />
-          <ProfileCardItemText>
+          <ProfileCardItemText id="changePassword">
             {t('header.changePassword').charAt(0).toUpperCase() +
               t('header.changePassword').slice(1)}
           </ProfileCardItemText>

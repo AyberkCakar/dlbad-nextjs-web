@@ -1,6 +1,7 @@
 import { ITheme, Theme, IThemeProvider } from '../models';
 import { darkTheme, lightTheme, font, typeScale, fontFamily } from '../styles';
 import { ThemeProvider as StyledComponentThemeProvider } from 'styled-components';
+
 import { SettingsService } from '../utils/services';
 import Layout from '../components/layout';
 import {

@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.7.0](https://github.com/AyberkCakar/dlbad-nextjs-web/compare/v1.6.4...v1.7.0) (2023-11-28)
+
+
+### Features
+
+* added algorithm card component ([a8293a1](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/a8293a1f0583f657089a81541c6b666a3b5e23de))
+* added compare algorithms page ([7c0e234](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/7c0e23455ab11f7d8ecac028ffb9da32bbd828fc))
+* added logo icon ([649d713](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/649d713c263abaf815646f3406e41176afc04ff4))
+* added mui ui ssr settings ([d5d9f0c](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/d5d9f0ca98d5c3613c34472aa3150fff905107c1))
+* compare algorithms page added to menu ([51f121f](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/51f121f27d01cb2f1e60300181ad56fee5074f4e))
+
+
+### Bug Fixes
+
+* fixed footer style problem ([f273467](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/f273467b910dd907b25ab35ac48857aea175dd88))
+* fixed profile card collapse ([b9e8b12](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/b9e8b121895d0902be6ebaec53b7a66a7cd6a1d3))
+* fixed ssr problems ([8bbaba1](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/8bbaba19ec0df1725395bcb9306b21c25588c49e))
+
 ### [1.6.4](https://github.com/AyberkCakar/dlbad-nextjs-web/compare/v1.6.3...v1.6.4) (2023-11-26)
 
 ### [1.6.3](https://github.com/AyberkCakar/dlbad-nextjs-web/compare/v1.6.2...v1.6.3) (2023-11-26)

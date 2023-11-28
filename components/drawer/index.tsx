@@ -85,7 +85,7 @@ export const DrawerMenu = ({ children }: any) => {
     {
       name: t('header.algorithmResult'),
       icon: 'fa-check-double',
-      link: '/'
+      link: '/compare-algorithms'
     }
   ];
 

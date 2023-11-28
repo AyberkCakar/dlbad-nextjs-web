@@ -5,6 +5,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 83.15vh;
 `;
 
 export const HeaderContainer = styled.div`

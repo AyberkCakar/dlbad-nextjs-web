@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { ChangeEvent } from 'react';
 import { useMutation } from '@apollo/client';
 import { FormModal } from '../../../modal';
 import { useTranslation } from '../../../../hooks/useTranslation';
@@ -16,11 +16,24 @@ export default function AddRealDatasetModal({
   saveResponse,
   realDataset
 }: IAddRealDatasetModal) {
+  const [fileContent, setFileContent] = React.useState<string | null>(null);
+
+  const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const text = e.target?.result;
+        setFileContent(text as string);
+      };
+      reader.readAsText(file);
+    }
+  };
+
   const { t } = useTranslation();
   const [alertOpen, setAlertOpen] = React.useState<boolean>(false);
   const [alertSuccess, setAlertSuccess] = React.useState<boolean>(false);
 
-  const [fileData, setFileData] = React.useState<any>();
   const [realDatasetRequest, setRealDatasetRequest] =
     React.useState<IRealDataset | null>({
       id: 0,
@@ -59,9 +72,15 @@ export default function AddRealDatasetModal({
     addRealDataset({
       variables
     })
-      .then(() => {
+      .then((response) => {
         addDataset({
-          variables: { dataset: fileData }
+          variables: {
+            dataset: {
+              simulatorId: null,
+              realDatasetId: response.data.insert_real_datasets_one.id,
+              result: JSON.parse(fileContent as string)
+            }
+          }
         })
           .then(() => {
             setAlertSuccess(true);
@@ -80,12 +99,6 @@ export default function AddRealDatasetModal({
         saveResponse(false);
         setAlertOpen(true);
       });
-  };
-
-  const selectJsonFile = (value: string) => {
-    // control
-
-    setFileData(value);
   };
 
   return (
@@ -132,7 +145,7 @@ export default function AddRealDatasetModal({
             {t('realDataset.uploadFile')}
             <VisuallyHiddenInput
               name="realData"
-              onChange={(e) => selectJsonFile(e.target.value)}
+              onChange={handleFileChange}
               type="file"
               accept=".json"
             />

@@ -115,6 +115,7 @@ export const en: IDynamic = {
   },
   realDataset: {
     pageTitle: 'Real Dataset',
+    addRealDataset: 'Add Real Dataset',
     datasetName: 'Dataset Name',
     deleteModal: {
       title: 'Delete Real Dataset',
@@ -168,5 +169,17 @@ export const en: IDynamic = {
     },
     algorithmSettingName: 'Algorithm Setting Name',
     sensorTypes: 'Sensor Types'
+  },
+  algorithmCard: {
+    accurary: 'Accurary',
+    f1: 'F1',
+    recall: 'Recall',
+    precision: 'Precision'
+  },
+  compareAlgorithms: {
+    pageTitle: 'Compare Algorithms',
+    getAlgorithmResults: 'Get Algorithm Results',
+    algorithm1: 'Algorithm 1',
+    algorithm2: 'Algorithm 2'
   }
 };

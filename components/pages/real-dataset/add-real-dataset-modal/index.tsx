@@ -73,26 +73,31 @@ export default function AddRealDatasetModal({
       variables
     })
       .then((response) => {
-        addDataset({
-          variables: {
-            dataset: {
-              simulatorId: null,
-              realDatasetId: response.data.insert_real_datasets_one.id,
-              result: JSON.parse(fileContent as string)
+        if (!realDataset) {
+          addDataset({
+            variables: {
+              dataset: {
+                simulatorId: null,
+                realDatasetId: response.data.insert_real_datasets_one.id,
+                result: JSON.parse(fileContent as string)
+              }
             }
-          }
-        })
-          .then(() => {
-            setAlertSuccess(true);
-            saveResponse(true);
           })
-          .catch(() => {
-            setAlertSuccess(false);
-            saveResponse(false);
-          })
-          .finally(() => {
-            setAlertOpen(true);
-          });
+            .then(() => {
+              setAlertSuccess(true);
+              saveResponse(true);
+            })
+            .catch(() => {
+              setAlertSuccess(false);
+              saveResponse(false);
+            })
+            .finally(() => {
+              setAlertOpen(true);
+            });
+        } else {
+          setAlertSuccess(true);
+          saveResponse(true);
+        }
       })
       .catch(() => {
         setAlertSuccess(false);

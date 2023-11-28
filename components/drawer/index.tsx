@@ -93,7 +93,7 @@ export const DrawerMenu = ({ children }: any) => {
     <Container>
       <Drawer open={drawerOpen}>
         <LogoContainer>
-          <Logo src={'/assets/logo.png'} />
+          <Logo src={'/assets/logo_icon.png'} />
           <LogoTitle1>{t('header.title1')}</LogoTitle1>&nbsp;
           <LogoTitle2>{t('header.title2')}</LogoTitle2>
         </LogoContainer>

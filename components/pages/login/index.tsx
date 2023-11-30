@@ -13,9 +13,10 @@ import { LOGIN } from './_graphql';
 import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
 import { useTranslation } from '../../../hooks/useTranslation';
-import { ILoginRequest } from './_types';
 import { AlertMessage } from '../../alert';
 import { NextSeo } from 'next-seo';
+import { useFormik } from 'formik';
+import * as yup from 'yup';
 
 export default function Login() {
   const { t } = useTranslation();
@@ -24,25 +25,45 @@ export default function Login() {
 
   const [login] = useMutation(LOGIN);
   const router = useRouter();
-  const [loginRequest, setLoginRequest] = React.useState<ILoginRequest>({
-    emailAddress: '',
-    password: ''
+
+  const validationSchema = yup.object({
+    emailAddress: yup
+      .string()
+      .email(t('login.validations.emailAddress.email'))
+      .required(t('login.validations.emailAddress.required')),
+    password: yup
+      .string()
+      .min(8, t('login.validations.password.minCharacters'))
+      .required(t('login.validations.password.required'))
   });
 
-  const onLoginClick = () => {
-    login({ variables: loginRequest })
-      .then((result) => {
-        setAlertSuccess(true);
-        Cookies.set('user', JSON.stringify(result?.data?.login));
-        router.replace('/');
-      })
-      .catch(() => {
-        setAlertSuccess(false);
-      })
-      .finally(() => {
-        setAlertOpen(true);
-      });
-  };
+  const formik = useFormik({
+    initialValues: {
+      emailAddress: '',
+      password: ''
+    },
+    validationSchema,
+    onSubmit: (values) => {
+      try {
+        login({ variables: values })
+          .then((result) => {
+            setAlertSuccess(true);
+            Cookies.set('user', JSON.stringify(result?.data?.login));
+            router.replace('/');
+          })
+          .catch(() => {
+            setAlertSuccess(false);
+          })
+          .finally(() => {
+            setAlertOpen(true);
+          });
+
+        formik.resetForm();
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  });
 
   return (
     <>
@@ -55,55 +76,56 @@ export default function Login() {
             </Typography>
             <Logo src={'/assets/logo.png'} />
             <BodyBox>
-              <TextField
-                size="small"
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label={t('login.emailAddress')}
-                name="email"
-                autoComplete="email"
-                autoFocus
-                value={loginRequest?.emailAddress}
-                onChange={(e) =>
-                  setLoginRequest({
-                    ...loginRequest,
-                    emailAddress: e.target?.value
-                  })
-                }
-              />
-              <TextField
-                size="small"
-                margin="normal"
-                required
-                fullWidth
-                name="password"
-                label={t('login.password')}
-                type="password"
-                id="password"
-                autoComplete="current-password"
-                value={loginRequest?.password}
-                onChange={(e) =>
-                  setLoginRequest({
-                    ...loginRequest,
-                    password: e.target?.value
-                  })
-                }
-              />
-              <Typography sx={{ marginTop: 1 }} color={'rgb(98 91 91)'}>
-                {t('login.wouldYouLikeToRegister')}&nbsp;
-                <Link href="/sign-up">{t('general.signUp')}</Link>
-              </Typography>
+              <form onSubmit={formik.handleSubmit}>
+                <TextField
+                  size="small"
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="emailAddress"
+                  label={t('login.emailAddress')}
+                  name="emailAddress"
+                  autoComplete="emaemailAddressil"
+                  autoFocus
+                  value={formik.values.emailAddress}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  error={
+                    formik.touched.emailAddress &&
+                    Boolean(formik.errors.emailAddress)
+                  }
+                  helperText={
+                    formik.touched.emailAddress && formik.errors.emailAddress
+                  }
+                />
+                <TextField
+                  size="small"
+                  margin="normal"
+                  required
+                  fullWidth
+                  name="password"
+                  label={t('login.password')}
+                  type="password"
+                  id="password"
+                  value={formik.values.password}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  error={
+                    formik.touched.password && Boolean(formik.errors.password)
+                  }
+                  helperText={formik.touched.password && formik.errors.password}
+                  autoComplete="current-password"
+                />
+                <Typography sx={{ marginTop: 1 }} color={'rgb(98 91 91)'}>
+                  {t('login.wouldYouLikeToRegister')}&nbsp;
+                  <Link href="/sign-up">{t('general.signUp')}</Link>
+                </Typography>
 
-              <SignInButton
-                onClick={() => onLoginClick()}
-                type="submit"
-                fullWidth
-              >
-                {t('general.signIn').charAt(-1).toLocaleLowerCase() +
-                  t('general.signIn').slice(0)}
-              </SignInButton>
+                <SignInButton type="submit" fullWidth>
+                  {t('general.signIn').charAt(-1).toLocaleLowerCase() +
+                    t('general.signIn').slice(0)}
+                </SignInButton>
+              </form>
             </BodyBox>
           </FormBox>
         </LoginForm>

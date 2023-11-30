@@ -106,7 +106,23 @@ export const en: IDynamic = {
     alreadyHaveRegister: 'Do you already have a register?',
     successMessage: 'Sign Up Successfully!',
     errorMessage:
-      'There was a problem while signing up. Please check your information!'
+      'There was a problem while signing up. Please check your information!',
+    validations: {
+      firstName: {
+        required: 'Enter your first name',
+      },
+      lastName: {
+        required: 'Enter your last name',
+      },
+      emailAddress: {
+        required: 'Enter your email',
+        email: 'Enter a valid email'
+      },
+      password: {
+        required: 'Password is required',
+        minCharacters: 'Password should be of minimum 8 characters length'
+      }
+    }
   },
   userSettings: {
     pageTitle: 'User Settings',

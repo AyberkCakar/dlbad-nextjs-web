@@ -59,9 +59,7 @@ export default function Login() {
           });
 
         formik.resetForm();
-      } catch (err) {
-        console.log(err);
-      }
+      } catch (err) {}
     }
   });
 

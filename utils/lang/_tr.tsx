@@ -106,7 +106,23 @@ export const tr: IDynamic = {
     alreadyHaveRegister: 'Zaten bir kaydınız var mı?',
     successMessage: 'Başarıyla Kayıt Olundu!',
     errorMessage:
-      'Kayıt olunurken bir sorun oluştu. Lütfen bilgilerinizi kontrol edin!'
+      'Kayıt olunurken bir sorun oluştu. Lütfen bilgilerinizi kontrol edin!',
+      validations: {
+        firstName: {
+          required: 'Adınızı girin',
+        },
+        lastName: {
+          required: 'Soyadınızı girin',
+        },
+        emailAddress: {
+          required: 'E-postanızı girin',
+          email: 'Geçerli bir e-posta girin'
+        },
+        password: {
+          required: 'Parola gerekli',
+          minCharacters: 'Parola en az 8 karakter uzunluğunda olmalıdır'
+        }
+      }
   },
   userSettings: {
     pageTitle: 'Kullanıcı Ayarları',

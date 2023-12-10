@@ -34,7 +34,7 @@ export const AlgorithmCard = ({
           ) : (
             <AlgorithmCardInformation>
               <span>
-                <b>{t('algorithmCard.accurary')}:</b> {data?.result?.accurary}
+                <b>{t('algorithmCard.accuracy')}:</b> {data?.result?.accuracy}
               </span>
               <span>
                 <b>{t('algorithmCard.f1')}:</b> {data?.result?.f1}

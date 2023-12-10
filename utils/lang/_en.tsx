@@ -197,7 +197,7 @@ export const en: IDynamic = {
     sensorTypes: 'Sensor Types'
   },
   algorithmCard: {
-    accurary: 'Accurary',
+    accuracy: 'Accurary',
     f1: 'F1',
     recall: 'Recall',
     precision: 'Precision'

@@ -20,7 +20,7 @@ export interface ICompareAlgorithmVariables {
 }
 
 export interface IResultParameters {
-  accurary: number;
+  accuracy: number;
   f1: number;
   recall: number;
   precision: number;

@@ -17,12 +17,13 @@ export default function AddAlgorithmModal({
   const { t } = useTranslation();
   const [alertOpen, setAlertOpen] = React.useState<boolean>(false);
   const [alertSuccess, setAlertSuccess] = React.useState<boolean>(false);
+  const defaultAlgorithm: IAlgorithm = {
+    id: 0,
+    algorithmName: ''
+  };
 
   const [algorithmRequest, setAlgorithmRequest] =
-    React.useState<IAlgorithm | null>({
-      id: 0,
-      algorithmName: ''
-    });
+    React.useState<IAlgorithm | null>(defaultAlgorithm);
 
   React.useEffect(() => {
     setAlgorithmRequest(algorithm);
@@ -30,6 +31,7 @@ export default function AddAlgorithmModal({
 
   const handleClose = () => {
     if (onClose) {
+      setAlgorithmRequest(defaultAlgorithm);
       onClose();
     }
   };
@@ -64,6 +66,7 @@ export default function AddAlgorithmModal({
         setAlertOpen(true);
       })
       .finally(() => {
+        setAlgorithmRequest(defaultAlgorithm);
         setAlertOpen(true);
       });
   };
@@ -109,8 +112,8 @@ export default function AddAlgorithmModal({
               ? t('algorithms.editModal.successMessage')
               : t('algorithms.addModal.successMessage')
             : algorithm
-            ? t('algorithms.editModal.errorMessage')
-            : t('algorithms.addModal.errorMessage')
+              ? t('algorithms.editModal.errorMessage')
+              : t('algorithms.addModal.errorMessage')
         }
         alertSuccess={alertSuccess}
         onClose={() => setAlertOpen(false)}

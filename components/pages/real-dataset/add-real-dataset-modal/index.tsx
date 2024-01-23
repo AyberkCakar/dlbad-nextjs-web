@@ -33,12 +33,13 @@ export default function AddRealDatasetModal({
   const { t } = useTranslation();
   const [alertOpen, setAlertOpen] = React.useState<boolean>(false);
   const [alertSuccess, setAlertSuccess] = React.useState<boolean>(false);
+  const defaultRealDataset: IRealDataset = {
+    id: 0,
+    datasetName: ''
+  };
 
   const [realDatasetRequest, setRealDatasetRequest] =
-    React.useState<IRealDataset | null>({
-      id: 0,
-      datasetName: ''
-    });
+    React.useState<IRealDataset | null>(defaultRealDataset);
 
   React.useEffect(() => {
     setRealDatasetRequest(realDataset);
@@ -46,6 +47,7 @@ export default function AddRealDatasetModal({
 
   const handleClose = () => {
     if (onClose) {
+      setRealDatasetRequest(defaultRealDataset);
       onClose();
     }
   };
@@ -93,6 +95,7 @@ export default function AddRealDatasetModal({
             })
             .finally(() => {
               setAlertOpen(true);
+              setRealDatasetRequest(defaultRealDataset);
             });
         } else {
           setAlertSuccess(true);
@@ -103,6 +106,7 @@ export default function AddRealDatasetModal({
         setAlertSuccess(false);
         saveResponse(false);
         setAlertOpen(true);
+        setRealDatasetRequest(defaultRealDataset);
       });
   };
 

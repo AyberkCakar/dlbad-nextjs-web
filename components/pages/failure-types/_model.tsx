@@ -1,11 +1,11 @@
 export interface IFailureType {
   id?: number;
   failureName?: string;
-  period?: number;
-  timeInterval?: number;
-  soundAnomalyMultiplier?: number;
-  vibrationAnomalyMultiplier?: number;
-  temperatureAnomalyMultiplier?: number;
+  period?: number | string;
+  timeInterval?: number | string;
+  soundAnomalyMultiplier?: number | string;
+  vibrationAnomalyMultiplier?: number | string;
+  temperatureAnomalyMultiplier?: number | string;
 }
 
 export interface IFailureTypesResult {

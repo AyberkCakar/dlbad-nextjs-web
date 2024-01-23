@@ -14,16 +14,18 @@ export default function AddFailureTypeModal({
   failureType
 }: IAddFailureTypeModal) {
   const { t } = useTranslation();
+  const defaultFailureType: IFailureType = {
+    id: 0,
+    failureName: '',
+    period: '',
+    timeInterval: '',
+    soundAnomalyMultiplier: '',
+    vibrationAnomalyMultiplier: '',
+    temperatureAnomalyMultiplier: ''
+  };
+
   const [failureTypeRequest, setFailureTypeRequest] =
-    React.useState<IFailureType | null>({
-      id: 0,
-      failureName: '',
-      period: 0,
-      timeInterval: 0,
-      soundAnomalyMultiplier: 0,
-      vibrationAnomalyMultiplier: 0,
-      temperatureAnomalyMultiplier: 0
-    });
+    React.useState<IFailureType | null>(defaultFailureType);
 
   React.useEffect(() => {
     setFailureTypeRequest(failureType);
@@ -31,6 +33,7 @@ export default function AddFailureTypeModal({
 
   const handleClose = () => {
     if (onClose) {
+      setFailureTypeRequest(defaultFailureType);
       onClose();
     }
   };
@@ -60,6 +63,9 @@ export default function AddFailureTypeModal({
       })
       .catch((error) => {
         saveResponse(false);
+      })
+      .finally(() => {
+        setFailureTypeRequest(defaultFailureType);
       });
   };
 

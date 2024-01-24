@@ -44,7 +44,7 @@ The project consists of 4 parts: web, backend, node.js api, python api. Coded fo
   - User Settings
   - Simulators
   - Real Dataset
-  - Failure Types
+  - Anomali Types
   - Algorithms
   - Run Algorithm
   - Compare Algorithm

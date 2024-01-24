@@ -15,7 +15,7 @@ export const en: IDynamic = {
     realDataset: 'Real Dataset',
     algorithms: 'Algorithms',
     algorithmResult: 'Compare Algorithms',
-    failureTypes: 'Fauilure Types',
+    failureTypes: 'Anomaly Types',
     userSettings: 'User Settings',
     logout: 'Logout',
     changePassword: 'Change Password',
@@ -33,18 +33,28 @@ export const en: IDynamic = {
     signUp: 'Sign Up'
   },
   failureTypes: {
-    pageTitle: 'Failure Types',
+    pageTitle: 'Anomaly Types',
     id: 'ID',
-    failureName: 'Failure Name',
+    failureName: 'Anomaly Name',
     period: 'Period',
     soundAnomalyMultiplier: 'Sound Anomaly Multiplier',
     temperatureAnomalyMultiplier: 'Temperature Anomaly Multiplier',
     vibrationAnomalyMultiplier: 'Vibration Anomaly Multiplier',
     timeInterval: 'Time Interval',
-    addFailureType: 'Add Failure Type',
+    addFailureType: 'Add Anomaly Type',
     deleteModal: {
-      description: 'The selected Fault Type will be deleted. Are you sure?',
-      title: 'Delete Failure Type'
+      description: 'The selected Anomaly Type will be deleted. Are you sure?',
+      title: 'Delete Anomaly Type',
+      successMessage: 'Deletion of Anomaly Type was successful!',
+      errorMessage: 'An error occurred while deleting Anomaly Type!'
+    },
+    addModal: {
+      successMessage: 'Anomaly Type added successfully!',
+      errorMessage: 'An error occurred while adding Anomaly Type!'
+    },
+    editModal: {
+      successMessage: 'Anomaly Type was successfully updated!',
+      errorMessage: 'An error occurred while updating Anomaly Type!'
     }
   },
   simulator: {
@@ -52,7 +62,7 @@ export const en: IDynamic = {
     editSimulator: 'Edit Simulator',
     addSimulator: 'Add Simulator',
     simulatorName: 'Simulator Name',
-    checkBoxListTitle: 'Failure Types',
+    checkBoxListTitle: 'Anomaly Types',
     generateSimulatorData: 'Generate Simulator Data',
     editSuccessMessage: 'Simulatorzed Successfully',
     editErrorMessage: 'Simulatorzed Errorfully',

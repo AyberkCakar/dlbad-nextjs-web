@@ -15,7 +15,7 @@ export const tr: IDynamic = {
     realDataset: 'Gerçek Veri Seti',
     algorithms: 'Algoritmalar',
     algorithmResult: 'Algoritma Karşılaştırması',
-    failureTypes: 'Arıza Tipleri',
+    failureTypes: 'Anomali Tipleri',
     userSettings: 'Kullanıcı Ayarları',
     logout: 'Çıkış Yap',
     changePassword: 'Şifre Değiştir',
@@ -33,18 +33,28 @@ export const tr: IDynamic = {
     signUp: 'Kayıt Ol'
   },
   failureTypes: {
-    pageTitle: 'Arıza Tipleri',
+    pageTitle: 'Anomali Tipleri',
     id: 'ID',
-    failureName: 'Arıza Adı',
+    failureName: 'Anomali Adı',
     period: 'Periyot',
     soundAnomalyMultiplier: 'Ses Anomali Çarpanı',
     temperatureAnomalyMultiplier: 'Sıcaklık Anomali Çarpanı',
     vibrationAnomalyMultiplier: 'Titreşim Anomali Çarpanı',
     timeInterval: 'Zaman Aralığı',
-    addFailureType: 'Arıza Tipi Ekle',
+    addFailureType: 'Anomali Tipi Ekle',
     deleteModal: {
-      description: 'Seçilen Arıza Tipi silinecek. Emin misiniz?',
-      title: 'Arıza Tipi Sil'
+      description: 'Seçilen Anomali Tipi silinecek. Emin misiniz?',
+      title: 'Anomali Tipi Sil',
+      successMessage: 'Anomali Tipi başarıyla silindi!',
+      errorMessage: 'Anomali Tipi silinirken bir hata oluştu!'
+    },
+    addModal: {
+      successMessage: 'Anomali Tipi başarıyla eklendi!',
+      errorMessage: 'Anomali Tipi eklenirken bir hata oluştu!'
+    },
+    editModal: {
+      successMessage: 'Anomali Tipi başarıyla güncellendi!',
+      errorMessage: 'Anomali Tipi güncellenirken bir hata oluştu!'
     }
   },
   simulator: {
@@ -52,7 +62,7 @@ export const tr: IDynamic = {
     editSimulator: 'Simülatör Düzenle',
     addSimulator: 'Simülatör Ekle',
     simulatorName: 'Simülatör Adı',
-    checkBoxListTitle: 'Arıza Tipleri',
+    checkBoxListTitle: 'Anomali Tipleri',
     generateSimulatorData: 'Simülatör Verisi Oluştur',
     editSuccessMessage: 'Simülatör Başarıyla Düzenlendi',
     editErrorMessage: 'Simülatör Düzenlenirken Hata Oluştu',

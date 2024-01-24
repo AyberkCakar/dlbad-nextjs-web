@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.8.0](https://github.com/AyberkCakar/dlbad-nextjs-web/compare/v1.7.0...v1.8.0) (2024-01-24)
+
+
+### Features
+
+* added formik in login page ([e779c46](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/e779c46a8f2191d66539bd23fab860e77965b2b8))
+* added formik in sign up page ([1f47bb0](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/1f47bb040e7a4841f6f3eed0ff1e85890915c1fb))
+* added new translations ([5f0c84c](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/5f0c84cb9213b6bd14e071f430cffb6758449b45))
+* added turkish translations ([d1868a4](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/d1868a41f1ccc9af83287789075b428ebc43b338))
+
+
+### Bug Fixes
+
+* changed failure type page name ([d35cf90](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/d35cf909ae34259a2ec199bdd7bb0cb308251318))
+* fixed accuracy variable ([936a98b](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/936a98bbcd4760dca84e48313835fe392b0983c2))
+* fixed add algorithm form reset ([04b4110](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/04b411033901a2793354b96b696e28a4d65a3a17))
+* fixed add failure type form reset ([4c1e7da](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/4c1e7da7f7bdb402d1f1c25d593e1cc27ad3d228))
+* fixed add real database form reset ([667c197](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/667c197ab8d11beabf562e38d6a8c01295d0f59d))
+* fixed edit real dataset ([9bb6610](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/9bb66108577d1f987e0b4364c17dd67e0921ee90))
+* fixed file upload ([9e1fe1b](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/9e1fe1b2a464f3670b0d07dca96c37273cacf449))
+* fixed footer ([ef2deac](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/ef2deacab2e1d6b68761d70be96c8f0c615cffeb))
+
 ## [1.7.0](https://github.com/AyberkCakar/dlbad-nextjs-web/compare/v1.6.4...v1.7.0) (2023-11-28)
 
 

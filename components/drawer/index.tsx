@@ -70,7 +70,7 @@ export const DrawerMenu = ({ children }: any) => {
     {
       name: t('header.failureTypes'),
       icon: 'fa-bug',
-      link: '/failure-types'
+      link: '/anomaly-types'
     },
     {
       name: t('header.algorithms'),

@@ -10,7 +10,7 @@ import {
   UPDATE_SIMULATOR
 } from './_graphql';
 import { useMutation, useQuery } from '@apollo/client';
-import { IFailureType, IFailureTypesResult } from '../failure-types/_model';
+import { IFailureType, IFailureTypesResult } from '../anomaly-types/_model';
 import { ICheckboxListData } from '../../checkbox-list/_type';
 import { AlertMessage } from '../../alert';
 import { initializeApollo } from '../../../lib/apolloClient';

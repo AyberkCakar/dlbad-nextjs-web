@@ -2,7 +2,7 @@ export const protectedRoutes = [
   '/',
   '/simulators',
   '/add-simulator',
-  '/failure-types',
+  '/anomaly-types',
   '/user-settings',
   '/real-dataset',
   '/run-algorithms',

@@ -7,7 +7,7 @@ import { DELETE_FAILURE_TYPE, GET_FAILURE_TYPES } from './_graphql';
 import { Datatable } from '../../datatable';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/DeleteOutlined';
-import AddFailureTypeModal from './add-modal';
+import AddAnomalyTypeModal from './add-modal';
 import DeleteModal from '../../delete-modal';
 import { useMutation } from '@apollo/client';
 import { IFailureType, IFailureTypesResult } from './_model';
@@ -23,7 +23,7 @@ function getLikeWhere(searchText: string): Record<string, any> {
   };
 }
 
-export default function FailureTypesPage() {
+export default function AnomalyTypesPage() {
   const { t } = useTranslation();
   const [rows, setData] = React.useState<IFailureType[]>([]);
   const [totalCount, setTotalCount] = React.useState<number>(0);
@@ -237,22 +237,20 @@ export default function FailureTypesPage() {
           }}
         ></Datatable>
       </FormCard>
-      <AddFailureTypeModal
+      <AddAnomalyTypeModal
         openState={addEditModalOpenState}
         onClose={() => {
           setAddEditModalOpenState(false);
           setFailureType(null);
         }}
         saveResponse={(success: boolean) => {
-          setAlertSuccess(success);
-          setAlertOpen(true);
           setAddEditModalOpenState(!success);
           setFailureType(null);
           getFirstPage();
           refetch({ variables });
         }}
         failureType={failureType}
-      ></AddFailureTypeModal>
+      ></AddAnomalyTypeModal>
       <DeleteModal
         openState={openDeleteDialogState}
         onClose={() => setOpenDeleteDialogState(false)}
@@ -264,7 +262,11 @@ export default function FailureTypesPage() {
       ></DeleteModal>
       <AlertMessage
         openState={alertOpen}
-        description={'Delete Success'}
+        description={
+          alertSuccess
+            ? t('failureTypes.deleteModal.successMessage')
+            : t('failureTypes.deleteModal.errorMessage')
+        }
         alertSuccess={alertSuccess}
         onClose={() => setAlertOpen(false)}
       ></AlertMessage>

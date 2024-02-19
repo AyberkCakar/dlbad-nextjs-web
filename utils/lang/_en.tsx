@@ -10,16 +10,16 @@ export const en: IDynamic = {
     title2: 'AI',
     mergeTitle: 'DLBAD AI',
     home: 'Home',
-    simulators: 'Simulators',
-    addSimulator: 'Add Simulator',
-    realDataset: 'Real Dataset',
+    simulators: 'Data Generator',
+    addDataGenerator: 'Add Data Generator',
+    realDataset: 'Real Word Dataset',
     algorithms: 'Algorithms',
-    algorithmResult: 'Compare Algorithms',
+    algorithmResult: 'Evolation Results',
     failureTypes: 'Anomaly Types',
     userSettings: 'User Settings',
     logout: 'Logout',
     changePassword: 'Change Password',
-    runAlgorithm: 'Run Algorithm'
+    runAlgorithm: 'Data Analyzer'
   },
   general: {
     save: 'Save',
@@ -58,26 +58,27 @@ export const en: IDynamic = {
     }
   },
   simulator: {
-    pageTitle: 'Simulator',
-    editSimulator: 'Edit Simulator',
-    addSimulator: 'Add Simulator',
-    simulatorName: 'Simulator Name',
+    pageTitle: 'Data Generator',
+    editSimulator: 'Edit Data Generator',
+    addDataGenerator: 'Add Data Generator',
+    editDataGenerator: 'Edit Data Generator',
+    simulatorName: 'Data Generator Name',
     checkBoxListTitle: 'Anomaly Types',
-    generateSimulatorData: 'Generate Simulator Data',
-    editSuccessMessage: 'Simulatorzed Successfully',
-    editErrorMessage: 'Simulatorzed Errorfully',
-    addSuccessMessage: 'Simulator Added Successfully',
-    addErrorMessage: 'Simulator Added Error',
+    generateSimulatorData: 'Generate Data Generator Data',
+    editSuccessMessage: 'Generated Data Successfully',
+    editErrorMessage: 'Generated Data Errorfully',
+    addSuccessMessage: 'Data Generator Added Successfully',
+    addErrorMessage: 'Data Generator Added Error',
     result: 'Result',
     parameters: 'Parameters',
-    deleteModalTitle: 'Delete Simulator',
-    deleteModalDescription: 'Delete Simulator Description',
-    deleteSuccessMessage: 'Simulator Delete Successfully',
-    deleteErrorMessage: 'Simulator Delete Error',
+    deleteModalTitle: 'Delete Data Generator',
+    deleteModalDescription: 'Delete Data Generator Description',
+    deleteSuccessMessage: 'Data Generator Delete Successfully',
+    deleteErrorMessage: 'Data Generator Delete Error',
     showParameters: 'Show Parameters',
     showResult: 'Show Result',
-    simulatorParameters: 'Simulator Parameters',
-    simulatorResult: 'Simulator Result',
+    simulatorParameters: 'Data Generator Parameters',
+    simulatorResult: 'Data Generator Result',
     sound: 'Sound',
     vibration: 'Vibration',
     temperature: 'Temperature',
@@ -150,26 +151,26 @@ export const en: IDynamic = {
     errorMessage: 'There was a problem updating the password!'
   },
   realDataset: {
-    pageTitle: 'Real Dataset',
-    addRealDataset: 'Add Real Dataset',
+    pageTitle: 'Real Word Dataset',
+    addRealDataset: 'Add Real Word Dataset',
     datasetName: 'Dataset Name',
     deleteModal: {
-      title: 'Delete Real Dataset',
+      title: 'Delete Real Word Dataset',
       description:
-        'The selected Real Dataset will be deleted. Are you sure you want to continue?',
-      successMessage: 'Deletion of Real Dataset was successful!',
-      errorMessage: 'An error occurred while deleting Real Dataset!'
+        'The selected Real Word Dataset will be deleted. Are you sure you want to continue?',
+      successMessage: 'Deletion of Real Word Dataset was successful!',
+      errorMessage: 'An error occurred while deleting Real Word Dataset!'
     },
     uploadFile: 'Upload File',
     addModal: {
-      title: 'Add Real Dataset',
-      successMessage: 'Real Dataset added successfully!',
-      errorMessage: 'An error occurred while adding Real Dataset!'
+      title: 'Add Real Word Dataset',
+      successMessage: 'Real Word Dataset added successfully!',
+      errorMessage: 'An error occurred while adding Real Word Dataset!'
     },
     editModal: {
-      title: 'Edit Real Dataset',
-      successMessage: 'Real Dataset was successfully updated!',
-      errorMessage: 'An error occurred while updating Real Dataset!'
+      title: 'Edit Real Word Dataset',
+      successMessage: 'Real Word Dataset was successfully updated!',
+      errorMessage: 'An error occurred while updating Real Word Dataset!'
     }
   },
   algorithms: {
@@ -195,13 +196,13 @@ export const en: IDynamic = {
     }
   },
   runAlgorithms: {
-    pageTitle: 'Run Algorithms',
+    pageTitle: 'Data Analyzer',
     dataset: 'Dataset',
     algortihms: 'Algorithms',
     runAlgorithms: {
-      button: 'Run Algorithms',
-      successMessage: 'Run Algorithms successfully!',
-      errorMessage: 'An error occurred while Run Algorithms!'
+      button: 'Run Data Analyzer',
+      successMessage: 'Data Analyzer successfully!',
+      errorMessage: 'An error occurred while Data Analyzer!'
     },
     algorithmSettingName: 'Algorithm Setting Name',
     sensorTypes: 'Sensor Types'
@@ -213,8 +214,8 @@ export const en: IDynamic = {
     precision: 'Precision'
   },
   compareAlgorithms: {
-    pageTitle: 'Compare Algorithms',
-    getAlgorithmResults: 'Get Algorithm Results',
+    pageTitle: 'Evolation Results',
+    getAlgorithmResults: 'Get Evolation Results',
     algorithm1: 'Algorithm 1',
     algorithm2: 'Algorithm 2'
   }

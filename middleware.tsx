@@ -24,6 +24,6 @@ export async function middleware(request: NextRequest) {
   }
 
   if (authRoutes.includes(request.nextUrl.pathname) && currentUser && verify) {
-    return NextResponse.redirect(new URL('/', request.url));
+    return NextResponse.redirect(new URL('/data-generator', request.url));
   }
 }

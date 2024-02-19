@@ -10,16 +10,16 @@ export const tr: IDynamic = {
     title2: 'AI',
     mergeTitle: 'DLBAD AI',
     home: 'Ana Sayfa',
-    simulators: 'Simülatörler',
-    addSimulator: 'Simülatör Ekle',
-    realDataset: 'Gerçek Veri Seti',
+    simulators: 'Veri Oluşturucu',
+    addDataGenerator: 'Veri Oluşturucu Ekle',
+    realDataset: 'Gerçek Dünya Veri Seti',
     algorithms: 'Algoritmalar',
-    algorithmResult: 'Algoritma Karşılaştırması',
+    algorithmResult: 'Evolüsyon Sonuçları',
     failureTypes: 'Anomali Tipleri',
     userSettings: 'Kullanıcı Ayarları',
     logout: 'Çıkış Yap',
     changePassword: 'Şifre Değiştir',
-    runAlgorithm: 'Algoritma Çalıştır'
+    runAlgorithm: 'Veri Analizcisi'
   },
   general: {
     save: 'Kaydet',
@@ -58,26 +58,26 @@ export const tr: IDynamic = {
     }
   },
   simulator: {
-    pageTitle: 'Simülatör',
-    editSimulator: 'Simülatör Düzenle',
-    addSimulator: 'Simülatör Ekle',
-    simulatorName: 'Simülatör Adı',
+    pageTitle: 'Veri Oluşturucu',
+    addDataGenerator: 'Veri Oluşturucu Ekle',
+    editDataGenerator: 'Veri Oluşturucu Düzenle',
+    simulatorName: 'Veri Oluşturucu Adı',
     checkBoxListTitle: 'Anomali Tipleri',
-    generateSimulatorData: 'Simülatör Verisi Oluştur',
-    editSuccessMessage: 'Simülatör Başarıyla Düzenlendi',
-    editErrorMessage: 'Simülatör Düzenlenirken Hata Oluştu',
-    addSuccessMessage: 'Simülatör Başarıyla Eklendi',
-    addErrorMessage: 'Simülatör Eklenirken Hata Oluştu',
+    generateSimulatorData: 'Veri Oluşturucu Verisi Oluştur',
+    editSuccessMessage: 'Veri Oluşturucu Başarıyla Düzenlendi',
+    editErrorMessage: 'Veri Oluşturucu Düzenlenirken Hata Oluştu',
+    addSuccessMessage: 'Veri Oluşturucu Başarıyla Eklendi',
+    addErrorMessage: 'Veri Oluşturucu Eklenirken Hata Oluştu',
     result: 'Sonuç',
     parameters: 'Parametreler',
-    deleteModalTitle: 'Simülatör Sil',
-    deleteModalDescription: 'Simülatör Silme Açıklaması',
-    deleteSuccessMessage: 'Simülatör Başarıyla Silindi',
-    deleteErrorMessage: 'Simülatör Silinirken Hata Oluştu',
+    deleteModalTitle: 'Veri Oluşturucu Sil',
+    deleteModalDescription: 'Veri Oluşturucu Silme Açıklaması',
+    deleteSuccessMessage: 'Veri Oluşturucu Başarıyla Silindi',
+    deleteErrorMessage: 'Veri Oluşturucu Silinirken Hata Oluştu',
     showParameters: 'Parametreleri Göster',
     showResult: 'Sonucu Göster',
-    simulatorParameters: 'Simülatör Parametreleri',
-    simulatorResult: 'Simülatör Sonucu',
+    simulatorParameters: 'Veri Oluşturucu Parametreleri',
+    simulatorResult: 'Veri Oluşturucu Sonucu',
     sound: 'Ses',
     vibration: 'Titreşim',
     temperature: 'Sıcaklık',
@@ -150,26 +150,26 @@ export const tr: IDynamic = {
     errorMessage: 'Şifre güncellenirken bir sorun oluştu!'
   },
   realDataset: {
-    pageTitle: 'Gerçek Veri Seti',
+    pageTitle: 'Gerçek Dünya Veri Seti',
     datasetName: 'Veri Seti Adı',
-    addRealDataset: 'Gerçek Veri Seti Ekle',
+    addRealDataset: 'Gerçek Dünya Veri Seti Ekle',
     deleteModal: {
-      title: 'Gerçek Veri Seti Sil',
+      title: 'Gerçek Dünya Veri Seti Sil',
       description:
-        'Seçilen Gerçek Veri Seti silinecek. Devam etmek istediğinize emin misiniz?',
-      successMessage: 'Gerçek Veri Seti başarıyla silindi!',
-      errorMessage: 'Gerçek Veri Seti silinirken bir hata oluştu!'
+        'Seçilen Gerçek Dünya Veri Seti silinecek. Devam etmek istediğinize emin misiniz?',
+      successMessage: 'Gerçek Dünya Veri Seti başarıyla silindi!',
+      errorMessage: 'Gerçek Dünya Veri Seti silinirken bir hata oluştu!'
     },
     uploadFile: 'Dosya Yükle',
     addModal: {
-      title: 'Gerçek Veri Seti Ekle',
-      successMessage: 'Gerçek Veri Seti başarıyla eklendi!',
-      errorMessage: 'Gerçek Veri Seti eklenirken bir hata oluştu!'
+      title: 'Gerçek Dünya Veri Seti Ekle',
+      successMessage: 'Gerçek Dünya Veri Seti başarıyla eklendi!',
+      errorMessage: 'Gerçek Dünya Veri Seti eklenirken bir hata oluştu!'
     },
     editModal: {
-      title: 'Gerçek Veri Seti Düzenle',
-      successMessage: 'Gerçek Veri Seti başarıyla güncellendi!',
-      errorMessage: 'Gerçek Veri Seti güncellenirken bir hata oluştu!'
+      title: 'Gerçek Dünya Veri Seti Düzenle',
+      successMessage: 'Gerçek Dünya Veri Seti başarıyla güncellendi!',
+      errorMessage: 'Gerçek Dünya Veri Seti güncellenirken bir hata oluştu!'
     }
   },
   algorithms: {
@@ -195,13 +195,13 @@ export const tr: IDynamic = {
     }
   },
   runAlgorithms: {
-    pageTitle: 'Algoritmaları Çalıştır',
+    pageTitle: 'Veri Analizcisi',
     dataset: 'Veri Seti',
     algorithms: 'Algoritmalar',
     runAlgorithms: {
-      button: 'Algoritmaları Çalıştır',
-      successMessage: 'Algoritmalar başarıyla çalıştırıldı!',
-      errorMessage: 'Algoritmaları çalıştırırken bir hata oluştu!'
+      button: 'Veri Analizcisini Çalıştır',
+      successMessage: 'Veri Analizcisi başarıyla çalıştırıldı!',
+      errorMessage: 'Veri Analizcisini çalıştırırken bir hata oluştu!'
     },
     algorithmSettingName: 'Algoritma Ayar Adı',
     sensorTypes: 'Sensör Tipleri'
@@ -213,8 +213,8 @@ export const tr: IDynamic = {
     precision: 'Kesinlik'
   },
   compareAlgorithms: {
-    pageTitle: 'Algoritmaları Karşılaştır',
-    getAlgorithmResults: 'Algoritma Sonuçlarını Al',
+    pageTitle: 'Evolüsyon Sonuçları',
+    getAlgorithmResults: 'Evolüsyon Sonuçlarını Al',
     algorithm1: 'Algoritma 1',
     algorithm2: 'Algoritma 2'
   }

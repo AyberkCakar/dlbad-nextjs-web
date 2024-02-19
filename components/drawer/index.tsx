@@ -41,31 +41,26 @@ export const DrawerMenu = ({ children }: any) => {
 
   const array: any[] = [
     {
-      name: t('header.home'),
-      icon: 'fa-home',
-      link: '/'
-    },
-    {
       name: t('header.simulators'),
       icon: 'fa-microchip',
       children: [
         {
           name: t('header.simulators'),
           icon: 'fa-microchip',
-          link: '/simulators'
+          link: '/data-generator'
         },
         {
-          name: t('header.addSimulator'),
+          name: t('header.addDataGenerator'),
           baseClass: 'fa-brands',
           icon: 'fa-creative-commons-sampling-plus',
-          link: '/add-simulator'
+          link: '/add-data-generator'
         }
       ]
     },
     {
       name: t('header.realDataset'),
       icon: 'fa-database',
-      link: '/real-dataset'
+      link: '/real-word-dataset'
     },
     {
       name: t('header.failureTypes'),
@@ -73,19 +68,14 @@ export const DrawerMenu = ({ children }: any) => {
       link: '/anomaly-types'
     },
     {
-      name: t('header.algorithms'),
-      icon: 'fa-robot',
-      link: '/algorithms'
-    },
-    {
       name: t('header.runAlgorithm'),
       icon: 'fa-rocket',
-      link: '/run-algorithms'
+      link: '/data-analyzer'
     },
     {
       name: t('header.algorithmResult'),
       icon: 'fa-check-double',
-      link: '/compare-algorithms'
+      link: '/evolation-result'
     }
   ];
 

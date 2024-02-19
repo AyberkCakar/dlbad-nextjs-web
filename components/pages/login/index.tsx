@@ -49,7 +49,7 @@ export default function Login() {
           .then((result) => {
             setAlertSuccess(true);
             Cookies.set('user', JSON.stringify(result?.data?.login));
-            router.replace('/');
+            router.replace('/data-generator');
           })
           .catch(() => {
             setAlertSuccess(false);

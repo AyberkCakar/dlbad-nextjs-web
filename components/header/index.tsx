@@ -13,7 +13,6 @@ import {
 import { Icon } from '@mui/material';
 import { IUser } from '../../models/user';
 import { UserService } from '../../utils/services/userService';
-import Settings from '../settings';
 import { useTranslation } from '../../hooks/useTranslation';
 
 export const Header = ({ toggleDrawer }: any) => {
@@ -55,7 +54,6 @@ export const Header = ({ toggleDrawer }: any) => {
       </HeaderContent>
 
       <HeaderActions>
-        <Settings />
         <ToggleProfileButton
           style={{ marginRight: 20 }}
           onClick={toggleProfileCard}

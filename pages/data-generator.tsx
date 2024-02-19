@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import DataGeneratorPage from '../components/pages/data-generator';
 
-const Simulator: NextPage = () => <DataGeneratorPage />;
+const DataGenerator: NextPage = () => <DataGeneratorPage />;
 
-export default Simulator;
+export default DataGenerator;

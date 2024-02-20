@@ -204,7 +204,7 @@ export const en: IDynamic = {
       successMessage: 'Data Analyzer successfully!',
       errorMessage: 'An error occurred while Data Analyzer!'
     },
-    algorithmSettingName: 'Algorithm Setting Name',
+    algorithmSettingName: 'Data Analyzer Name',
     sensorTypes: 'Sensor Types'
   },
   algorithmCard: {
@@ -215,7 +215,7 @@ export const en: IDynamic = {
   },
   compareAlgorithms: {
     pageTitle: 'Evolation Results',
-    getAlgorithmResults: 'Get Evolation Results',
+    getAlgorithmResults: 'Get Evolatıon Results',
     algorithm1: 'Algorithm 1',
     algorithm2: 'Algorithm 2'
   }

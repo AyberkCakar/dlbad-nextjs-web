@@ -203,7 +203,7 @@ export const tr: IDynamic = {
       successMessage: 'Veri Analizcisi başarıyla çalıştırıldı!',
       errorMessage: 'Veri Analizcisini çalıştırırken bir hata oluştu!'
     },
-    algorithmSettingName: 'Algoritma Ayar Adı',
+    algorithmSettingName: 'Veri Analizcisi Adı',
     sensorTypes: 'Sensör Tipleri'
   },
   algorithmCard: {

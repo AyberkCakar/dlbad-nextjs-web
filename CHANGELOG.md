@@ -1,7 +1,22 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
-See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [1.9.0](https://github.com/AyberkCakar/dlbad-nextjs-web/compare/v1.8.0...v1.9.0) (2024-08-16)
+
+
+### Features
+
+* add MIT license ([e455aa0](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/e455aa023d176df3d73dc9de0b47f6dc4df1d983))
+* add MIT license ([60c7c09](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/60c7c09d6adb8b8d62e2646061f470833dfef4d3))
+
+
+### Bug Fixes
+
+* fix for license ([808c59d](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/808c59d7ae9605e55bd22cfd0a8c8d4ab71b2f51))
+* fix for project name ([b006889](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/b006889a70cb969a3c600758733da1df1652eb4f))
+* fixed publish requests ([b956301](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/b95630194220d204c6ec0c40af61ae8710705179))
+* fixed publish requests ([6402809](https://github.com/AyberkCakar/dlbad-nextjs-web/commit/6402809b26a8d016303bf00c248d405cb78be161))
 
 ## [1.8.0](https://github.com/AyberkCakar/iml-datasoft-nextjs-web/compare/v1.7.0...v1.8.0) (2024-01-24)
 

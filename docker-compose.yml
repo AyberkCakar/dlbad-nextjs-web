@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   example:
-    container_name: dlbad-nextjs-web
+    container_name: iml-datasoft-nextjs-web
     build:
       context: .
       dockerfile: ./Dockerfile

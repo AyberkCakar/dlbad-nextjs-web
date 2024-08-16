@@ -2,13 +2,13 @@ import { IDynamic } from '../../models';
 
 export const en: IDynamic = {
   footer: {
-    description: 'DLBAD AI © 2023 - All Rights Reserved.',
+    description: 'IML - DataSoft © 2023 - All Rights Reserved.',
     version: 'Version'
   },
   header: {
-    title1: 'DLBAD',
-    title2: 'AI',
-    mergeTitle: 'DLBAD AI',
+    title1: 'IML',
+    title2: 'DataSoft',
+    mergeTitle: 'IML - DataSoft',
     home: 'Home',
     simulators: 'Data Generator',
     addDataGenerator: 'Add Data Generator',

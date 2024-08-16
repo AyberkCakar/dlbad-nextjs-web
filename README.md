@@ -1,6 +1,6 @@
-# DLBAD Web Project
+# IML DataSoft Web Project
 
-DLBAD Web Project is coded with Next.js. General information is given below.
+IML DataSoft Web Project is coded with Next.js. General information is given below.
 
 ## Getting Started
 
@@ -51,9 +51,9 @@ The project consists of 4 parts: web, backend, node.js api, python api. Coded fo
 ```
 
 
-![Backend](https://github.com/AyberkCakar/dlbad-nextjs-web/assets/38071168/54729b8d-82cd-4650-b8b9-2c01401571b1)
+![Backend](https://github.com/AyberkCakar/iml-datasoft-nextjs-web/assets/38071168/54729b8d-82cd-4650-b8b9-2c01401571b1)
 
 
 
 ## Useful resources
-* [Changelog](https://github.com/AyberkCakar/dlbad-nextjs-web/blob/main/CHANGELOG.md)
+* [Changelog](https://github.com/AyberkCakar/iml-datasoft-nextjs-web/blob/main/CHANGELOG.md)

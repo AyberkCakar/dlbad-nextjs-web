@@ -2,13 +2,13 @@ import { IDynamic } from '../../models';
 
 export const tr: IDynamic = {
   footer: {
-    description: 'DLBAD AI © 2023 - Tüm Hakları Saklıdır.',
+    description: 'IML - DataSoft © 2023 - Tüm Hakları Saklıdır.',
     version: 'Versiyon'
   },
   header: {
-    title1: 'DLBAD',
-    title2: 'AI',
-    mergeTitle: 'DLBAD AI',
+    title1: 'IML',
+    title2: 'DataSoft',
+    mergeTitle: 'IML - DataSoft',
     home: 'Ana Sayfa',
     simulators: 'Veri Oluşturucu',
     addDataGenerator: 'Veri Oluşturucu Ekle',

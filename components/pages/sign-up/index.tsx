@@ -54,7 +54,7 @@ export default function SignUp() {
           .then((result) => {
             setAlertSuccess(true);
             localStorage.setItem('user', result.data?.signUp);
-            router.replace('/');
+            router.replace('/data-generator');
           })
           .catch(() => {
             setAlertSuccess(false);

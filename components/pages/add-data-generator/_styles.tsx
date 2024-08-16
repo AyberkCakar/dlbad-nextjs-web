@@ -11,6 +11,6 @@ export const CancelButton = styled(Button)`
   }
 `;
 
-export const AddSimulatorButtonContainer = styled(ButtonContainer)`
+export const AddDataGeneratorButtonContainer = styled(ButtonContainer)`
   margin-top: 30px;
 `;

@@ -30,7 +30,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: ghcr.io/ayberkcakar/dlbad-website:${{ env.RELEASE_VERSION }}, ghcr.io/ayberkcakar/dlbad-website:latest
+          tags: ghcr.io/ayberkcakar/iml-datasoft-website:${{ env.RELEASE_VERSION }}, ghcr.io/ayberkcakar/iml-datasoft-website:latest
           platforms: linux/amd64,linux/arm64
           build-args: |
             HASURA_URL=${{ secrets.HASURA_URL }}

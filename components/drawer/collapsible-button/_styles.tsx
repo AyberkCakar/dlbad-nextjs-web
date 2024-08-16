@@ -20,6 +20,7 @@ export const MenuChildItem = styled(MenuItem)`
 export const MenuText = styled.div`
   display: flex;
   font-size: 14px;
+  min-width: 120px;
   margin-left: 10px;
   align-self: center;
   text-transform: none;
@@ -33,5 +34,5 @@ export const MenuText = styled.div`
 
 export const CollapsibleIcon = styled(Icon)`
   font-size: 16px;
-  width: 80%;
+  width: 40%;
 `;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from '../../../hooks/useTranslation';
-import { AddSimulatorButtonContainer, CancelButton } from './_styles';
+import { AddDataGeneratorButtonContainer, CancelButton } from './_styles';
 import CheckboxList from '../../checkbox-list';
 import {
   ADD_SIMULATOR,
@@ -15,37 +15,37 @@ import { ICheckboxListData } from '../../checkbox-list/_type';
 import { AlertMessage } from '../../alert';
 import { initializeApollo } from '../../../lib/apolloClient';
 import {
-  ISimulator,
-  ISimulatorParameters,
-  ISimulatorRequest
-} from '../simulator/_types';
+  IDataGenerator,
+  IDataGeneratorParameters,
+  IDataGeneratorRequest
+} from '../data-generator/_types';
 import { PageContainer } from '../../page-container';
 import { FormCard } from '../../form-card';
 import { InputField, SaveButton } from '../../form-card/styles';
 import { useRouter } from 'next/router';
 
 export const getServerSideProps = async (ctx: any) => {
-  const simulatorId: number = ctx.query?.simulatorId as number;
+  const dataGeneratorId: number = ctx.query?.dataGeneratorId as number;
   const apolloClient = initializeApollo();
   const {
-    data: { simulators_by_pk: simulator }
+    data: { simulators_by_pk: dataGenerator }
   } = await apolloClient.query({
     query: GET_SIMULATOR,
-    variables: { id: simulatorId }
+    variables: { id: dataGeneratorId }
   });
 
-  return { props: { simulator } };
+  return { props: { dataGenerator } };
 };
 
-export default function AddSimulatorPage({
-  simulator
+export default function AddDataGeneratorPage({
+  dataGenerator
 }: {
-  simulator?: ISimulator;
+  dataGenerator?: IDataGenerator;
 }) {
   const router = useRouter();
-  const isSimulatorEdit: boolean = !!simulator;
+  const isSimulatorEdit: boolean = !!dataGenerator;
   const { t } = useTranslation();
-  const [simulatorRequest, setSimulatorRequest] = React.useState<ISimulator>({
+  const [simulatorRequest, setSimulatorRequest] = React.useState<IDataGenerator>({
     simulatorName: '',
     minExpectedTemperatureValue: '',
     maxExpectedTemperatureValue: '',
@@ -71,29 +71,29 @@ export default function AddSimulatorPage({
   const [addSimulatorParameters] = useMutation(ADD_SIMULATOR_PARAMETERS);
 
   React.useEffect(() => {
-    if (simulator) {
+    if (dataGenerator) {
       setSimulatorRequest({
-        simulatorName: simulator.simulatorName,
-        minExpectedTemperatureValue: simulator.minExpectedTemperatureValue,
-        maxExpectedTemperatureValue: simulator.maxExpectedTemperatureValue,
-        minExpectedSoundValue: simulator.minExpectedSoundValue,
-        maxExpectedSoundValue: simulator.maxExpectedSoundValue,
-        minExpectedVibrationValue: simulator.minExpectedVibrationValue,
-        maxExpectedVibrationValue: simulator.maxExpectedVibrationValue
+        simulatorName: dataGenerator.simulatorName,
+        minExpectedTemperatureValue: dataGenerator.minExpectedTemperatureValue,
+        maxExpectedTemperatureValue: dataGenerator.maxExpectedTemperatureValue,
+        minExpectedSoundValue: dataGenerator.minExpectedSoundValue,
+        maxExpectedSoundValue: dataGenerator.maxExpectedSoundValue,
+        minExpectedVibrationValue: dataGenerator.minExpectedVibrationValue,
+        maxExpectedVibrationValue: dataGenerator.maxExpectedVibrationValue
       });
 
-      const defaultCheckIds = simulator?.simulator_parameters
-        ? simulator?.simulator_parameters.map(
-            (parameter: ISimulatorParameters) => parameter.failureTypeId
+      const defaultCheckIds = dataGenerator?.simulator_parameters
+        ? dataGenerator?.simulator_parameters.map(
+            (parameter: IDataGeneratorParameters) => parameter.failureTypeId
           )
         : [];
 
       setCheckedIds(defaultCheckIds);
     }
-  }, [simulator]);
+  }, [dataGenerator]);
 
   const onSaveClick = () => {
-    let variables: ISimulatorRequest = {
+    let variables: IDataGeneratorRequest = {
       simulator: {
         simulatorName: simulatorRequest.simulatorName,
         minExpectedTemperatureValue:
@@ -110,13 +110,13 @@ export default function AddSimulatorPage({
     if (isSimulatorEdit) {
       variables = {
         ...variables,
-        id: simulator?.id as number
+        id: dataGenerator?.id as number
       };
     }
 
     addSimulator({ variables })
       .then((result) => {
-        const simulatorParameters: ISimulatorParameters[] = checkedIds.map(
+        const simulatorParameters: IDataGeneratorParameters[] = checkedIds.map(
           (id: number | string) => {
             return {
               simulatorId: result.data.insert_simulators_one.id as number,
@@ -185,8 +185,8 @@ export default function AddSimulatorPage({
       pageIcon="fa-server"
       pageTitle={
         isSimulatorEdit
-          ? t('simulator.editSimulator')
-          : t('simulator.addSimulator')
+          ? t('simulator.editDataGenerator')
+          : t('simulator.addDataGenerator')
       }
     >
       <FormCard>
@@ -296,20 +296,20 @@ export default function AddSimulatorPage({
             setCheckedIds(checkedIds)
           }
         ></CheckboxList>
-        <AddSimulatorButtonContainer>
+        <AddDataGeneratorButtonContainer>
           <SaveButton onClick={() => onSaveClick()}>
             {isSimulatorEdit
               ? t('general.saveChanges')
               : t('simulator.generateSimulatorData')}
           </SaveButton>
           {isSimulatorEdit ? (
-            <CancelButton onClick={() => router.replace('/simulators')}>
+            <CancelButton onClick={() => router.replace('/data-generator')}>
               {t('general.cancel')}
             </CancelButton>
           ) : (
             ''
           )}
-        </AddSimulatorButtonContainer>
+        </AddDataGeneratorButtonContainer>
       </FormCard>
       <AlertMessage
         openState={alertOpen}

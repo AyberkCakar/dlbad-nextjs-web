@@ -16,7 +16,7 @@ import { DELETE_SIMULATOR, GET_SIMULATORS } from './_graphql';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/DeleteOutlined';
 import { useRouter } from 'next/router';
-import { ISimulator, ISimulatorResult } from './_types';
+import { IDataGenerator, IDataGeneratorResult } from './_types';
 import { IVariable } from '../../../models/variable';
 import InformationModal from './information-modal';
 import {
@@ -32,10 +32,10 @@ function getLikeWhere(searchText: string): Record<string, any> {
   };
 }
 
-export default function SimulatorPage() {
+export default function DataGeneratorPage() {
   const router = useRouter();
   const { t } = useTranslation();
-  const [rows, setData] = React.useState<ISimulator[]>([]);
+  const [rows, setData] = React.useState<IDataGenerator[]>([]);
   const [totalCount, setTotalCount] = React.useState<number>(0);
   const [informationModalOpenState, setInformationModalOpenState] =
     React.useState<boolean>(false);
@@ -62,7 +62,7 @@ export default function SimulatorPage() {
   const [alertOpen, setAlertOpen] = React.useState<boolean>(false);
   const [alertSuccess, setAlertSuccess] = React.useState<boolean>(false);
   const [selectedRowId, setSelectedRowId] = React.useState<number | null>(null);
-  const [deleteSimulator] = useMutation(DELETE_SIMULATOR);
+  const [deleteDataGenerator] = useMutation(DELETE_SIMULATOR);
 
   const columns: GridColDef[] = [
     {
@@ -184,7 +184,7 @@ export default function SimulatorPage() {
   };
 
   const onEditClick = (id: GridRowId) => {
-    router.push('/simulator/' + id);
+    router.push('/data-generator/' + id);
   };
 
   React.useEffect(() => {
@@ -217,7 +217,7 @@ export default function SimulatorPage() {
     return vars;
   }, [pagination, searchText, sort]);
 
-  const { data, error, refetch } = useQuery<ISimulatorResult>(GET_SIMULATORS, {
+  const { data, error, refetch } = useQuery<IDataGeneratorResult>(GET_SIMULATORS, {
     variables
   });
 
@@ -231,7 +231,7 @@ export default function SimulatorPage() {
   const onDelete = () => {
     setOpenDeleteDialogState(false);
 
-    deleteSimulator({
+    deleteDataGenerator({
       variables: {
         id: selectedRowId
       }

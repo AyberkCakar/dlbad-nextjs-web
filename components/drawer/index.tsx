@@ -45,7 +45,7 @@ export const DrawerMenu = ({ children }: any) => {
       icon: 'fa-microchip',
       children: [
         {
-          name: t('header.simulators'),
+          name: t('header.simulatorList'),
           icon: 'fa-microchip',
           link: '/data-generator'
         },
@@ -70,12 +70,12 @@ export const DrawerMenu = ({ children }: any) => {
     {
       name: t('header.runAlgorithm'),
       icon: 'fa-rocket',
-      link: '/data-analyzer'
+      link: '/ml-model-trainer'
     },
     {
       name: t('header.algorithmResult'),
       icon: 'fa-check-double',
-      link: '/evolation-result'
+      link: '/ml-model-analysis'
     }
   ];
 

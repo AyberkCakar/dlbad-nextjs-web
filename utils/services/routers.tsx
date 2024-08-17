@@ -4,8 +4,8 @@ export const protectedRoutes = [
   '/anomaly-types',
   '/user-settings',
   '/real-word-dataset',
-  '/data-analyzer',
+  '/ml-model-trainer',
   '/algorithms',
-  '/evolation-results'
+  '/ml-model-analysis'
 ];
 export const authRoutes = ['/login', '/sign-up'];

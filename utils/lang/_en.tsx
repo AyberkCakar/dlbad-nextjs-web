@@ -11,15 +11,16 @@ export const en: IDynamic = {
     mergeTitle: 'IML - DataSoft',
     home: 'Home',
     simulators: 'Data Generator',
+    simulatorList: 'Data Generators',
     addDataGenerator: 'Add Data Generator',
-    realDataset: 'Real Word Dataset',
+    realDataset: 'Real World Dataset',
     algorithms: 'Algorithms',
-    algorithmResult: 'Evolation Results',
+    algorithmResult: 'ML Model Analysis',
     failureTypes: 'Anomaly Types',
     userSettings: 'User Settings',
     logout: 'Logout',
     changePassword: 'Change Password',
-    runAlgorithm: 'Data Analyzer'
+    runAlgorithm: 'ML Model Trainer'
   },
   general: {
     save: 'Save',
@@ -120,10 +121,10 @@ export const en: IDynamic = {
       'There was a problem while signing up. Please check your information!',
     validations: {
       firstName: {
-        required: 'Enter your first name',
+        required: 'Enter your first name'
       },
       lastName: {
-        required: 'Enter your last name',
+        required: 'Enter your last name'
       },
       emailAddress: {
         required: 'Enter your email',
@@ -151,26 +152,26 @@ export const en: IDynamic = {
     errorMessage: 'There was a problem updating the password!'
   },
   realDataset: {
-    pageTitle: 'Real Word Dataset',
-    addRealDataset: 'Add Real Word Dataset',
+    pageTitle: 'Real World Dataset',
+    addRealDataset: 'Add Real World Dataset',
     datasetName: 'Dataset Name',
     deleteModal: {
-      title: 'Delete Real Word Dataset',
+      title: 'Delete Real World Dataset',
       description:
-        'The selected Real Word Dataset will be deleted. Are you sure you want to continue?',
-      successMessage: 'Deletion of Real Word Dataset was successful!',
-      errorMessage: 'An error occurred while deleting Real Word Dataset!'
+        'The selected Real World Dataset will be deleted. Are you sure you want to continue?',
+      successMessage: 'Deletion of Real World Dataset was successful!',
+      errorMessage: 'An error occurred while deleting Real World Dataset!'
     },
     uploadFile: 'Upload File',
     addModal: {
-      title: 'Add Real Word Dataset',
-      successMessage: 'Real Word Dataset added successfully!',
-      errorMessage: 'An error occurred while adding Real Word Dataset!'
+      title: 'Add Real World Dataset',
+      successMessage: 'Real World Dataset added successfully!',
+      errorMessage: 'An error occurred while adding Real World Dataset!'
     },
     editModal: {
-      title: 'Edit Real Word Dataset',
-      successMessage: 'Real Word Dataset was successfully updated!',
-      errorMessage: 'An error occurred while updating Real Word Dataset!'
+      title: 'Edit Real World Dataset',
+      successMessage: 'Real World Dataset was successfully updated!',
+      errorMessage: 'An error occurred while updating Real World Dataset!'
     }
   },
   algorithms: {
@@ -196,26 +197,26 @@ export const en: IDynamic = {
     }
   },
   runAlgorithms: {
-    pageTitle: 'Data Analyzer',
+    pageTitle: 'ML Model Trainer',
     dataset: 'Dataset',
     algortihms: 'Algorithms',
     runAlgorithms: {
-      button: 'Run Data Analyzer',
-      successMessage: 'Data Analyzer successfully!',
-      errorMessage: 'An error occurred while Data Analyzer!'
+      button: 'Traın Model',
+      successMessage: 'ML Model Training successfully!',
+      errorMessage: 'An error occurred while ML Model Trainer!'
     },
-    algorithmSettingName: 'Data Analyzer Name',
+    algorithmSettingName: 'Name',
     sensorTypes: 'Sensor Types'
   },
   algorithmCard: {
-    accuracy: 'Accurary',
+    accuracy: 'Accuracy',
     f1: 'F1',
     recall: 'Recall',
     precision: 'Precision'
   },
   compareAlgorithms: {
-    pageTitle: 'Evolation Results',
-    getAlgorithmResults: 'Get Evolatıon Results',
+    pageTitle: 'ML Model Analysis',
+    getAlgorithmResults: 'Get Evaluatıon Results',
     algorithm1: 'Algorithm 1',
     algorithm2: 'Algorithm 2'
   }

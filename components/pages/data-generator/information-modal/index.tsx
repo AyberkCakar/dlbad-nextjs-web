@@ -24,15 +24,42 @@ export default function InformationModal({
   settings
 }: IInformationModal) {
   const { t } = useTranslation();
+
+  const getUnit = (seriesName: string): string => {
+    switch (seriesName) {
+      case 'Vibration':
+        return ' m/s²';
+      case 'Sound':
+        return ' dB';
+      case 'Temperature':
+        return ' °C';
+      default:
+        return '';
+    }
+  };
+
+  const formatTooltipItem = (item: echarts.DefaultLabelFormatterCallbackParams): string => {
+    const unit: string = getUnit(item.seriesName as string);
+    const data = item.seriesName === 'Tag' ? item.data : `${Math.floor(item.data as number)}${unit}`;
+    return `${item.marker} <b>${item.seriesName}:</b> ${data} <br/>`;
+  };
+
   const option: echarts.EChartsOption = {
     title: {
       text: t('simulator.simulatorResult')
     },
     tooltip: {
-      trigger: 'axis'
+      trigger: 'axis',
+      formatter: function(params: any) {
+        let tooltipContent = `<b>Time: </b>${params[0].axisValue}<br/>`;
+        params.forEach((item: echarts.DefaultLabelFormatterCallbackParams) => {
+          tooltipContent += formatTooltipItem(item);
+        });
+        return tooltipContent;
+      }
     },
     legend: {
-      data: ['vibration', 'sound', 'temperature']
+      data: ['Vibration', 'Sound', 'Temperature'],
     },
     grid: {
       left: '3%',
@@ -144,9 +171,9 @@ export default function InformationModal({
               id: index,
               time: _time,
               tag: datasetResult.tag[index],
-              sound: datasetResult.sound[index],
-              vibration: datasetResult.vibration[index],
-              temperature: datasetResult.temperature[index]
+              sound: `${Math.floor(datasetResult.sound[index])} dB`,
+              vibration: `${Math.floor(datasetResult.vibration[index])} m/s2`,
+              temperature: `${Math.floor(datasetResult.temperature[index])} °C`
             })
           );
 

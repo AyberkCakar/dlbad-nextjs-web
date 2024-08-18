@@ -10,7 +10,7 @@ export interface IInformationModalSettings {
 }
 
 export enum EModalType {
-  PARAMETERS = 'paramenters',
+  PARAMETERS = 'parameters',
   RESULT = 'result'
 }
 
@@ -35,9 +35,9 @@ export interface ITableResultData {
   id: number;
   time: number;
   tag: string;
-  sound: number;
-  vibration: number;
-  temperature: number;
+  sound: string;
+  vibration: string;
+  temperature: string;
 }
 
 export interface ISimulatorParameter {

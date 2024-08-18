@@ -103,7 +103,9 @@ export default function AddDataGeneratorPage({
         minExpectedSoundValue: simulatorRequest.minExpectedSoundValue,
         maxExpectedSoundValue: simulatorRequest.maxExpectedSoundValue,
         minExpectedVibrationValue: simulatorRequest.minExpectedVibrationValue,
-        maxExpectedVibrationValue: simulatorRequest.maxExpectedVibrationValue
+        maxExpectedVibrationValue: simulatorRequest.maxExpectedVibrationValue,
+        anomalyCount: simulatorRequest.anomalyCount,
+        dataCount: simulatorRequest.dataCount
       }
     };
 
@@ -143,7 +145,9 @@ export default function AddDataGeneratorPage({
                   minExpectedSoundValue: '',
                   maxExpectedSoundValue: '',
                   minExpectedVibrationValue: '',
-                  maxExpectedVibrationValue: ''
+                  maxExpectedVibrationValue: '',
+                  dataCount: '',
+                  anomalyCount: ''
                 });
                 setCheckedIds([]);
               }
@@ -200,6 +204,34 @@ export default function AddDataGeneratorPage({
             setSimulatorRequest({
               ...simulatorRequest,
               simulatorName: e.target?.value
+            })
+          }
+        />
+        <InputField
+          label={t('simulator.dataCount')}
+          variant="outlined"
+          fullWidth
+          size="small"
+          type="number"
+          value={simulatorRequest?.dataCount}
+          onChange={(e) =>
+            setSimulatorRequest({
+              ...simulatorRequest,
+              dataCount: Number(e.target?.value)
+            })
+          }
+        />
+        <InputField
+          label={t('simulator.anomalyCount')}
+          variant="outlined"
+          fullWidth
+          size="small"
+          type="number"
+          value={simulatorRequest?.anomalyCount}
+          onChange={(e) =>
+            setSimulatorRequest({
+              ...simulatorRequest,
+              anomalyCount: Number(e.target?.value)
             })
           }
         />
@@ -319,8 +351,8 @@ export default function AddDataGeneratorPage({
               ? t('simulator.editSuccessMessage')
               : t('simulator.editErrorMessage')
             : alertSuccess
-            ? t('simulator.addSuccessMessage')
-            : t('simulator.addErrorMessage')
+              ? t('simulator.addSuccessMessage')
+              : t('simulator.addErrorMessage')
         }
         alertSuccess={alertSuccess}
         onClose={() => setAlertOpen(false)}

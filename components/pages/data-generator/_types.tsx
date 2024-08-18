@@ -9,6 +9,8 @@ export interface IDataGenerator {
   maxExpectedSoundValue?: number | string;
   minExpectedVibrationValue?: number | string;
   maxExpectedVibrationValue?: number | string;
+  dataCount?: number | string;
+  anomalyCount?: number | string;
   dataset?: IDataset;
   simulator_parameters?: IDataGeneratorParameters[];
 }

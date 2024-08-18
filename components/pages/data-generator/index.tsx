@@ -74,6 +74,16 @@ export default function DataGeneratorPage() {
       headerName: t('simulator.simulatorName'),
       width: 200
     },
+        {
+      field: 'dataCount',
+      headerName: t('simulator.dataCount'),
+      width: 100
+    },
+    {
+      field: 'anomalyCount',
+      headerName: t('simulator.anomalyCount'),
+      width: 100
+    },
     {
       field: 'minExpectedTemperatureValue',
       headerName: t('simulator.minExpectedTemperatureValue'),

@@ -17,7 +17,6 @@ export const GET_SIMULATORS = gql`
         failure_type {
           failureName
           id
-          period
           soundAnomalyMultiplier
           temperatureAnomalyMultiplier
           vibrationAnomalyMultiplier
@@ -34,6 +33,8 @@ export const GET_SIMULATORS = gql`
       minExpectedVibrationValue
       maxExpectedVibrationValue
       simulatorName
+      dataCount
+      anomalyCount
       id
     }
     simulators_aggregate {

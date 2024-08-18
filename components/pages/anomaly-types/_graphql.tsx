@@ -15,7 +15,6 @@ export const GET_FAILURE_TYPES = gql`
     ) {
       failureName
       id
-      period
       soundAnomalyMultiplier
       temperatureAnomalyMultiplier
       timeInterval

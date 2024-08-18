@@ -1,7 +1,6 @@
 export interface IFailureType {
   id?: number;
   failureName?: string;
-  period?: number | string;
   timeInterval?: number | string;
   soundAnomalyMultiplier?: number | string;
   vibrationAnomalyMultiplier?: number | string;

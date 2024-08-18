@@ -61,12 +61,6 @@ export default function AnomalyTypesPage() {
       width: 200
     },
     {
-      field: 'period',
-      headerName: t('failureTypes.period'),
-      type: 'number',
-      width: 100
-    },
-    {
       field: 'soundAnomalyMultiplier',
       headerName: t('failureTypes.soundAnomalyMultiplier'),
       type: 'number',
@@ -127,7 +121,6 @@ export default function AnomalyTypesPage() {
       setFailureType({
         id: findData.id,
         failureName: findData.failureName,
-        period: findData.period,
         timeInterval: findData.timeInterval,
         soundAnomalyMultiplier: findData.soundAnomalyMultiplier,
         vibrationAnomalyMultiplier: findData.vibrationAnomalyMultiplier,

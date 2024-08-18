@@ -20,7 +20,6 @@ export default function AddAnomalyTypeModal({
   const defaultFailureType: IFailureType = {
     id: 0,
     failureName: '',
-    period: '',
     timeInterval: '',
     soundAnomalyMultiplier: '',
     vibrationAnomalyMultiplier: '',
@@ -98,25 +97,8 @@ export default function AddAnomalyTypeModal({
             })
           }
         />
-
         <InputGroup>
           <GroupModalInput
-            label={t('failureTypes.period')}
-            name="period"
-            variant="outlined"
-            fullWidth
-            size={'small'}
-            type="number"
-            required={true}
-            value={failureTypeRequest?.period}
-            onChange={(e) =>
-              setFailureTypeRequest({
-                ...failureTypeRequest,
-                period: Number(e.target?.value)
-              })
-            }
-          />
-          <ModalInput
             label={t('failureTypes.timeInterval')}
             variant="outlined"
             name="timeInterval"
@@ -132,10 +114,7 @@ export default function AddAnomalyTypeModal({
               })
             }
           />
-        </InputGroup>
-
-        <InputGroup>
-          <GroupModalInput
+          <ModalInput
             label={t('failureTypes.soundAnomalyMultiplier')}
             name="soundAnomalyMultiplier"
             variant="outlined"
@@ -151,6 +130,8 @@ export default function AddAnomalyTypeModal({
               })
             }
           />
+        </InputGroup>
+        <InputGroup>
           <GroupModalInput
             label={t('failureTypes.temperatureAnomalyMultiplier')}
             name="temperatureAnomalyMultiplier"

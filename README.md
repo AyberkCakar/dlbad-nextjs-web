@@ -2,6 +2,11 @@
 
 IML DataSoft Web Project is coded with Next.js. General information is given below.
 
+## Introduction And Installation Guide
+
+- Introduction: https://www.youtube.com/watch?v=RcLk0Nz2ZSk
+- Installation Guide: https://www.youtube.com/watch?v=_S2LX0eOtWI
+
 ## Getting Started
 
 First, install packages:
